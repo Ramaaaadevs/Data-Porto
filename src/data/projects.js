@@ -158,22 +158,20 @@ export const VIZ_SOURCES = [
 // ============================================================
 export const CERTS = [
   {
-    title: "Belajar Analisis Data dengan Python",
+    title: "Belajar Fundamental Analisis Data",
     issuer: "Dicoding Indonesia",
-    year: "2025",
-    tags: ["Python", "Pandas", "Matplotlib", "EDA"],
+    year: "2026",
+    tags: ["Data Analysis", "Python", "Pandas", "EDA"],
     color: "#3572A5",
     colorLight: "rgba(53,114,165,0.10)",
-    image: "https://www.dicoding.com/blog/wp-content/uploads/2021/07/logo-dicoding-academy.png",
-  },
-  {
-    title: "Belajar Dasar Structured Query Language (SQL)",
-    issuer: "Dicoding Indonesia",
-    year: "2025",
-    tags: ["SQL", "MySQL", "Database"],
-    color: "#00758f",
-    colorLight: "rgba(0,117,143,0.10)",
-    image: "https://www.dicoding.com/blog/wp-content/uploads/2021/07/logo-dicoding-academy.png",
+    image: "/Gambar/dicoding-square.png",
+    credentialId: "6RPN7R989X2M",
+    credentialUrl: "https://www.dicoding.com/certificates/6RPN7R989X2M",
+    validity: "Issued 29 Apr 2026 · Expires 29 Apr 2029",
+    pages: [
+      "/Sertifikat/sertifikat_course_555_4116833_290426193909_page-1.png",
+      "/Sertifikat/sertifikat_course_555_4116833_290426193909_page-2.png"
+    ]
   },
   {
     title: "Belajar Machine Learning untuk Pemula",
@@ -182,35 +180,68 @@ export const CERTS = [
     tags: ["Machine Learning", "Python", "Scikit-learn"],
     color: "#6558f5",
     colorLight: "rgba(101,88,245,0.10)",
-    image: "https://www.dicoding.com/blog/wp-content/uploads/2021/07/logo-dicoding-academy.png",
+    image: "/Gambar/dicoding-square.png",
+    credentialId: "MEPJOYORLZ3V",
+    credentialUrl: "https://www.dicoding.com/certificates/MEPJOYORLZ3V",
+    validity: "Issued 04 Apr 2026 · Expires 04 Apr 2029",
+    pages: [
+      "/Sertifikat/sertifikat_course_184_4116833_040426104658_page-1.png",
+      "/Sertifikat/sertifikat_course_184_4116833_040426104658_page-2.png",
+      "/Sertifikat/sertifikat_course_184_4116833_040426104658_page-3.png"
+    ]
   },
   {
-    title: "Belajar Pengembangan Machine Learning",
+    title: "Belajar Fundamental Pemrosesan Data",
     issuer: "Dicoding Indonesia",
     year: "2026",
-    tags: ["TensorFlow", "Deep Learning", "NLP"],
+    tags: ["Data Wrangling", "Python", "Data Cleaning"],
+    color: "#00758f",
+    colorLight: "rgba(0,117,143,0.10)",
+    image: "/Gambar/dicoding-square.png",
+    credentialId: "JLX1VVJ22Z72",
+    credentialUrl: "https://www.dicoding.com/certificates/JLX1VVJ22Z72",
+    validity: "Issued 14 May 2026 · Expires 14 May 2029",
+    pages: [
+      "/Sertifikat/sertifikat_course_708_4116833_140526190301_page-1.png",
+      "/Sertifikat/sertifikat_course_708_4116833_140526190301_page-2.png"
+    ]
+  },
+  {
+    title: "Belajar Matematika untuk Data Science",
+    issuer: "Dicoding Indonesia",
+    year: "2026",
+    tags: ["Mathematics", "Data Science", "Statistics"],
     color: "#e97627",
     colorLight: "rgba(233,118,39,0.10)",
-    image: "https://www.dicoding.com/blog/wp-content/uploads/2021/07/logo-dicoding-academy.png",
+    image: "/Gambar/dicoding-square.png",
+    credentialId: "JMZVO5E3QXN9",
+    credentialUrl: "https://www.dicoding.com/certificates/JMZVO5E3QXN9",
+    validity: "Issued 07 Jun 2026 · Expires 07 Jun 2029",
+    pages: [
+      "/Sertifikat/sertifikat_course_831_4116833_110626175137_page-1.png",
+      "/Sertifikat/sertifikat_course_831_4116833_110626175137_page-2.png"
+    ]
   },
-  {
-    title: "Memulai Pemrograman dengan Python",
-    issuer: "Dicoding Indonesia",
-    year: "2025",
-    tags: ["Python", "OOP", "Scripting"],
-    color: "#f2c811",
-    colorLight: "rgba(242,200,17,0.10)",
-    image: "https://www.dicoding.com/blog/wp-content/uploads/2021/07/logo-dicoding-academy.png",
-  },
-  {
-    title: "Belajar Dasar AI",
-    issuer: "Dicoding Indonesia",
-    year: "2026",
-    tags: ["AI", "Machine Learning", "Fundamentals"],
-    color: "#107c41",
-    colorLight: "rgba(16,124,65,0.10)",
-    image: "https://www.dicoding.com/blog/wp-content/uploads/2021/07/logo-dicoding-academy.png",
-  },
+  // ============================================================
+  // TEMPLATE SERTIFIKASI BARU:
+  // Untuk menambah sertifikasi baru, hilangkan tanda komen (//) di bawah ini:
+  // {
+  //   title: "Nama Kelas/Sertifikasi",
+  //   issuer: "Nama Penerbit (e.g., Dicoding Indonesia)",
+  //   year: "Tahun Penerbitan (e.g., 2026)",
+  //   tags: ["Tag1", "Tag2"],
+  //   color: "#hexcolor", // Warna aksen untuk thumbnail/kartu
+  //   colorLight: "rgba(r,g,b,0.10)", // Warna latar transparan untuk thumbnail/kartu
+  //   image: "/Gambar/nama-logo-square.png", // Logo penerbit
+  //   credentialId: "IDKredensialUnik",
+  //   credentialUrl: "https://link-verifikasi-sertifikat.com",
+  //   validity: "Issued Apr 2026 · Expires Apr 2029",
+  //   pages: [
+  //     "/Sertifikat/nama_file_sertifikat_page-1.png",
+  //     "/Sertifikat/nama_file_sertifikat_page-2.png"
+  //   ]
+  // },
+  // ============================================================
 ];
 
 // ============================================================
@@ -259,6 +290,17 @@ export const SKILLS_DETAILED = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg",
     desc: "Version Control, Collaborative Workflows, and Repository Management",
   },
+  // ============================================================
+  // TEMPLATE SKILL BARU:
+  // Untuk menambah skill baru, hilangkan tanda komen (//) di bawah ini:
+  // {
+  //   name: "Nama Skill",
+  //   pct: 85, // Angka persentase kemahiran (0-100)
+  //   color: "#hexcolor", // Warna aksen visual
+  //   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/nama_skill/nama_skill-original.svg", // URL icon SVG devicon/gilbarbara
+  //   desc: "Deskripsi keahlian secara singkat",
+  // },
+  // ============================================================
 ];
 
 // ============================================================
@@ -289,4 +331,16 @@ export const TIMELINE = [
     tags: ["Tableau", "Power BI", "Kepler.gl", "Python", "Data Visualization"],
     dir: "left",
   },
+  // ============================================================
+  // TEMPLATE RIWAYAT PROYEK TIMELINE BARU:
+  // Untuk menambah riwayat baru di timeline, hilangkan tanda komen (//) di bawah ini:
+  // {
+  //   title: "Nama Proyek",
+  //   role: "Peran Anda (e.g., Data Analyst)",
+  //   date: "Bulan Tahun - Bulan Tahun (e.g., Jan 2026 - Mar 2026)",
+  //   desc: "Deskripsi lengkap mengenai kontribusi dan lingkup pekerjaan Anda di proyek tersebut.",
+  //   tags: ["Tag1", "Tag2"],
+  //   dir: "left", // 'left' atau 'right' untuk penempatan di sisi kiri/kanan garis timeline
+  // },
+  // ============================================================
 ];
