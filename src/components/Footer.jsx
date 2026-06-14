@@ -1,0 +1,92 @@
+import { Link } from "react-router-dom";
+
+export default function Footer() {
+  return (
+    <footer id="contact" className="site-footer">
+      <div className="footer-main">
+        <div className="container">
+          <div className="footer-grid">
+
+            {/* Col 1: Mini profile */}
+            <div className="footer-col footer-brand">
+              <div className="footer-profile">
+                <img
+                  src="/Gambar/WhatsApp Image 2024-10-09 at 09.50.18_5da5c080.png"
+                  alt="Diwan Ramadhani"
+                  className="footer-avatar"
+                  onError={(e) => { e.currentTarget.style.display = "none"; }}
+                />
+                <div>
+                  <p className="footer-name">Diwan Ramadhani</p>
+                  <p className="footer-title">Data Enthusiast · ITERA</p>
+                </div>
+              </div>
+              <p className="footer-bio">
+                Turning raw data into meaningful insights through analysis,
+                visualization, and storytelling.
+              </p>
+              <div className="footer-socials">
+                <a href="https://github.com/Ramaaaadevs" target="_blank" rel="noreferrer" title="GitHub">
+                  <i className="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/diwan-ramadhani-dwi-putra/" target="_blank" rel="noreferrer" title="LinkedIn">
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:diwanrdp6@gmail.com" title="Email">
+                  <i className="fas fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+
+            {/* Col 2: Quick links */}
+            <div className="footer-col">
+              <p className="footer-col-title">Quick Links</p>
+              <div className="footer-links-grid">
+                <div className="footer-links-col">
+                  <Link to="/#home">Home</Link>
+                  <Link to="/projects">Projects</Link>
+                  <Link to="/skills">Skills</Link>
+                </div>
+                <div className="footer-links-col">
+                  <Link to="/about">About</Link>
+                  <a href="https://github.com/Ramaaaadevs" target="_blank" rel="noreferrer">GitHub</a>
+                  <a href="https://www.linkedin.com/in/diwan-ramadhani-dwi-putra/" target="_blank" rel="noreferrer">LinkedIn</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Col 3: Get In Touch */}
+            <div className="footer-col">
+              <p className="footer-col-title">Get In Touch</p>
+              <div className="footer-contact-list">
+                <a href="mailto:diwanrdp6@gmail.com" className="footer-contact-item">
+                  <i className="fas fa-envelope"></i>
+                  <span>diwanrdp6@gmail.com</span>
+                </a>
+                <a href="https://wa.me/6281278437207" target="_blank" rel="noreferrer" className="footer-contact-item">
+                  <i className="fab fa-whatsapp"></i>
+                  <span>WhatsApp</span>
+                </a>
+                <a href="https://www.linkedin.com/in/diwan-ramadhani-dwi-putra/" target="_blank" rel="noreferrer" className="footer-contact-item">
+                  <i className="fab fa-linkedin"></i>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+              <button className="back-to-top-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+                <i className="fas fa-arrow-up"></i> Back to Top
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="footer-bar">
+        <div className="container">
+          <p>© 2026 Diwan Ramadhani Dwi Putra. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
