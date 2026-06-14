@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
 
   const isActive = (path) => {
     if (path === "/") return location.pathname === "/";
@@ -21,30 +23,49 @@ export default function Navbar() {
         <ul>
           <li>
             <Link to="/#home" className={`nav-link ${isActive("/") ? "active" : ""}`} onClick={closeMobile}>
-              Home
+              {t("nav_home")}
             </Link>
           </li>
           <li>
             <Link to="/projects" className={`nav-link ${isActive("/projects") ? "active" : ""}`} onClick={closeMobile}>
-              Projects
+              {t("nav_projects")}
             </Link>
           </li>
           <li>
             <Link to="/skills" className={`nav-link ${isActive("/skills") ? "active" : ""}`} onClick={closeMobile}>
-              Skills
+              {t("nav_skills")}
             </Link>
           </li>
           <li>
             <Link to="/about" className={`nav-link ${isActive("/about") ? "active" : ""}`} onClick={closeMobile}>
-              About
+              {t("nav_about")}
             </Link>
           </li>
           <li>
             <Link to="/#contact" className="nav-link" onClick={closeMobile}>
-              Contact
+              {t("nav_contact")}
             </Link>
           </li>
         </ul>
+
+        {/* Language Switcher Pill */}
+        <div className="lang-switcher">
+          <button
+            className={`lang-btn ${language === "id" ? "active" : ""}`}
+            onClick={() => { setLanguage("id"); closeMobile(); }}
+            type="button"
+          >
+            ID
+          </button>
+          <span className="lang-divider">|</span>
+          <button
+            className={`lang-btn ${language === "en" ? "active" : ""}`}
+            onClick={() => { setLanguage("en"); closeMobile(); }}
+            type="button"
+          >
+            EN
+          </button>
+        </div>
       </nav>
       <div
         className={`mobile-menu ${mobileOpen ? "is-active" : ""}`}

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer id="contact" className="site-footer">
       <div className="footer-main">
@@ -18,12 +21,11 @@ export default function Footer() {
                 />
                 <div>
                   <p className="footer-name">Diwan Ramadhani Dwi Putra</p>
-                  <p className="footer-title">Data Enthusiast · ITERA</p>
+                  <p className="footer-title">{t("footer_title")}</p>
                 </div>
               </div>
               <p className="footer-bio">
-                Turning raw data into meaningful insights through analysis,
-                visualization, and storytelling.
+                {t("footer_bio")}
               </p>
               <div className="footer-socials">
                 <a href="https://github.com/Ramaaaadevs" target="_blank" rel="noreferrer" title="GitHub">
@@ -40,15 +42,15 @@ export default function Footer() {
 
             {/* Col 2: Quick links */}
             <div className="footer-col">
-              <p className="footer-col-title">Quick Links</p>
+              <p className="footer-col-title">{t("footer_quick_links")}</p>
               <div className="footer-links-grid">
                 <div className="footer-links-col">
-                  <Link to="/#home">Home</Link>
-                  <Link to="/projects">Projects</Link>
-                  <Link to="/skills">Skills</Link>
+                  <Link to="/#home">{t("nav_home")}</Link>
+                  <Link to="/projects">{t("nav_projects")}</Link>
+                  <Link to="/skills">{t("nav_skills")}</Link>
                 </div>
                 <div className="footer-links-col">
-                  <Link to="/about">About</Link>
+                  <Link to="/about">{t("nav_about")}</Link>
                   <a href="https://github.com/Ramaaaadevs" target="_blank" rel="noreferrer">GitHub</a>
                   <a href="https://www.linkedin.com/in/diwan-ramadhani-dwi-putra/" target="_blank" rel="noreferrer">LinkedIn</a>
                 </div>
@@ -57,7 +59,7 @@ export default function Footer() {
 
             {/* Col 3: Get In Touch */}
             <div className="footer-col">
-              <p className="footer-col-title">Get In Touch</p>
+              <p className="footer-col-title">{t("footer_get_in_touch")}</p>
               <div className="footer-contact-list">
                 <a href="mailto:diwanrdp6@gmail.com" className="footer-contact-item">
                   <i className="fas fa-envelope"></i>
@@ -73,7 +75,7 @@ export default function Footer() {
                 </a>
               </div>
               <button className="back-to-top-btn" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-                <i className="fas fa-arrow-up"></i> Back to Top
+                <i className="fas fa-arrow-up"></i> {t("footer_back_to_top")}
               </button>
             </div>
 
@@ -84,7 +86,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="footer-bar">
         <div className="container">
-          <p>© 2026 Diwan Ramadhani Dwi Putra. All rights reserved.</p>
+          <p>© 2026 Diwan Ramadhani Dwi Putra. {t("footer_all_rights")}</p>
         </div>
       </div>
     </footer>

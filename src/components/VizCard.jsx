@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { VIZ_SOURCES } from "../data/projects";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function VizCard() {
   const [activeId, setActiveId] = useState(VIZ_SOURCES[0].id);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const { tData } = useLanguage();
 
   const active = VIZ_SOURCES.find((v) => v.id === activeId);
 
@@ -61,8 +63,8 @@ export default function VizCard() {
         {loading && (
           <div className="viz-fallback">
             <i className="fas fa-chart-line"></i>
-            <p>{active.fallbackText}</p>
-            <p className="viz-fallback-sub">{active.fallbackSub}</p>
+            <p>{tData(active.fallbackText)}</p>
+            <p className="viz-fallback-sub">{tData(active.fallbackSub)}</p>
           </div>
         )}
       </div>
