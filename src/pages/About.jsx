@@ -2,12 +2,14 @@ import { useState } from "react";
 import { CERTS } from "../data/projects";
 import GithubGraph from "../components/GithubGraph";
 import useScrollAnimation from "../hooks/useScrollAnimation";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function About() {
   useScrollAnimation();
   const [activeCertIndex, setActiveCertIndex] = useState(-1);
   const [activePage, setActivePage] = useState(0);
   const [isMediaViewerOpen, setIsMediaViewerOpen] = useState(false);
+  const { t, tData, language } = useLanguage();
 
   const openMediaViewer = (index) => {
     setActiveCertIndex(index);
@@ -48,22 +50,14 @@ export default function About() {
             </div>
             <div className="about-hero-info">
               <h1 className="about-hero-name">Diwan Ramadhani Dwi Putra</h1>
-              <p className="about-hero-tagline">Data Analyst &nbsp;·&nbsp; Data Science &nbsp;·&nbsp; AI Automation</p>
-              <p className="about-hero-bio">
-                Mahasiswa Teknik Informatika di <strong>Institut Teknologi Sumatera (ITERA)</strong>, Bandar Lampung.
-                Saya berfokus pada analisis data eksploratif, visualisasi informasi, dan pengembangan model kecerdasan buatan.
-                Saya percaya bahwa data yang mentah dapat diubah menjadi insight bermakna melalui proses analisis yang tepat,
-                storytelling visual, dan otomasi cerdas.
-              </p>
+              <p className="about-hero-tagline">{t("about_hero_tagline")}</p>
+              <p className="about-hero-bio" dangerouslySetInnerHTML={{ __html: t("about_hero_bio") }}></p>
               
               {/* CV & Portfolio Download Action Buttons */}
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "24px" }}>
                 <a href="/CV_Diwan Ramadhani.pdf" download className="cta-button" style={{ padding: "10px 20px", fontSize: "13px" }}>
-                  <i className="fas fa-file-download"></i> Download CV
+                  <i className="fas fa-file-download"></i> {t("about_download_cv")}
                 </a>
-                {/* <a href="/Portfolio_Diwan_Ramadhani.pdf" download className="btn-outline" style={{ padding: "9px 18px", fontSize: "13px" }}>
-                  <i className="fas fa-file-pdf"></i> Download Portfolio
-                </a> */}
               </div>
 
               <div className="about-hero-links">
@@ -85,12 +79,12 @@ export default function About() {
       {/* ===== EDUCATION & EXPERIENCE ===== */}
       <section className="about-edu-section">
         <div className="container">
-          <h2 className="section-title scroll-animate">Pendidikan & Pengalaman</h2>
+          <h2 className="section-title scroll-animate">{t("about_edu_title")}</h2>
           <p
             className="scroll-animate"
             style={{ textAlign: "center", maxWidth: "600px", margin: "-20px auto 40px", color: "var(--text2)", fontSize: "14px", lineHeight: 1.6 }}
           >
-            Perjalanan akademik dan profesional yang membentuk keahlian saya di bidang data.
+            {t("about_edu_subtitle")}
           </p>
 
           <div className="about-edu-timeline">
@@ -103,13 +97,16 @@ export default function About() {
                 <div className="about-edu-header">
                   <div>
                     <h3 className="about-edu-title">Institut Teknologi Sumatera (ITERA)</h3>
-                    <p className="about-edu-subtitle">S1 Teknik Informatika</p>
+                    <p className="about-edu-subtitle">
+                      {language === "id" ? "S1 Teknik Informatika" : "B.S. Informatics Engineering"}
+                    </p>
                   </div>
-                  <span className="timeline-date">2023 - Sekarang</span>
+                  <span className="timeline-date">2023 - {language === "id" ? "Sekarang" : "Present"}</span>
                 </div>
                 <p className="about-edu-desc">
-                  Mendalami dasar-dasar ilmu komputer, algoritma, struktur data, dan pemrograman.
-                  Aktif mengerjakan proyek-proyek data analytics dan machine learning sebagai bagian dari perkuliahan dan kegiatan mandiri.
+                  {language === "id" 
+                    ? "Mendalami dasar-dasar ilmu komputer, algoritma, struktur data, dan pemrograman. Aktif mengerjakan proyek-proyek data analytics dan machine learning sebagai bagian dari perkuliahan dan kegiatan mandiri."
+                    : "Studying computer science fundamentals, algorithms, data structures, and programming. Actively working on data analytics and machine learning projects as part of coursework and independent activities."}
                 </p>
               </div>
             </div>
@@ -128,9 +125,9 @@ export default function About() {
                   <span className="timeline-date">Feb 2026 - Jun 2026</span>
                 </div>
                 <p className="about-edu-desc">
-                  Program intensif data science yang disponsori DBS Foundation bekerja sama dengan Dicoding.
-                  Mempelajari machine learning, deep learning, dan deployment model AI.
-                  Mengerjakan capstone project "FaceFit Barber" sebagai Team Lead tim CC26-PSU304.
+                  {language === "id"
+                    ? "Program intensif data science yang disponsori DBS Foundation bekerja sama dengan Dicoding. Mempelajari machine learning, deep learning, dan deployment model AI. Mengerjakan capstone project \"FaceFit Barber\" sebagai Team Lead tim CC26-PSU304."
+                    : "Intensive data science program sponsored by DBS Foundation in partnership with Dicoding. Learned machine learning, deep learning, and AI model deployment. Completed capstone project \"FaceFit Barber\" as Team Lead of team CC26-PSU304."}
                 </p>
               </div>
             </div>
@@ -149,8 +146,9 @@ export default function About() {
                   <span className="timeline-date">2025 - 2026</span>
                 </div>
                 <p className="about-edu-desc">
-                  Menyelesaikan berbagai kelas online di bidang analisis data, machine learning,
-                  dan pengembangan aplikasi. Platform pembelajaran utama yang memperkuat fondasi teknis.
+                  {language === "id"
+                    ? "Menyelesaikan berbagai kelas online di bidang analisis data, machine learning, dan pengembangan aplikasi. Platform pembelajaran utama yang memperkuat fondasi teknis."
+                    : "Completed various online courses in data analysis, machine learning, and application development. The primary learning platform that strengthens technical foundations."}
                 </p>
               </div>
             </div>
@@ -161,12 +159,12 @@ export default function About() {
       {/* ===== CERTIFICATIONS ===== */}
       <section className="about-cert-section">
         <div className="container">
-          <h2 className="section-title scroll-animate">Sertifikasi</h2>
+          <h2 className="section-title scroll-animate">{t("about_cert_title")}</h2>
           <p
             className="scroll-animate"
             style={{ textAlign: "center", maxWidth: "600px", margin: "-20px auto 40px", color: "var(--text2)", fontSize: "14px", lineHeight: 1.6 }}
           >
-            Sertifikat kompetensi yang telah saya peroleh dari platform dan program pembelajaran terpercaya.
+            {t("about_cert_subtitle")}
           </p>
 
           <div className="projects-grid animate-right">
@@ -187,7 +185,7 @@ export default function About() {
                 >
                   <img
                     src={c.pages && c.pages[0] ? c.pages[0] : c.image}
-                    alt={c.title}
+                    alt={tData(c.title)}
                     className="pcn-thumb"
                     style={{
                       width: "100%",
@@ -225,14 +223,14 @@ export default function About() {
                       
                       {/* Title & Metadata */}
                       <div style={{ flex: 1, minWidth: 0 }}>
-                        <h3 className="pcn-title" style={{ margin: 0, fontSize: "14.5px", lineHeight: "1.3", wordBreak: "break-word" }}>{c.title}</h3>
+                        <h3 className="pcn-title" style={{ margin: 0, fontSize: "14.5px", lineHeight: "1.3", wordBreak: "break-word" }}>{tData(c.title)}</h3>
                         <p className="pcn-desc" style={{ margin: "4px 0 0 0", fontSize: "12px", color: "var(--text2)" }}>{c.issuer} · {c.year}</p>
                       </div>
                     </div>
 
                     <div className="pcn-tags" style={{ marginTop: "14px", marginBottom: "16px" }}>
-                      {c.tags.map((t, j) => (
-                        <span key={j} className="pcn-tag">{t}</span>
+                      {c.tags.map((tItem, j) => (
+                        <span key={j} className="pcn-tag">{tItem}</span>
                       ))}
                     </div>
                   </div>
@@ -242,7 +240,7 @@ export default function About() {
                       className="btn-outline-linkedin"
                       type="button"
                     >
-                      Show credential <i className="fas fa-external-link-alt"></i>
+                      {t("about_cert_show_credential")} <i className="fas fa-external-link-alt"></i>
                     </button>
                   </div>
                 </div>
@@ -259,8 +257,8 @@ export default function About() {
             <div className="github-header-icon">
               <i className="fab fa-github"></i>
             </div>
-            <h2 className="section-title">Coding Activity</h2>
-            <p style={{ textAlign: "center", color: "var(--text2)", fontSize: "14px", margin: "-20px auto 40px" }}>Year of consistent development</p>
+            <h2 className="section-title">{t("about_github_title")}</h2>
+            <p style={{ textAlign: "center", color: "var(--text2)", fontSize: "14px", margin: "-20px auto 40px" }}>{t("about_github_subtitle")}</p>
           </div>
 
           <GithubGraph username="Ramaaaadevs" />
@@ -283,7 +281,7 @@ export default function About() {
               <div className="mv-cert-img-container">
                 <img
                   src={CERTS[activeCertIndex].pages && CERTS[activeCertIndex].pages[activePage] ? CERTS[activeCertIndex].pages[activePage] : CERTS[activeCertIndex].image}
-                  alt={`${CERTS[activeCertIndex].title} - Page ${activePage + 1}`}
+                  alt={`${tData(CERTS[activeCertIndex].title)} - Page ${activePage + 1}`}
                   className="mv-cert-img"
                 />
               </div>
@@ -323,25 +321,25 @@ export default function About() {
               <div className="mv-sidebar-content" style={{ height: "100%", justifyContent: "space-between" }}>
                 <div>
                   <div>
-                    <h3 className="mv-sidebar-title">Sertifikat</h3>
-                    <p style={{ fontSize: "12px", color: "var(--text3)", margin: 0 }}>Detail dokumen & verifikasi</p>
+                    <h3 className="mv-sidebar-title">{t("about_mv_title")}</h3>
+                    <p style={{ fontSize: "12px", color: "var(--text3)", margin: 0 }}>{t("about_mv_subtitle")}</p>
                   </div>
                   
                   <div className="mv-cert-meta">
                     <div className="mv-meta-row">
-                      <span className="mv-meta-label">Nama Sertifikasi</span>
-                      <span className="mv-meta-value">{CERTS[activeCertIndex].title}</span>
+                      <span className="mv-meta-label">{t("about_mv_label_name")}</span>
+                      <span className="mv-meta-value">{tData(CERTS[activeCertIndex].title)}</span>
                     </div>
                     <div className="mv-meta-row">
-                      <span className="mv-meta-label">Penerbit</span>
+                      <span className="mv-meta-label">{t("about_mv_label_issuer")}</span>
                       <span className="mv-meta-value">{CERTS[activeCertIndex].issuer}</span>
                     </div>
                     <div className="mv-meta-row">
-                      <span className="mv-meta-label">Masa Berlaku</span>
-                      <span className="mv-meta-value">{CERTS[activeCertIndex].validity}</span>
+                      <span className="mv-meta-label">{t("about_mv_label_validity")}</span>
+                      <span className="mv-meta-value">{tData(CERTS[activeCertIndex].validity)}</span>
                     </div>
                     <div className="mv-meta-row">
-                      <span className="mv-meta-label">ID Kredensial</span>
+                      <span className="mv-meta-label">{t("about_mv_label_id")}</span>
                       <span className="mv-meta-value" style={{ fontFamily: "monospace" }}>{CERTS[activeCertIndex].credentialId}</span>
                     </div>
                   </div>
@@ -355,7 +353,7 @@ export default function About() {
                     className="btn-outline-linkedin"
                     style={{ textAlign: "center" }}
                   >
-                    Verify Credential <i className="fas fa-external-link-alt"></i>
+                    {t("about_mv_verify_btn")} <i className="fas fa-external-link-alt"></i>
                   </a>
                 </div>
               </div>

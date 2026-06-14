@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { PROJECTS, CATEGORIES } from "../data/projects";
 import ProjectModal from "../components/ProjectModal";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState(null);
+  const { t, tData } = useLanguage();
 
   const filtered =
     activeFilter === "all"
@@ -14,7 +16,7 @@ export default function Projects() {
   return (
     <section id="projects" className="projects-section" style={{ paddingTop: "120px" }}>
       <div className="container">
-        <h2 className="section-title animate-left">Data Projects</h2>
+        <h2 className="section-title animate-left">{t("proj_title")}</h2>
 
         <div className="filter-buttons animate-right">
           {CATEGORIES.map((c) => (
@@ -23,7 +25,7 @@ export default function Projects() {
               className={`filter-btn ${activeFilter === c.value ? "active" : ""}`}
               onClick={() => setActiveFilter(c.value)}
             >
-              {c.label}
+              {tData(c.label)}
             </button>
           ))}
         </div>
@@ -48,10 +50,10 @@ export default function Projects() {
                     <h3 className="pch-title">{p.title}</h3>
                   </div>
                   <span className="pch-badge" style={{ background: p.colorLight, color: p.color }}>
-                    {p.categoryLabel}
+                    {tData(p.categoryLabel)}
                   </span>
                 </div>
-                <p className="pch-desc">{p.shortDesc}</p>
+                <p className="pch-desc">{tData(p.shortDesc)}</p>
                 <div className="pch-tags">
                   {p.tags.map((t, i) => (
                     <span key={i} className="pch-tag">{t}</span>
@@ -62,7 +64,7 @@ export default function Projects() {
                     {p.metrics.map((m, i) => (
                       <div key={i} className="pch-metric">
                         <span className="pch-mval">{m.value}</span>
-                        <span className="pch-mlabel">{m.label}</span>
+                        <span className="pch-mlabel">{tData(m.label)}</span>
                       </div>
                     ))}
                   </div>

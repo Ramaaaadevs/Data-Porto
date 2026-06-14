@@ -3,10 +3,12 @@ import { PROJECTS, CATEGORIES, VIZ_SOURCES } from "../data/projects";
 import VizCard from "../components/VizCard";
 import ProjectModal from "../components/ProjectModal";
 import CountUp from "../components/CountUp";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState(null);
+  const { t, tData, language } = useLanguage();
 
   const filtered =
     activeFilter === "all"
@@ -19,20 +21,29 @@ export default function Home() {
       <section id="home" className="hero-stacked">
         <div className="container">
           <div className="hero-stacked-content animate-fade">
-            <p className="eyebrow-label">Data Portfolio</p>
+            <p className="eyebrow-label">{t("home_eyebrow")}</p>
             <h1>
-              Turning <span className="data-highlight">Data</span> Into Compelling{" "}
-              <span className="story-highlight">Stories</span>
+              {language === "id" ? (
+                <>
+                  Mengubah <span className="data-highlight">Data</span> Menjadi Cerita yang{" "}
+                  <span className="story-highlight">Menarik</span>
+                </>
+              ) : (
+                <>
+                  Turning <span className="data-highlight">Data</span> Into Compelling{" "}
+                  <span className="story-highlight">Stories</span>
+                </>
+              )}
             </h1>
             <p className="hero-sub">
-              Data Analyst &nbsp;·&nbsp; Data Science &nbsp;·&nbsp; AI Automation
+              {t("about_hero_tagline")}
               <br />
               <span className="hero-sub-small">
-                Informatics Engineering @ ITERA · DBS Foundation Coding Camp 2026
+                {t("home_hero_sub_small")}
               </span>
             </p>
             <div className="hero-ctas">
-              <a href="#projects" className="cta-button">Explore My Work</a>
+              <a href="#projects" className="cta-button">{t("home_explore_my_work")}</a>
               <a href="https://github.com/Ramaaaadevs" target="_blank" rel="noreferrer" className="btn-outline">
                 <i className="fab fa-github"></i> GitHub
               </a>
@@ -57,28 +68,28 @@ export default function Home() {
               <div className="kpi-num">
                 <CountUp value="10M+" />
               </div>
-              <div className="kpi-label">Data Rows Analyzed</div>
+              <div className="kpi-label">{t("home_kpi_rows")}</div>
             </div>
             <div className="kpi-card">
               <div className="kpi-icon"><i className="fas fa-chart-line"></i></div>
               <div className="kpi-num">
                 <CountUp value={VIZ_SOURCES.length} />
               </div>
-              <div className="kpi-label">Interactive Dashboards</div>
+              <div className="kpi-label">{t("home_kpi_dashboards")}</div>
             </div>
             <div className="kpi-card">
               <div className="kpi-icon"><i className="fas fa-brain"></i></div>
               <div className="kpi-num">
                 <CountUp value="5+" />
               </div>
-              <div className="kpi-label">ML Models Deployed</div>
+              <div className="kpi-label">{t("home_kpi_models")}</div>
             </div>
             <div className="kpi-card">
               <div className="kpi-icon"><i className="fas fa-folder-open"></i></div>
               <div className="kpi-num">
                 <CountUp value={PROJECTS.length} />
               </div>
-              <div className="kpi-label">Total Projects</div>
+              <div className="kpi-label">{t("home_kpi_total_projects")}</div>
             </div>
           </div>
         </div>
@@ -87,7 +98,7 @@ export default function Home() {
       {/* ===== PROJECTS ===== */}
       <section id="projects" className="projects-section">
         <div className="container">
-          <h2 className="section-title animate-left">Data Projects</h2>
+          <h2 className="section-title animate-left">{t("home_projects_title")}</h2>
 
           <div className="filter-buttons animate-right">
             {CATEGORIES.map((c) => (
@@ -96,7 +107,7 @@ export default function Home() {
                 className={`filter-btn ${activeFilter === c.value ? "active" : ""}`}
                 onClick={() => setActiveFilter(c.value)}
               >
-                {c.label}
+                {tData(c.label)}
               </button>
             ))}
           </div>
@@ -117,13 +128,13 @@ export default function Home() {
                     <i className={`fas ${p.icon}`}></i>
                   </div>
                   <span className="pcn-badge" style={{ background: p.colorLight, color: p.color }}>
-                    {p.categoryLabel}
+                    {tData(p.categoryLabel)}
                   </span>
                   <i className="fas fa-arrow-up-right-from-square pcn-arrow"></i>
                 </div>
                 <div className="pcn-body">
                   <h3 className="pcn-title">{p.title}</h3>
-                  <p className="pcn-desc">{p.shortDesc}</p>
+                  <p className="pcn-desc">{tData(p.shortDesc)}</p>
                   <div className="pcn-tags">
                     {p.tags.map((t, i) => (
                       <span key={i} className="pcn-tag">{t}</span>
@@ -134,7 +145,7 @@ export default function Home() {
                   {p.metrics.map((m, i) => (
                     <div key={i} className="pcn-metric">
                       <p className="pcn-mval">{m.value}</p>
-                      <p className="pcn-mlabel">{m.label}</p>
+                      <p className="pcn-mlabel">{tData(m.label)}</p>
                     </div>
                   ))}
                 </div>
@@ -147,15 +158,10 @@ export default function Home() {
       {/* ===== ABOUT (preview) ===== */}
       <section id="about" className="about-section">
         <div className="container">
-          <h2 className="section-title">About Me</h2>
+          <h2 className="section-title">{t("home_about_title")}</h2>
           <div className="about-inner">
             <div className="about-content animate-left">
-              <p className="about-bio">
-                Informatics Engineering student at <strong>ITERA, Bandar Lampung</strong>.
-                I transform raw data into meaningful insights through analysis,
-                visualization, and storytelling. Currently part of{" "}
-                <strong>DBS Foundation Coding Camp 2026</strong> as a Data Scientist.
-              </p>
+              <p className="about-bio" dangerouslySetInnerHTML={{ __html: t("home_about_bio") }}></p>
 
               <div className="about-hero-links">
                 <a href="https://github.com/Ramaaaadevs" target="_blank" rel="noreferrer" className="contact-chip">

@@ -1,4 +1,7 @@
+import { useLanguage } from "../context/LanguageContext";
+
 export default function ProjectModal({ project, onClose }) {
+  const { t, tData } = useLanguage();
   if (!project) return null;
   const p = project;
 
@@ -25,26 +28,26 @@ export default function ProjectModal({ project, onClose }) {
                 background: p.colorLight, color: p.color,
               }}
             >
-              {p.categoryLabel}
+              {tData(p.categoryLabel)}
             </span>
           </div>
         </div>
 
-        <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.75, marginBottom: "20px" }}>{p.fullDesc}</p>
+        <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.75, marginBottom: "20px" }}>{tData(p.fullDesc)}</p>
 
         <div className="cs-section">
-          <div className="cs-title"><i className="fas fa-exclamation-circle"></i> Tantangan &amp; Masalah</div>
-          <div className="cs-text">{p.problem}</div>
+          <div className="cs-title"><i className="fas fa-exclamation-circle"></i> {t("proj_modal_challenge")}</div>
+          <div className="cs-text">{tData(p.problem)}</div>
         </div>
 
         <div className="cs-section">
-          <div className="cs-title"><i className="fas fa-cogs"></i> Metodologi &amp; Data</div>
-          <div className="cs-text">{p.methodology}</div>
+          <div className="cs-title"><i className="fas fa-cogs"></i> {t("proj_modal_methodology")}</div>
+          <div className="cs-text">{tData(p.methodology)}</div>
         </div>
 
         <div className="cs-section">
-          <div className="cs-title"><i className="fas fa-chart-line"></i> Dampak &amp; Insight</div>
-          <div className="cs-text">{p.impact}</div>
+          <div className="cs-title"><i className="fas fa-chart-line"></i> {t("proj_modal_impact")}</div>
+          <div className="cs-text">{tData(p.impact)}</div>
         </div>
 
         <div
@@ -57,7 +60,7 @@ export default function ProjectModal({ project, onClose }) {
           {p.metrics.map((m, i) => (
             <div key={i} style={{ textAlign: "center" }}>
               <p style={{ fontWeight: 700, fontSize: "15px", color: "#0d1f3d" }}>{m.value}</p>
-              <p style={{ fontSize: "11px", color: "#888" }}>{m.label}</p>
+              <p style={{ fontSize: "11px", color: "#888" }}>{tData(m.label)}</p>
             </div>
           ))}
         </div>
@@ -87,7 +90,7 @@ export default function ProjectModal({ project, onClose }) {
               color: "#333", textDecoration: "none", background: "#fff", transition: "all 0.2s",
             }}
           >
-            <i className="fab fa-github"></i> View on GitHub
+            <i className="fab fa-github"></i> {t("proj_modal_view_github")}
           </a>
           {p.demo && (
             <a
@@ -101,7 +104,7 @@ export default function ProjectModal({ project, onClose }) {
                 border: "none", transition: "all 0.2s",
               }}
             >
-              <i className="fas fa-external-link-alt"></i> Live Demo
+              <i className="fas fa-external-link-alt"></i> {t("proj_modal_live_demo")}
             </a>
           )}
         </div>
