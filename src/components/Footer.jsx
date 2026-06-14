@@ -17,7 +17,7 @@ export default function Footer() {
                   onError={(e) => { e.currentTarget.style.display = "none"; }}
                 />
                 <div>
-                  <p className="footer-name">Diwan Ramadhani</p>
+                  <p className="footer-name">Diwan Ramadhani Dwi Putra</p>
                   <p className="footer-title">Data Enthusiast · ITERA</p>
                 </div>
               </div>
