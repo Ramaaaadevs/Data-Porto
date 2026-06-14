@@ -172,7 +172,19 @@ export default function About() {
           <div className="projects-grid animate-right">
             {CERTS.map((c, i) => (
               <div className="project-card-new" key={i} style={{ animationDelay: `${i * 0.08}s` }}>
-                <div className="pcn-thumb-wrap" style={{ display: "flex", alignItems: "center", justifyContent: "center", background: c.colorLight, padding: "12px", boxSizing: "border-box" }}>
+                <div 
+                  className="pcn-thumb-wrap" 
+                  onClick={() => openMediaViewer(i)}
+                  style={{ 
+                    display: "flex", 
+                    alignItems: "center", 
+                    justifyContent: "center", 
+                    background: c.colorLight, 
+                    padding: "12px", 
+                    boxSizing: "border-box",
+                    cursor: "pointer"
+                  }}
+                >
                   <img
                     src={c.pages && c.pages[0] ? c.pages[0] : c.image}
                     alt={c.title}
