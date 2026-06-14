@@ -140,6 +140,7 @@ section { padding: 80px 0; }
 }
 .logo { font-size: 1.6rem; font-weight: 700; color: var(--navy); letter-spacing: -0.02em; }
 .logo span { color: var(--lime); }
+.data-navbar nav { display: flex; align-items: center; }
 .data-navbar nav ul { display: flex; list-style: none; gap: 4px; }
 .data-navbar nav ul li a {
     font-weight: 500; font-size: 14px; color: var(--text2);
@@ -575,8 +576,9 @@ section { padding: 80px 0; }
         border-bottom: 1px solid var(--border); box-shadow: 0 8px 32px rgba(13,31,61,0.10);
         z-index: 999; padding: 12px 5% 18px;
         animation: mobileNavSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        flex-direction: column; align-items: flex-start;
     }
-    .data-navbar nav.mobile-open { display: block; }
+    .data-navbar nav.mobile-open { display: flex; }
     .data-navbar nav ul { flex-direction: column; gap: 2px; }
     .data-navbar nav ul li a { display: block; padding: 12px 16px; font-size: 15px; border-radius: var(--radius-sm); }
     .mobile-menu { display: flex; }
@@ -928,6 +930,55 @@ section { padding: 80px 0; }
     }
     .mv-arrow-btn.right {
         right: 8px;
+    }
+}
+
+/* Language Switcher Styling (Glassmorphism Pill) */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(245, 246, 250, 0.65);
+    border: 1px solid var(--border);
+    padding: 3px;
+    border-radius: 99px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-left: 12px;
+}
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text2);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.05em;
+    user-select: none;
+}
+.lang-btn:hover {
+    color: var(--navy);
+}
+.lang-btn.active {
+    background: var(--navy);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(101, 88, 245, 0.2);
+}
+.lang-divider {
+    color: var(--border);
+    font-size: 10px;
+    user-select: none;
+}
+
+@media (max-width: 900px) {
+    .lang-switcher {
+        margin-left: 16px;
+        margin-top: 16px;
+        align-self: flex-start;
     }
 }
 
