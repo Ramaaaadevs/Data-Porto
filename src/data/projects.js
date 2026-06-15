@@ -19,7 +19,7 @@ export const PROJECTS = [
       id: "Mengembangkan pipeline deteksi bentuk wajah menggunakan MediaPipe FaceMesh untuk merekomendasikan gaya rambut secara otomatis dan objektif berdasarkan rasio geometris wajah. Berhasil mengumpulkan, membersihkan, dan menyeimbangkan dataset sebanyak 5.820 gambar menggunakan teknik augmentasi data dengan Imbalance Ratio (IR) terkendali sebesar 1.45×. Dikerjakan dalam rangka program DBS Foundation Coding Camp 2026.",
       en: "Developed a face shape detection pipeline using MediaPipe FaceMesh to automatically and objectively recommend hairstyles based on facial geometric ratios. Successfully gathered, cleaned, and balanced a dataset of 5,820 images using data augmentation with a controlled Imbalance Ratio (IR) of 1.45×. Completed for the DBS Foundation Coding Camp 2026 program."
     },
-    thumbnail: "/Gambar/facefit_thumbnail.png",
+    thumbnail: "/Gambar/facefit_thumbnail.webp",
     problem: {
       id: "Menentukan gaya rambut yang cocok seringkali didasarkan pada intuisi subjektif, bukan analisis geometris wajah yang akurat. Hal ini menyebabkan ketidakcocokan gaya bagi pelanggan.",
       en: "Choosing a matching hairstyle is often based on subjective intuition rather than accurate facial geometric analysis, leading to styling mismatches for customers."
@@ -64,7 +64,7 @@ export const PROJECTS = [
       id: "Menganalisis data historis kualitas udara di Beijing yang mencakup 12 stasiun pemantauan terpisah. Melakukan pembersihan data kotor (handling missing values, outliers) dan pengelompokan data polutan utama (PM2.5, PM10, SO2, NO2, CO, O3) menggunakan Pandas. Membangun dashboard analitik interaktif berbasis web menggunakan Streamlit Cloud untuk mempermudah pemantauan kualitas udara secara spasial.",
       en: "Analyzed historical air quality data in Beijing across 12 separate monitoring stations. Handled dirty data cleaning (missing values, outliers) and grouping of main pollutants (PM2.5, PM10, SO2, NO2, CO, O3) using Pandas. Built an interactive web-based analytics dashboard using Streamlit Cloud to facilitate spatial air quality monitoring."
     },
-    thumbnail: "/Gambar/air_quality_thumbnail.png",
+    thumbnail: "/Gambar/air_quality_thumbnail.webp",
     problem: {
       id: "Data kualitas udara perkotaan sangat besar dan kompleks (terdiri dari 6 polutan utama di 12 stasiun pemantauan). Tanpa visualisasi yang baik, pola spasial dan tren polusi sulit dipahami oleh publik.",
       en: "Urban air quality data is large and complex (composed of 6 main pollutants across 12 monitoring stations). Without proper visualization, spatial patterns and pollution trends are difficult for the public to understand."
@@ -109,7 +109,7 @@ export const PROJECTS = [
       id: "Membangun visualisasi data interaktif terintegrasi untuk menganalisis kecelakaan lalu lintas di Inggris Raya tahun 2024. Memanfaatkan Tableau Public untuk dashboard performa, Power BI untuk memetakan keparahan kecelakaan lalu lintas (severity analysis), serta Kepler.gl untuk melakukan pemetaan geospatial 3D pola persebaran rawan kecelakaan (hotspots). Dikerjakan sebagai proyek akhir mata kuliah Visualisasi Data di ITERA.",
       en: "Built integrated interactive data visualizations to analyze traffic accidents in the United Kingdom in 2024. Utilized Tableau Public for performance dashboards, Power BI for mapping road accident severity (severity analysis), and Kepler.gl for 3D geospatial mapping of accident hotspot distributions. Done as a final project for the Data Visualization course at ITERA."
     },
-    thumbnail: "/Gambar/uk_accident_thumbnail.png",
+    thumbnail: "/Gambar/uk_accident_thumbnail.webp",
     problem: {
       id: "Pola kecelakaan lalu lintas di Inggris Raya memiliki faktor risiko spasial dan temporal tersembunyi yang sulit diidentifikasi dari data tabel mentah kepolisian.",
       en: "UK traffic accident patterns have hidden spatial and temporal risk factors that are difficult to identify from raw police tabular data."
@@ -154,7 +154,7 @@ export const PROJECTS = [
       id: "Platform pembelajaran interaktif berbasis web yang dikembangkan menggunakan Next.js dan Tailwind CSS untuk SDN 39 Tulang Bawang Tengah. Menyediakan modul kuis interaktif, materi edukasi multimedia, dan dashboard sederhana untuk memantau pemahaman belajar siswa secara menyenangkan.",
       en: "An interactive web-based learning platform developed using Next.js and Tailwind CSS for SDN 39 Tulang Bawang Tengah. It features interactive quiz modules, multimedia educational content, and a simple dashboard to monitor student learning progress in a fun way."
     },
-    thumbnail: "/Gambar/60kuiz_thumbnail.png",
+    thumbnail: "/Gambar/60kuiz_thumbnail.webp",
     problem: {
       id: "Metode pembelajaran konvensional di tingkat Sekolah Dasar seringkali kurang menarik bagi siswa digital native, sehingga menurunkan tingkat keterlibatan dan pemahaman materi dasar.",
       en: "Conventional teaching methods at the primary school level are often less engaging for digital native students, leading to lower engagement and retention of basic concepts."
@@ -199,7 +199,7 @@ export const PROJECTS = [
       id: "Aplikasi pemesanan lapangan olahraga (GOR) terintegrasi menggunakan Laravel dan WebSocket (Laravel Reverb + Echo) pada frontend Vanilla JS. Memungkinkan pengguna memeriksa ketersediaan jadwal dan melakukan pemesanan secara instan, serta menyinkronkan status slot lapangan secara langsung ke semua pengguna aktif.",
       en: "An integrated sports court booking system powered by Laravel and WebSockets (Laravel Reverb + Echo) on a Vanilla JS frontend. It enables users to check schedule availability and book courts instantly, broadcasting slot updates in real-time to prevent overlapping bookings."
     },
-    thumbnail: "/Gambar/gor_nusantara_thumbnail.png",
+    thumbnail: "/Gambar/gor_nusantara_thumbnail.webp",
     problem: {
       id: "Sistem pemesanan lapangan manual sering menyebabkan tabrakan jadwal (double-booking) karena keterlambatan sinkronisasi data antar pengguna.",
       en: "Manual court reservation systems frequently lead to double-booking conflicts due to delayed data synchronization between users."
@@ -244,7 +244,7 @@ export const PROJECTS = [
       id: "Aplikasi berbasis web client-side untuk menjelajahi jutaan judul buku secara gratis. Menggunakan Vanilla JS untuk melakukan fetch data asinkronus ke Open Library API, dilengkapi fitur pencarian dinamis, filter subjek, dan kartu detail informasi buku.",
       en: "A client-side web application designed to browse millions of books. Built with Vanilla JS to perform asynchronous API requests to the Open Library API, featuring dynamic searches, subject filters, and detailed book cards."
     },
-    thumbnail: "/Gambar/libsearch_thumbnail.png",
+    thumbnail: "/Gambar/libsearch_thumbnail.webp",
     problem: {
       id: "Mencari buku referensi akademik atau umum secara cepat di antara database perpustakaan yang besar seringkali rumit dan lambat tanpa antarmuka pencarian yang efisien.",
       en: "Finding academic or general reference books quickly across massive catalogs is often complicated and slow without an efficient search client."
@@ -289,7 +289,7 @@ export const PROJECTS = [
       id: "TripMate adalah aplikasi perencana perjalanan lintas platform yang dibangun menggunakan Kotlin Multiplatform (KMP) dan Compose Multiplatform. Mengintegrasikan Gemini API untuk menyusun itinerary otomatis berdasarkan minat, Ktor client untuk konsumsi API eksternal, dan SQLDelight untuk penyimpanan pengeluaran serta catatan perjalanan secara offline.",
       en: "TripMate is a cross-platform travel companion app built using Kotlin Multiplatform (KMP) and Compose Multiplatform. It integrates the Gemini API to generate custom itineraries based on user preferences, Ktor client for networking, and SQLDelight for offline database tracking of travel expenses and logs."
     },
-    thumbnail: "/Gambar/tripmate_thumbnail.png",
+    thumbnail: "/Gambar/tripmate_thumbnail.webp",
     problem: {
       id: "Merencanakan liburan membutuhkan riset destinasi yang melelahkan, sementara mencatat pengeluaran di tengah perjalanan secara manual seringkali tercecer.",
       en: "Planning a trip requires tedious destination research, while manually tracking travel expenses on-the-go is highly prone to data loss and disorganization."
@@ -334,7 +334,7 @@ export const PROJECTS = [
       id: "Mengembangkan bot AI otonom untuk game Etimo Diamonds menggunakan algoritma Greedy dengan pembobotan waktu (time-weighted). Bot mengevaluasi skor diamond, jarak kisi, portal, dan batas waktu kembali ke pangkalan untuk memaksimalkan perolehan diamond secara dinamis.",
       en: "Developed an autonomous AI bot for the Etimo Diamonds competition. Powered by a custom Time-Weighted Greedy algorithm, the bot dynamically evaluates diamond scores, grid distances, portals, and safe return-to-base timing to maximize points."
     },
-    thumbnail: "/Gambar/botvoid_thumbnail.png",
+    thumbnail: "/Gambar/botvoid_thumbnail.webp",
     problem: {
       id: "Algoritma Greedy sederhana hanya mengejar objek terdekat secara buta (short-sighted), yang berakibat pada kekalahan dari musuh karena mengabaikan diamond berharga tinggi di kejauhan atau kehabisan waktu di jalan.",
       en: "Simple greedy bots blindly target the nearest diamonds (short-sighted), losing out on high-value clusters or failing to return to base before rounds expire."
@@ -379,7 +379,7 @@ export const PROJECTS = [
       id: "Game edukasi matematika berbasis desktop yang dikembangkan dengan pustaka Pygame. Melatih kecepatan berhitung dengan operasi aritmetika dasar (tambah, kurang, kali, bagi) dalam batasan waktu tertentu, dilengkapi dengan feedback audio-visual yang kaya dan papan skor lokal.",
       en: "A desktop educational mathematics game built using Pygame. It trains user calculation speed on basic arithmetic operations under strict time constraints, featuring rich audio-visual feedback and local high-score persistence."
     },
-    thumbnail: "/Gambar/mathsprint_thumbnail.png",
+    thumbnail: "/Gambar/mathsprint_thumbnail.webp",
     problem: {
       id: "Metode latihan matematika tradisional seringkali membosankan bagi anak-anak dan kurang menantang untuk mengukur peningkatan kecepatan reaksi berhitung secara objektif.",
       en: "Traditional math practice can be monotonous, lacking the interactive urgency needed to measure and improve mental calculation speed."
@@ -532,7 +532,7 @@ export const CERTS = [
     tags: ["Data Analysis", "Python", "Pandas", "EDA"],
     color: "#3572A5",
     colorLight: "rgba(53,114,165,0.10)",
-    image: "/Gambar/dicoding-square.png",
+    image: "/Gambar/dicoding-square.webp",
     credentialId: "6RPN7R989X2M",
     credentialUrl: "https://www.dicoding.com/certificates/6RPN7R989X2M",
     validity: {
@@ -554,7 +554,7 @@ export const CERTS = [
     tags: ["Machine Learning", "Python", "Scikit-learn"],
     color: "#6558f5",
     colorLight: "rgba(101,88,245,0.10)",
-    image: "/Gambar/dicoding-square.png",
+    image: "/Gambar/dicoding-square.webp",
     credentialId: "MEPJOYORLZ3V",
     credentialUrl: "https://www.dicoding.com/certificates/MEPJOYORLZ3V",
     validity: {
@@ -577,7 +577,7 @@ export const CERTS = [
     tags: ["Data Wrangling", "Python", "Data Cleaning"],
     color: "#00758f",
     colorLight: "rgba(0,117,143,0.10)",
-    image: "/Gambar/dicoding-square.png",
+    image: "/Gambar/dicoding-square.webp",
     credentialId: "JLX1VVJ22Z72",
     credentialUrl: "https://www.dicoding.com/certificates/JLX1VVJ22Z72",
     validity: {
@@ -599,7 +599,7 @@ export const CERTS = [
     tags: ["Mathematics", "Data Science", "Statistics"],
     color: "#e97627",
     colorLight: "rgba(233,118,39,0.10)",
-    image: "/Gambar/dicoding-square.png",
+    image: "/Gambar/dicoding-square.webp",
     credentialId: "JMZVO5E3QXN9",
     credentialUrl: "https://www.dicoding.com/certificates/JMZVO5E3QXN9",
     validity: {
@@ -831,7 +831,7 @@ export const EDUCATION = [
   },
   {
     institution: "MA Negeri 2 Bandar Lampung",
-    logo: "/Gambar/man2.png",
+    logo: "/Gambar/man2.webp",
     degree: {
       id: "Matematika dan Ilmu Pengetahuan Alam (MIPA)",
       en: "Mathematics and Natural Sciences"
