@@ -16,7 +16,7 @@ export default function About() {
           <div className="about-hero-grid scroll-animate">
             <div className="about-hero-photo">
               <img
-                src="/Gambar/WhatsApp Image 2024-10-09 at 09.50.18_5da5c080.png"
+                src="/Gambar/WhatsApp Image 2024-10-09 at 09.50.18_5da5c080.webp"
                 alt="Diwan Ramadhani"
                 className="about-hero-img"
                 onError={(e) => { e.currentTarget.style.display = "none"; }}
