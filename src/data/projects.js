@@ -763,6 +763,26 @@ export const SKILLS_DETAILED = [
       en: "Application containerization for consistent development and deployment environments"
     },
   },
+  // {
+  //   name: "Vercel",
+  //   pct: 60,
+  //   color: "#000000",
+  //   icon: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/vercel-icon.svg",
+  //   desc: {
+  //     id: "Platform cloud untuk hosting dan deployment aplikasi web frontend secara instan",
+  //     en: "Cloud platform for hosting and instantly deploying frontend web applications"
+  //   },
+  // },
+  // {
+  //   name: "Streamlit",
+  //   pct: 70,
+  //   color: "#ff4b4b",
+  //   icon: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/streamlit.svg",
+  //   desc: {
+  //     id: "Pembuatan aplikasi web interaktif untuk machine learning dan data science dengan cepat",
+  //     en: "Rapid creation of interactive web applications for machine learning and data science"
+  //   },
+  // },
 ];
 
 
@@ -793,4 +813,168 @@ export const TECH_ICONS = {
   "Matplotlib": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/matplotlib.svg",
   "Gemini API": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/google-gemini.svg"
 };
+
+export const EDUCATION = [
+  {
+    institution: "Institut Teknologi Sumatera (ITERA)",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Logo_ITERA.png",
+    degree: {
+      id: "S1 Teknik Informatika",
+      en: "B.S. Informatics Engineering"
+    },
+    period: "2023 - 2027",
+    grade: "Grade: 3.44",
+    desc: {
+      id: "Mahasiswa S1 program studi Teknik Informatika.",
+      en: "Undergraduate Student in Informatics Engineering."
+    }
+  },
+  {
+    institution: "MA Negeri 2 Bandar Lampung",
+    logo: "/Gambar/man2.png",
+    degree: {
+      id: "Matematika dan Ilmu Pengetahuan Alam (MIPA)",
+      en: "Mathematics and Natural Sciences"
+    },
+    period: "Jul 2020 - Mei 2022",
+    grade: "",
+    desc: {
+      id: "Pendidikan Menengah Atas.",
+      en: "High School Education."
+    }
+  }
+];
+
+export const EXPERIENCE = [
+  {
+    type: "single",
+    company: "Coding Camp powered by DBS Foundation",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/DBS_Bank_logo.svg/320px-DBS_Bank_logo.svg.png",
+    role: {
+      id: "Data Scientist Cohort",
+      en: "Data Scientist Cohort"
+    },
+    employmentType: {
+      id: "Paruh Waktu",
+      en: "Part-time"
+    },
+    period: {
+      id: "Feb 2026 - Sekarang · 5 bln",
+      en: "Feb 2026 - Present · 5 mos"
+    },
+    location: {
+      id: "Daring",
+      en: "Remote"
+    },
+    bullets: [
+      {
+        id: "Terpilih sebagai salah satu dari 3.000 penerima beasiswa dari puluhan ribu pendaftar di seluruh Indonesia untuk program intensif Data Science oleh DBS Foundation x Dicoding.",
+        en: "Selected as 1 of 3000 scholars out of tens of thousands of applicants nationwide for an intensive Data Science program by DBS Foundation x Dicoding."
+      },
+      {
+        id: "Menyelesaikan alur belajar terstruktur dan proyek praktis yang berfokus pada masalah data dunia nyata.",
+        en: "Completing structured learning paths and hands-on projects focused on real-world data problems."
+      }
+    ]
+  },
+  {
+    type: "grouped",
+    company: "Institut Teknologi Sumatera",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Logo_ITERA.png",
+    employmentType: {
+      id: "Paruh Waktu",
+      en: "Part-time"
+    },
+    location: {
+      id: "Kabupaten Lampung Selatan, Lampung, Indonesia · Luring",
+      en: "South Lampung Regency, Lampung, Indonesia · On-site"
+    },
+    roles: [
+      {
+        role: {
+          id: "Asisten Praktikum Teknologi Digital Dasar",
+          en: "Basic Digital Technology Practicum Assistant"
+        },
+        period: {
+          id: "Sep 2025 - Des 2025 · 4 bln",
+          en: "Sep 2025 - Dec 2025 · 4 mos"
+        },
+        bullets: [
+          {
+            id: "Membimbing 70+ mahasiswa dalam literasi digital, keamanan data, dan topik etika AI.",
+            en: "Guided 70+ students in digital literacy, data security, and AI ethics topics."
+          },
+          {
+            id: "Membekali mahasiswa dengan keterampilan kolaborasi praktis menggunakan Google Workspace (Sheets, Docs, dan Apps Script) untuk otomasi alur kerja.",
+            en: "Equipped students with practical collaboration skills using Google Workspace tools including Google Sheets, Google Docs, and Google Apps Script for real-world workflow automation."
+          },
+          {
+            id: "Memfasilitasi sesi langsung tentang teknik prompt AI yang efektif.",
+            en: "Facilitated hands-on sessions on effective AI prompting techniques."
+          }
+        ]
+      },
+      {
+        role: {
+          id: "Asisten Praktikum Pengantar Komputer & Software II",
+          en: "Introduction to Computer and Software Lab Assistant II"
+        },
+        period: {
+          id: "Feb 2025 - Mei 2025 · 4 bln",
+          en: "Feb 2025 - May 2025 · 4 mos"
+        },
+        bullets: [
+          {
+            id: "Membantu 70+ mahasiswa menguasai pemrograman C++ dasar, mencakup percabangan, perulangan, nested loops, array, dan operasi matriks.",
+            en: "Assisted 70+ students in mastering fundamental C++ programming, covering branching, loops, nested loops, arrays, and matrix operations."
+          },
+          {
+            id: "Merancang dan mengevaluasi tugas mingguan serta kuis untuk melacak pemahaman dan kemajuan belajar mahasiswa.",
+            en: "Designed and evaluated weekly assignments and quizzes to track student understanding and learning progress throughout the semester."
+          }
+        ]
+      },
+      {
+        role: {
+          id: "Asisten Praktikum Pengantar Komputer & Software I",
+          en: "Introduction to Computer and Software Lab Assistant I"
+        },
+        period: {
+          id: "Sep 2024 - Des 2024 · 4 bln",
+          en: "Sep 2024 - Dec 2024 · 4 mos"
+        },
+        bullets: [
+          {
+            id: "Membimbing 70+ mahasiswa dalam topik dasar ilmu komputer, termasuk sejarah komputer, Microsoft Excel, Word, dan dasar-dasar VBA Macro.",
+            en: "Guided 70+ students through foundational computer science topics including computer history, Microsoft Excel, Word, and VBA Macro basics."
+          },
+          {
+            id: "Bertanggung jawab atas sesi praktikum mingguan selama 100 menit, pembuatan tugas, pelaksanaan kuis, dan evaluasi nilai.",
+            en: "Responsible for weekly 100-minute sessions, assignment creation, quiz administration, and grade evaluation."
+          }
+        ]
+      },
+      {
+        role: {
+          id: "Asisten Tutorial Matematika",
+          en: "Mathematics Teaching Assistant"
+        },
+        period: {
+          id: "Sep 2024 - Des 2024 · 4 bln",
+          en: "Sep 2024 - Dec 2024 · 4 mos"
+        },
+        bullets: [
+          {
+            id: "Membimbing 60+ mahasiswa tahun pertama dalam matematika dasar melalui sesi tutorial mingguan terstruktur selama 100 menit.",
+            en: "Mentored 60+ first-year students in foundational mathematics through structured weekly 100-minute sessions."
+          },
+          {
+            id: "Mendukung keberhasilan mahasiswa dengan mengelola kuis, penilaian tugas, dan memantau kemajuan belajar individu.",
+            en: "Supported student success by managing quizzes, grading, and monitoring individual learning progress across the semester."
+          }
+        ]
+      }
+    ]
+  }
+];
 
