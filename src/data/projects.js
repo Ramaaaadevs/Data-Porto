@@ -6,16 +6,20 @@ export const PROJECTS = [
     id: 1,
     title: "FaceFit Barber",
     category: "machine-learning",
-    categoryLabel: "Machine Learning",
+    categoryLabel: {
+      id: "Sains Data & ML",
+      en: "Data Science & ML"
+    },
     tags: ["Python", "MediaPipe", "Streamlit", "OpenCV"],
     shortDesc: {
       id: "Pipeline deteksi bentuk wajah untuk rekomendasi gaya rambut.",
       en: "Face shape detection pipeline for hairstyle recommendation."
     },
     fullDesc: {
-      id: "Dibangun sebagai bagian dari DBS Foundation Coding Camp 2026 (Tim CC26-PSU304). Menggunakan MediaPipe FaceMesh dengan ambang rasio geometris untuk mengklasifikasikan 5 bentuk wajah. Dataset akhir yang seimbang terdiri dari 5.820 gambar dengan Imbalance Ratio (IR) terkendali sebesar 1.45×.",
-      en: "Built as part of DBS Foundation Coding Camp 2026 (Team CC26-PSU304). Uses MediaPipe FaceMesh with geometric ratio thresholds to classify 5 face shapes. Final balanced dataset of 5,820 images with IR 1.45×."
+      id: "Mengembangkan pipeline deteksi bentuk wajah menggunakan MediaPipe FaceMesh untuk merekomendasikan gaya rambut secara otomatis dan objektif berdasarkan rasio geometris wajah. Berhasil mengumpulkan, membersihkan, dan menyeimbangkan dataset sebanyak 5.820 gambar menggunakan teknik augmentasi data dengan Imbalance Ratio (IR) terkendali sebesar 1.45×. Dikerjakan dalam rangka program DBS Foundation Coding Camp 2026.",
+      en: "Developed a face shape detection pipeline using MediaPipe FaceMesh to automatically and objectively recommend hairstyles based on facial geometric ratios. Successfully gathered, cleaned, and balanced a dataset of 5,820 images using data augmentation with a controlled Imbalance Ratio (IR) of 1.45×. Completed for the DBS Foundation Coding Camp 2026 program."
     },
+    thumbnail: "/Gambar/facefit_thumbnail.png",
     problem: {
       id: "Menentukan gaya rambut yang cocok seringkali didasarkan pada intuisi subjektif, bukan analisis geometris wajah yang akurat. Hal ini menyebabkan ketidakcocokan gaya bagi pelanggan.",
       en: "Choosing a matching hairstyle is often based on subjective intuition rather than accurate facial geometric analysis, leading to styling mismatches for customers."
@@ -38,6 +42,9 @@ export const PROJECTS = [
     icon: "fa-id-badge",
     color: "#6558f5",
     colorLight: "rgba(101,88,245,0.10)",
+    role: { id: "Pengembang Machine Learning (Ketua Tim)", en: "Machine Learning Developer (Team Lead)" },
+    date: "Feb 2026 - Mar 2026",
+    context: { id: "Proyek Bootcamp (Dicoding x DBS)", en: "Bootcamp Project (Dicoding x DBS)" },
   },
   {
     id: 2,
@@ -53,16 +60,17 @@ export const PROJECTS = [
       en: "Interactive dashboard analyzing Beijing air quality across 12 stations."
     },
     fullDesc: {
-      id: "Menganalisis data kualitas udara Beijing dari 12 stasiun pemantauan. Menampilkan tren deret waktu (time-series), heatmap polutan, dan perbandingan antar stasiun. Dideploy di Streamlit Cloud.",
-      en: "Analyzes Beijing air quality data from 12 monitoring stations. Features time-series trends, pollutant heatmaps, and station comparisons. Deployed to Streamlit Cloud."
+      id: "Menganalisis data historis kualitas udara di Beijing yang mencakup 12 stasiun pemantauan terpisah. Melakukan pembersihan data kotor (handling missing values, outliers) dan pengelompokan data polutan utama (PM2.5, PM10, SO2, NO2, CO, O3) menggunakan Pandas. Membangun dashboard analitik interaktif berbasis web menggunakan Streamlit Cloud untuk mempermudah pemantauan kualitas udara secara spasial.",
+      en: "Analyzed historical air quality data in Beijing across 12 separate monitoring stations. Handled dirty data cleaning (missing values, outliers) and grouping of main pollutants (PM2.5, PM10, SO2, NO2, CO, O3) using Pandas. Built an interactive web-based analytics dashboard using Streamlit Cloud to facilitate spatial air quality monitoring."
     },
+    thumbnail: "/Gambar/air_quality_thumbnail.png",
     problem: {
       id: "Data kualitas udara perkotaan sangat besar dan kompleks (terdiri dari 6 polutan utama di 12 stasiun pemantauan). Tanpa visualisasi yang baik, pola spasial dan tren polusi sulit dipahami oleh publik.",
       en: "Urban air quality data is large and complex (composed of 6 main pollutants across 12 monitoring stations). Without proper visualization, spatial patterns and pollution trends are difficult for the public to understand."
     },
     methodology: {
       id: "Melakukan analisis data eksploratif (EDA) pada dataset historis polusi Beijing. Menggunakan Pandas untuk agregasi data dan membangun dashboard interaktif dengan Streamlit untuk visualisasi heatmap polutan.",
-      en: "Performed exploratory data analysis (EDA) on Beijing historical pollution dataset. Used Pandas for data aggregation and built an interactive dashboard with Streamlit for pollutant heatmap visualization."
+      en: "Performed exploratory data analysis (EDA) on Beijing historical dataset. Used Pandas for data aggregation and built an interactive dashboard with Streamlit for pollutant heatmap visualization."
     },
     impact: {
       id: "Dashboard berhasil dideploy secara publik, memungkinkan perbandingan polutan antar stasiun secara instan dan membantu melacak efektivitas kebijakan pengendalian emisi kota.",
@@ -78,6 +86,9 @@ export const PROJECTS = [
     icon: "fa-cloud",
     color: "#4a7cf7",
     colorLight: "rgba(74,124,247,0.10)",
+    role: { id: "Analis Data", en: "Data Analyst" },
+    date: "Okt 2025 - Nov 2025",
+    context: { id: "Tugas Bootcamp (Dicoding x DBS)", en: "Bootcamp Assignment (Dicoding x DBS)" },
   },
   {
     id: 3,
@@ -93,9 +104,10 @@ export const PROJECTS = [
       en: "Multi-tool visualization of 2024 UK traffic accident patterns."
     },
     fullDesc: {
-      id: "Proyek akhir mata kuliah Visualisasi Data dan Informasi di ITERA. Menganalisis data kecelakaan lalu lintas Inggris Raya tahun 2024 menggunakan Tableau, Power BI, dan Kepler.gl untuk pemetaan spasial.",
-      en: "Final project for Visualisasi Data and Informasi at ITERA. Analyzes 2024 UK road accident data using Tableau, Power BI, and Kepler.gl for geospatial mapping."
+      id: "Membangun visualisasi data interaktif terintegrasi untuk menganalisis kecelakaan lalu lintas di Inggris Raya tahun 2024. Memanfaatkan Tableau Public untuk dashboard performa, Power BI untuk memetakan keparahan kecelakaan lalu lintas (severity analysis), serta Kepler.gl untuk melakukan pemetaan geospatial 3D pola persebaran rawan kecelakaan (hotspots). Dikerjakan sebagai proyek akhir mata kuliah Visualisasi Data di ITERA.",
+      en: "Built integrated interactive data visualizations to analyze traffic accidents in the United Kingdom in 2024. Utilized Tableau Public for performance dashboards, Power BI for mapping road accident severity (severity analysis), and Kepler.gl for 3D geospatial mapping of accident hotspot distributions. Done as a final project for the Data Visualization course at ITERA."
     },
+    thumbnail: "/Gambar/uk_accident_thumbnail.png",
     problem: {
       id: "Pola kecelakaan lalu lintas di Inggris Raya memiliki faktor risiko spasial dan temporal tersembunyi yang sulit diidentifikasi dari data tabel mentah kepolisian.",
       en: "UK traffic accident patterns have hidden spatial and temporal risk factors that are difficult to identify from raw police tabular data."
@@ -118,50 +130,274 @@ export const PROJECTS = [
     icon: "fa-map-marked-alt",
     color: "#f5a623",
     colorLight: "rgba(245,166,35,0.10)",
+    role: { id: "Spesialis Visualisasi Data", en: "Data Visualization Specialist" },
+    date: "Mei 2024 - Jun 2024",
+    context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
   },
-  // ============================================================
-  // TEMPLATE PROYEK BARU:
-  // Untuk menambah proyek baru, hilangkan tanda komen (//) di bawah ini:
-  // {
-  //   id: 4,
-  //   title: "Nama Project",
-  //   category: "analysis", // analysis | visualization | machine-learning | web
-  //   categoryLabel: {
-  //     id: "Nama Kategori (ID)",
-  //     en: "Category Name (EN)"
-  //   },
-  //   tags: ["Tag1", "Tag2"],
-  //   shortDesc: {
-  //     id: "Deskripsi singkat (ID).",
-  //     en: "Short description (EN)."
-  //   },
-  //   fullDesc: {
-  //     id: "Deskripsi panjang untuk modal (ID).",
-  //     en: "Detailed description for modal (EN)."
-  //   },
-  //   thumbnail: "/Gambar/nama_thumbnail.png",
-  //   problem: {
-  //     id: "Tantangan/Masalah (ID)...",
-  //     en: "Challenge/Problem (EN)..."
-  //   },
-  //   methodology: {
-  //     id: "Metodologi (ID)...",
-  //     en: "Methodology (EN)..."
-  //   },
-  //   impact: {
-  //     id: "Dampak (ID)...",
-  //     en: "Impact (EN)..."
-  //   },
-  //   metrics: [
-  //     { label: { id: "Label (ID)", en: "Label (EN)" }, value: "Value" },
-  //   ],
-  //   github: "https://github.com/...",
-  //   demo: null,
-  //   icon: "fa-chart-bar",
-  //   color: "#hexcolor",
-  //   colorLight: "rgba(r,g,b,0.10)",
-  // },
-  // ============================================================
+  {
+    id: 4,
+    title: "60KUIZ",
+    category: "web-dev",
+    categoryLabel: {
+      id: "Pengembangan Web",
+      en: "Web Development"
+    },
+    tags: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    shortDesc: {
+      id: "Aplikasi kuis dan materi pembelajaran interaktif berbasis web untuk siswa Sekolah Dasar.",
+      en: "Interactive quiz and educational material web application designed for primary school students."
+    },
+    fullDesc: {
+      id: "Platform pembelajaran interaktif berbasis web yang dikembangkan menggunakan Next.js dan Tailwind CSS untuk SDN 39 Tulang Bawang Tengah. Menyediakan modul kuis interaktif, materi edukasi multimedia, dan dashboard sederhana untuk memantau pemahaman belajar siswa secara menyenangkan.",
+      en: "An interactive web-based learning platform developed using Next.js and Tailwind CSS for SDN 39 Tulang Bawang Tengah. It features interactive quiz modules, multimedia educational content, and a simple dashboard to monitor student learning progress in a fun way."
+    },
+    thumbnail: "/Gambar/60kuiz_thumbnail.png",
+    problem: {
+      id: "Metode pembelajaran konvensional di tingkat Sekolah Dasar seringkali kurang menarik bagi siswa digital native, sehingga menurunkan tingkat keterlibatan dan pemahaman materi dasar.",
+      en: "Conventional teaching methods at the primary school level are often less engaging for digital native students, leading to lower engagement and retention of basic concepts."
+    },
+    methodology: {
+      id: "Menggunakan Next.js untuk static site generation (SSG) demi performa cepat, dibalut desain visual ramah anak menggunakan Tailwind CSS. Komponen kuis interaktif dibangun menggunakan React state management untuk feedback real-time saat menjawab soal.",
+      en: "Utilized Next.js for static site generation (SSG) to ensure fast load times, wrapped in a child-friendly visual interface using Tailwind CSS. Interactive quiz components were built using React state management to provide real-time feedback."
+    },
+    impact: {
+      id: "Meningkatkan partisipasi belajar siswa kelas dasar, mendigitalisasi materi ajar sekolah secara ramah anak, dan mempermudah guru dalam memberikan evaluasi harian secara otomatis.",
+      en: "Increased class participation among primary students, digitized school teaching materials in a child-friendly format, and simplified automated daily evaluations for teachers."
+    },
+    metrics: [
+      { label: { id: "Teknologi", en: "Technology" }, value: "Next.js" },
+      { label: { id: "Target", en: "Target Users" }, value: "SDN 39 TBT" },
+      { label: { id: "Umpan Balik", en: "Feedback" }, value: "Real-time" },
+    ],
+    github: "https://github.com/Ramaaaadevs/Website-Edukasi-SDN39TBT",
+    demo: "https://60kuiz.web.id/",
+    icon: "fa-graduation-cap",
+    color: "#2ec4b6",
+    colorLight: "rgba(46,196,182,0.10)",
+    role: { id: "Pengembang Web Fullstack", en: "Fullstack Web Developer" },
+    date: "Nov 2024 - Des 2024",
+    context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+  },
+  {
+    id: 5,
+    title: "GOR Nusantara",
+    category: "web-dev",
+    categoryLabel: {
+      id: "Pengembangan Web",
+      en: "Web Development"
+    },
+    tags: ["Laravel", "Laravel Reverb", "Vanilla JS", "MySQL", "Tailwind CSS"],
+    shortDesc: {
+      id: "Sistem reservasi gelanggang olahraga real-time berbasis WebSocket untuk mencegah pemesanan ganda.",
+      en: "Real-time sports venue reservation system utilizing WebSockets to prevent double-booking."
+    },
+    fullDesc: {
+      id: "Aplikasi pemesanan lapangan olahraga (GOR) terintegrasi menggunakan Laravel dan WebSocket (Laravel Reverb + Echo) pada frontend Vanilla JS. Memungkinkan pengguna memeriksa ketersediaan jadwal dan melakukan pemesanan secara instan, serta menyinkronkan status slot lapangan secara langsung ke semua pengguna aktif.",
+      en: "An integrated sports court booking system powered by Laravel and WebSockets (Laravel Reverb + Echo) on a Vanilla JS frontend. It enables users to check schedule availability and book courts instantly, broadcasting slot updates in real-time to prevent overlapping bookings."
+    },
+    thumbnail: "/Gambar/gor_nusantara_thumbnail.png",
+    problem: {
+      id: "Sistem pemesanan lapangan manual sering menyebabkan tabrakan jadwal (double-booking) karena keterlambatan sinkronisasi data antar pengguna.",
+      en: "Manual court reservation systems frequently lead to double-booking conflicts due to delayed data synchronization between users."
+    },
+    methodology: {
+      id: "Membangun REST API backend dengan Laravel dan database MySQL. Integrasi real-time diimplementasikan menggunakan protokol WebSocket via Laravel Reverb dan Echo client. Kalender reservasi interaktif dibuat dengan Vanilla JS.",
+      en: "Developed a robust REST API backend with Laravel and MySQL. Real-time synchronization was implemented using WebSocket protocol via Laravel Reverb and Echo client, with an interactive reservation calendar built in Vanilla JS."
+    },
+    impact: {
+      id: "Mencegah tabrakan jadwal hingga 100%, mempercepat proses reservasi lapangan olahraga, dan mengeliminasi proses konfirmasi manual yang tidak efisien.",
+      en: "Eliminated booking conflicts completely (100% reduction), speeded up court reservation processing times, and removed inefficient manual validation workflows."
+    },
+    metrics: [
+      { label: { id: "Sinkronisasi", en: "Sync Type" }, value: "WebSockets" },
+      { label: { id: "Backend", en: "Backend" }, value: "Laravel 13" },
+      { label: { id: "Pencegahan", en: "Prevention" }, value: "100%" },
+    ],
+    github: "https://github.com/Ramaaaadevs/gor-nusantara",
+    demo: "https://ramaaaadevs.github.io/gor-nusantara/",
+    icon: "fa-futbol",
+    color: "#ff9f1c",
+    colorLight: "rgba(255,159,28,0.10)",
+    role: { id: "Pengembang Web Fullstack", en: "Fullstack Web Developer" },
+    date: "Jan 2025 - Feb 2025",
+    context: { id: "Proyek Mandiri", en: "Self Project" },
+  },
+  {
+    id: 6,
+    title: "LibSearch",
+    category: "web-dev",
+    categoryLabel: {
+      id: "Pengembangan Web",
+      en: "Web Development"
+    },
+    tags: ["HTML", "CSS", "JavaScript", "Open Library API"],
+    shortDesc: {
+      id: "Aplikasi pencarian katalog buku interaktif yang terintegrasi dengan Open Library API.",
+      en: "Interactive book catalog search application integrated with the Open Library API."
+    },
+    fullDesc: {
+      id: "Aplikasi berbasis web client-side untuk menjelajahi jutaan judul buku secara gratis. Menggunakan Vanilla JS untuk melakukan fetch data asinkronus ke Open Library API, dilengkapi fitur pencarian dinamis, filter subjek, dan kartu detail informasi buku.",
+      en: "A client-side web application designed to browse millions of books. Built with Vanilla JS to perform asynchronous API requests to the Open Library API, featuring dynamic searches, subject filters, and detailed book cards."
+    },
+    thumbnail: "/Gambar/libsearch_thumbnail.png",
+    problem: {
+      id: "Mencari buku referensi akademik atau umum secara cepat di antara database perpustakaan yang besar seringkali rumit dan lambat tanpa antarmuka pencarian yang efisien.",
+      en: "Finding academic or general reference books quickly across massive catalogs is often complicated and slow without an efficient search client."
+    },
+    methodology: {
+      id: "Mengimplementasikan HTML5 semantik dan vanilla CSS modern untuk UI responsif. Logika pencarian dibuat menggunakan JavaScript ES6 Async/Await fetch untuk mengakses Open Library endpoint secara dinamis.",
+      en: "Implemented semantic HTML5 and modern CSS for a responsive layout. The search and filter logic was built using ES6 JavaScript Async/Await fetch to query the Open Library API endpoints."
+    },
+    impact: {
+      id: "Menyediakan portal pencarian pustaka yang ringan, responsif, dan mudah diakses tanpa memerlukan login atau resource server backend tambahan.",
+      en: "Provided a lightweight, highly responsive, and accessible book catalog viewer without requiring login flows or backend server resources."
+    },
+    metrics: [
+      { label: { id: "Integrasi", en: "Integration" }, value: "REST API" },
+      { label: { id: "Responsif", en: "Responsive" }, value: "Yes" },
+      { label: { id: "Katalog", en: "Catalog Size" }, value: "Millions" },
+    ],
+    github: "https://github.com/Ramaaaadevs/uts-pemweb-123140116",
+    demo: "https://libsearch-pencarianbuku.vercel.app/",
+    icon: "fa-book",
+    color: "#118ab2",
+    colorLight: "rgba(17,138,178,0.10)",
+    role: { id: "Pengembang Frontend", en: "Frontend Developer" },
+    date: "Okt 2024 - Nov 2024",
+    context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+  },
+  {
+    id: 7,
+    title: "TripMate",
+    category: "mobile-game",
+    categoryLabel: {
+      id: "Mobile & Game",
+      en: "Mobile & Games"
+    },
+    tags: ["Kotlin Multiplatform", "Compose Multiplatform", "Gemini API", "Ktor", "SQLDelight"],
+    shortDesc: {
+      id: "Aplikasi travel planner lintas platform Android & iOS dengan asisten rencana perjalanan berbasis AI.",
+      en: "Cross-platform Android & iOS travel planning app with an AI-powered itinerary generator."
+    },
+    fullDesc: {
+      id: "TripMate adalah aplikasi perencana perjalanan lintas platform yang dibangun menggunakan Kotlin Multiplatform (KMP) dan Compose Multiplatform. Mengintegrasikan Gemini API untuk menyusun itinerary otomatis berdasarkan minat, Ktor client untuk konsumsi API eksternal, dan SQLDelight untuk penyimpanan pengeluaran serta catatan perjalanan secara offline.",
+      en: "TripMate is a cross-platform travel companion app built using Kotlin Multiplatform (KMP) and Compose Multiplatform. It integrates the Gemini API to generate custom itineraries based on user preferences, Ktor client for networking, and SQLDelight for offline database tracking of travel expenses and logs."
+    },
+    thumbnail: "/Gambar/tripmate_thumbnail.png",
+    problem: {
+      id: "Merencanakan liburan membutuhkan riset destinasi yang melelahkan, sementara mencatat pengeluaran di tengah perjalanan secara manual seringkali tercecer.",
+      en: "Planning a trip requires tedious destination research, while manually tracking travel expenses on-the-go is highly prone to data loss and disorganization."
+    },
+    methodology: {
+      id: "Menggunakan arsitektur KMP untuk berbagi logika (sharing business logic) antara Android dan iOS. Compose Multiplatform digunakan untuk UI deklaratif yang seragam. Gemini API digunakan sebagai AI Itinerary Planner, dan SQLDelight untuk local caching database.",
+      en: "Used Kotlin Multiplatform framework to share core business logic between Android and iOS. Implemented declarative UI via Compose Multiplatform, AI itinerary planning via Gemini API, and local storage via SQLDelight."
+    },
+    impact: {
+      id: "Mempercepat pembuatan itinerary perjalanan dari hitungan jam menjadi hitungan detik dengan AI, serta memfasilitasi pencatatan keuangan perjalanan secara offline yang andal.",
+      en: "Reduced itinerary planning times from hours to seconds using AI, while providing a reliable offline tracker for travel finance management."
+    },
+    metrics: [
+      { label: { id: "Platform", en: "Platforms" }, value: "Android/iOS" },
+      { label: { id: "AI Generator", en: "AI Engine" }, value: "Gemini API" },
+      { label: { id: "Penyimpanan", en: "Offline Sync" }, value: "SQLDelight" },
+    ],
+    github: "https://github.com/Ramaaaadevs/Proyek-Pengembangan-Aplikasi-Mobile",
+    demo: null,
+    icon: "fa-route",
+    color: "#ef476f",
+    colorLight: "rgba(239,71,111,0.10)",
+    role: { id: "Pengembang Mobile", en: "Mobile Developer" },
+    date: "Mar 2025 - Mei 2025",
+    context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+  },
+  {
+    id: 8,
+    title: "BotVoid",
+    category: "mobile-game",
+    categoryLabel: {
+      id: "Mobile & Game",
+      en: "Mobile & Games"
+    },
+    tags: ["Python", "Greedy Algorithm", "Docker", "Node.js"],
+    shortDesc: {
+      id: "Game bot berbasis algoritma Greedy Time-Weighted untuk memenangkan kompetisi Etimo Diamonds.",
+      en: "Time-Weighted Greedy algorithm bot designed to dominate the Etimo Diamonds game."
+    },
+    fullDesc: {
+      id: "Mengembangkan bot AI otonom untuk game Etimo Diamonds menggunakan algoritma Greedy dengan pembobotan waktu (time-weighted). Bot mengevaluasi skor diamond, jarak kisi, portal, dan batas waktu kembali ke pangkalan untuk memaksimalkan perolehan diamond secara dinamis.",
+      en: "Developed an autonomous AI bot for the Etimo Diamonds competition. Powered by a custom Time-Weighted Greedy algorithm, the bot dynamically evaluates diamond scores, grid distances, portals, and safe return-to-base timing to maximize points."
+    },
+    thumbnail: "/Gambar/botvoid_thumbnail.png",
+    problem: {
+      id: "Algoritma Greedy sederhana hanya mengejar objek terdekat secara buta (short-sighted), yang berakibat pada kekalahan dari musuh karena mengabaikan diamond berharga tinggi di kejauhan atau kehabisan waktu di jalan.",
+      en: "Simple greedy bots blindly target the nearest diamonds (short-sighted), losing out on high-value clusters or failing to return to base before rounds expire."
+    },
+    methodology: {
+      id: "Merancang fungsi objektif time-weighted: di awal game, bot memprioritaskan nilai diamond tinggi; menjelang akhir game, bot memprioritaskan jarak terdekat. Mengintegrasikan pencarian rute portal dan kalkulator waktu pulang ke base yang aman.",
+      en: "Designed a time-weighted utility function: targeting high-value diamonds early in the match and prioritizing proximity near the end. Integrated portal path-finding and a safety margin calculator for base returns."
+    },
+    impact: {
+      id: "Bot berhasil mengungguli bot greedy standar dengan efisiensi pengumpulan poin yang lebih tinggi dan tingkat kegagalan simpan (diamond hangus) sebesar 0%.",
+      en: "The bot outperformed standard greedy bots, achieving higher collection efficiency and a 0% point loss (burnt diamonds) rate."
+    },
+    metrics: [
+      { label: { id: "Algoritma", en: "Algorithm" }, value: "Greedy TW" },
+      { label: { id: "Kehilangan", en: "Point Loss" }, value: "0%" },
+      { label: { id: "Bahasa", en: "Language" }, value: "Python 3" },
+    ],
+    github: "https://github.com/Ramaaaadevs/Tubes1_Void",
+    demo: null,
+    icon: "fa-robot",
+    color: "#06d6a0",
+    colorLight: "rgba(6,214,160,0.10)",
+    role: { id: "Pengembang Game & AI", en: "Game & AI Developer" },
+    date: "Sep 2024 - Okt 2024",
+    context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+  },
+  {
+    id: 9,
+    title: "MathSprint",
+    category: "mobile-game",
+    categoryLabel: {
+      id: "Mobile & Game",
+      en: "Mobile & Games"
+    },
+    tags: ["Python", "Pygame", "JSON"],
+    shortDesc: {
+      id: "Game edukasi aritmetika cepat berfitur Time Attack dengan penyimpanan skor tertinggi lokal.",
+      en: "Educational arithmetic speed game featuring Time Attack and local high score tracking."
+    },
+    fullDesc: {
+      id: "Game edukasi matematika berbasis desktop yang dikembangkan dengan pustaka Pygame. Melatih kecepatan berhitung dengan operasi aritmetika dasar (tambah, kurang, kali, bagi) dalam batasan waktu tertentu, dilengkapi dengan feedback audio-visual yang kaya dan papan skor lokal.",
+      en: "A desktop educational mathematics game built using Pygame. It trains user calculation speed on basic arithmetic operations under strict time constraints, featuring rich audio-visual feedback and local high-score persistence."
+    },
+    thumbnail: "/Gambar/mathsprint_thumbnail.png",
+    problem: {
+      id: "Metode latihan matematika tradisional seringkali membosankan bagi anak-anak dan kurang menantang untuk mengukur peningkatan kecepatan reaksi berhitung secara objektif.",
+      en: "Traditional math practice can be monotonous, lacking the interactive urgency needed to measure and improve mental calculation speed."
+    },
+    methodology: {
+      id: "Membangun game loop Pygame dengan render font kustom. Menghasilkan soal matematika secara acak sesuai dengan 3 tingkat kesulitan (Easy, Medium, Hard). Hasil permainan disimpan secara lokal dalam file JSON.",
+      en: "Built a Pygame event loop with custom font rendering. Programmed dynamic math question generators tailored to 3 difficulty settings, and integrated a local JSON high-score tracker."
+    },
+    impact: {
+      id: "Menciptakan media belajar aritmetika yang interaktif dan menyenangkan untuk siswa SD, merangsang jiwa kompetitif mereka melalui fitur Time Attack dan High Score.",
+      en: "Created an interactive and engaging tool for primary school students, encouraging repetitive practice through high-score incentives and Time Attack constraints."
+    },
+    metrics: [
+      { label: { id: "Pustaka", en: "Library" }, value: "Pygame" },
+      { label: { id: "Tingkat", en: "Difficulties" }, value: "3 Modes" },
+      { label: { id: "Skor", en: "Score Save" }, value: "JSON Local" },
+    ],
+    github: "https://github.com/Ramaaaadevs/MathSprint",
+    demo: null,
+    icon: "fa-calculator",
+    color: "#833ab4",
+    colorLight: "rgba(131,58,180,0.10)",
+    role: { id: "Pengembang Game", en: "Game Developer" },
+    date: "Jul 2024 - Agu 2024",
+    context: { id: "Proyek Mandiri", en: "Self Project" },
+  },
 ];
 
 export const CATEGORIES = [
@@ -169,6 +405,8 @@ export const CATEGORIES = [
   { value: "analysis", label: { id: "Analisis", en: "Analysis" } },
   { value: "visualization", label: { id: "Visualisasi", en: "Visualization" } },
   { value: "machine-learning", label: { id: "Sains Data & ML", en: "Data Science & ML" } },
+  { value: "web-dev", label: { id: "Pengembangan Web", en: "Web Development" } },
+  { value: "mobile-game", label: { id: "Mobile & Game", en: "Mobile & Games" } },
 ];
 
 // ============================================================
@@ -204,6 +442,51 @@ export const VIZ_SOURCES = [
       en: "UK Road Accident 2024 · Tableau Public"
     },
     icon: "fa-map-marked-alt",
+  },
+  {
+    id: "60kuiz-web",
+    label: "60KUIZ — Website Edukasi",
+    src: "https://60kuiz.web.id/",
+    link: "https://60kuiz.web.id/",
+    fallbackText: {
+      id: "Memuat website 60KUIZ...",
+      en: "Loading 60KUIZ website..."
+    },
+    fallbackSub: {
+      id: "Platform kuis & materi pembelajaran interaktif SDN 39 TBT",
+      en: "Interactive quiz & learning platform for SDN 39 TBT"
+    },
+    icon: "fa-graduation-cap",
+  },
+  {
+    id: "gor-nusantara-web",
+    label: "GOR Nusantara — Reservasi Lapangan",
+    src: "https://ramaaaadevs.github.io/gor-nusantara/",
+    link: "https://ramaaaadevs.github.io/gor-nusantara/",
+    fallbackText: {
+      id: "Memuat website GOR Nusantara...",
+      en: "Loading GOR Nusantara website..."
+    },
+    fallbackSub: {
+      id: "Sistem reservasi gelanggang olahraga real-time",
+      en: "Real-time sports venue reservation system"
+    },
+    icon: "fa-futbol",
+  },
+  {
+    id: "libsearch-web",
+    label: "LibSearch — Katalog Buku",
+    src: "https://libsearch-pencarianbuku.vercel.app/",
+    link: "https://libsearch-pencarianbuku.vercel.app/",
+    fallbackText: {
+      id: "Memuat website LibSearch...",
+      en: "Loading LibSearch website..."
+    },
+    fallbackSub: {
+      id: "Aplikasi pencarian katalog buku dengan Open Library API",
+      en: "Book catalog search client powered by Open Library API"
+    },
+    icon: "fa-book",
   },
   // ============================================================
   // TEMPLATE DASHBOARD BARU:
@@ -411,84 +694,94 @@ export const SKILLS_DETAILED = [
       en: "Version Control, Collaborative Workflows, and Repository Management"
     },
   },
-  // ============================================================
-  // TEMPLATE SKILL BARU:
-  // Untuk menambah skill baru, hilangkan tanda komen (//) di bawah ini:
+  {
+    name: "React",
+    pct: 80,
+    color: "#61dafb",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    desc: {
+      id: "Pengembangan antarmuka pengguna SPA yang dinamis, reaktif, dan berbasis komponen",
+      en: "Development of dynamic, reactive, and component-based SPA user interfaces"
+    },
+  },
   // {
-  //   name: "Nama Skill",
-  //   pct: 85, 
-  //   color: "#hexcolor", 
-  //   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/nama_skill/nama_skill-original.svg", 
+  //   name: "Next.js",
+  //   pct: 60,
+  //   color: "#000000",
+  //   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
   //   desc: {
-  //     id: "Deskripsi singkat skill (ID)",
-  //     en: "Short skill description (EN)"
+  //     id: "Framework React untuk SSR, SSG, optimasi performa SEO, dan routing halaman otomatis",
+  //     en: "React framework for SSR, SSG, SEO performance optimization, and automatic routing"
   //   },
   // },
-  // ============================================================
+  // {
+  //   name: "Laravel",
+  //   pct: 60,
+  //   color: "#ff2d20",
+  //   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+  //   desc: {
+  //     id: "Penyusunan API backend, routing MVC, database ORM Eloquent, dan WebSocket real-time",
+  //     en: "Backend API orchestration, MVC routing, Eloquent database ORM, and real-time WebSockets"
+  //   },
+  // },
+  {
+    name: "Kotlin",
+    pct: 60,
+    color: "#7f52ff",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+    desc: {
+      id: "Bahasa pemrograman modern untuk pengembangan aplikasi mobile Android & iOS (KMP)",
+      en: "Modern programming language for cross-platform Android & iOS mobile apps (KMP)"
+    },
+  },
+  // {
+  //   name: "Tailwind CSS",
+  //   pct: 60,
+  //   color: "#38b2ac",
+  //   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  //   desc: {
+  //     id: "Pembuatan antarmuka responsif dengan pendekatan utility-first CSS yang cepat",
+  //     en: "Building responsive interfaces with a fast utility-first CSS approach"
+  //   },
+  // },
+  {
+    name: "Docker",
+    pct: 80,
+    color: "#2496ed",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    desc: {
+      id: "Kontainerisasi aplikasi untuk lingkungan pengembangan dan deploy yang konsisten",
+      en: "Application containerization for consistent development and deployment environments"
+    },
+  },
 ];
 
-// ============================================================
-// TIMELINE — Skills page riwayat proyek
-// ============================================================
-export const TIMELINE = [
-  {
-    title: "FaceFit Barber",
-    role: {
-      id: "Pengembang Machine Learning (Ketua Tim)",
-      en: "Machine Learning Developer (Team Lead)"
-    },
-    date: "Feb 2026 - Mar 2026",
-    desc: {
-      id: "Mengembangkan pipeline deteksi bentuk wajah menggunakan MediaPipe FaceMesh untuk merekomendasikan gaya rambut secara otomatis dan objektif berdasarkan rasio geometris wajah. Berhasil mengumpulkan, membersihkan, dan menyeimbangkan dataset sebanyak 5.820 gambar menggunakan teknik augmentasi data dengan Imbalance Ratio (IR) terkendali sebesar 1.45×. Dikerjakan dalam rangka program DBS Foundation Coding Camp 2026.",
-      en: "Developed a face shape detection pipeline using MediaPipe FaceMesh to automatically and objectively recommend hairstyles based on facial geometric ratios. Successfully gathered, cleaned, and balanced a dataset of 5,820 images using data augmentation with a controlled Imbalance Ratio (IR) of 1.45×. Completed for the DBS Foundation Coding Camp 2026 program."
-    },
-    tags: ["Python", "MediaPipe", "Streamlit", "OpenCV", "Machine Learning"],
-    dir: "left",
-  },
-  {
-    title: "Air Quality Beijing",
-    role: {
-      id: "Analis Data",
-      en: "Data Analyst"
-    },
-    date: "Okt 2025 - Nov 2025",
-    desc: {
-      id: "Menganalisis data historis kualitas udara di Beijing yang mencakup 12 stasiun pemantauan terpisah. Melakukan pembersihan data kotor (handling missing values, outliers) dan pengelompokan data polutan utama (PM2.5, PM10, SO2, NO2, CO, O3) menggunakan Pandas. Membangun dashboard analitik interaktif berbasis web menggunakan Streamlit Cloud untuk mempermudah pemantauan kualitas udara secara spasial.",
-      en: "Analyzed historical air quality data in Beijing across 12 separate monitoring stations. Handled dirty data cleaning (missing values, outliers) and grouping of main pollutants (PM2.5, PM10, SO2, NO2, CO, O3) using Pandas. Built an interactive web-based analytics dashboard using Streamlit Cloud to facilitate spatial air quality monitoring."
-    },
-    tags: ["Python", "Pandas", "Streamlit", "Matplotlib", "Data Analysis"],
-    dir: "right",
-  },
-  {
-    title: "UK Road Accident Viz",
-    role: {
-      id: "Spesialis Visualisasi Data",
-      en: "Data Visualization Specialist"
-    },
-    date: "Mei 2024 - Jun 2024",
-    desc: {
-      id: "Membangun visualisasi data interaktif terintegrasi untuk menganalisis kecelakaan lalu lintas di Inggris Raya tahun 2024. Memanfaatkan Tableau Public untuk dashboard performa, Power BI untuk memetakan keparahan kecelakaan lalu lintas (severity analysis), serta Kepler.gl untuk melakukan pemetaan geospatial 3D pola persebaran rawan kecelakaan (hotspots). Dikerjakan sebagai proyek akhir mata kuliah Visualisasi Data di ITERA.",
-      en: "Built integrated interactive data visualizations to analyze traffic accidents in the United Kingdom in 2024. Utilized Tableau Public for performance dashboards, Power BI for mapping road accident severity (severity analysis), and Kepler.gl for 3D geospatial mapping of accident hotspot distributions. Done as a final project for the Data Visualization course at ITERA."
-    },
-    tags: ["Tableau", "Power BI", "Kepler.gl", "Python", "Data Visualization"],
-    dir: "left",
-  },
-  // ============================================================
-  // TEMPLATE RIWAYAT PROYEK TIMELINE BARU:
-  // Untuk menambah riwayat baru di timeline, hilangkan tanda komen (//) di bawah ini:
-  // {
-  //   title: "Nama Proyek",
-  //   role: {
-  //     id: "Peran Anda (ID)",
-  //     en: "Your Role (EN)"
-  //   },
-  //   date: "Bulan Tahun - Bulan Tahun (e.g., Jan 2026 - Mar 2026)",
-  //   desc: {
-  //     id: "Deskripsi lengkap mengenai kontribusi dan lingkup pekerjaan Anda di proyek tersebut (ID).",
-  //     en: "Full description of your contribution and scope of work on this project (EN)."
-  //   },
-  //   tags: ["Tag1", "Tag2"],
-  //   dir: "left", // 'left' atau 'right'
-  // },
-  // ============================================================
-];
+
+
+
+export const TECH_ICONS = {
+  "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  "Tailwind CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  "Laravel": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+  "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  "HTML": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  "CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  "Vanilla JS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  "Kotlin": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+  "Kotlin Multiplatform": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+  "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  "Pandas": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
+  "OpenCV": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg",
+  "Compose Multiplatform": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg",
+  "Tableau": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/tableau.svg",
+  "Power BI": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/microsoft-power-bi.svg",
+  "Streamlit": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/streamlit.svg",
+  "Vercel": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/vercel-icon.svg",
+  "Matplotlib": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/matplotlib.svg",
+  "Gemini API": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/google-gemini.svg"
+};
+

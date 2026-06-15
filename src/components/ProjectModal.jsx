@@ -1,4 +1,5 @@
 import { useLanguage } from "../context/LanguageContext";
+import { TECH_ICONS } from "../data/projects";
 
 export default function ProjectModal({ project, onClose }) {
   const { t, tData } = useLanguage();
@@ -20,16 +21,26 @@ export default function ProjectModal({ project, onClose }) {
           >
             <i className={`fas ${p.icon}`}></i>
           </div>
-          <div>
-            <h2 style={{ fontSize: "18px", fontWeight: 700, color: "#0d1f3d", marginBottom: "2px" }}>{p.title}</h2>
-            <span
-              style={{
-                fontSize: "11px", fontWeight: 600, padding: "2px 10px", borderRadius: "99px",
-                background: p.colorLight, color: p.color,
-              }}
-            >
-              {tData(p.categoryLabel)}
-            </span>
+          <div style={{ flex: 1 }}>
+            <h2 style={{ fontSize: "18px", fontWeight: 700, color: "#0d1f3d", marginBottom: "4px" }}>{p.title}</h2>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
+              <span
+                style={{
+                  fontSize: "10.5px", fontWeight: 600, padding: "2px 8px", borderRadius: "99px",
+                  background: p.colorLight, color: p.color,
+                }}
+              >
+                {tData(p.categoryLabel)}
+              </span>
+              <span style={{ fontSize: "11px", color: "#888" }}>•</span>
+              <span style={{ fontSize: "11px", color: "#666", fontWeight: 500 }}>
+                {tData(p.context)}
+              </span>
+            </div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", fontSize: "11px", color: "#666" }}>
+              <span><i className="far fa-user" style={{ marginRight: "4px", color: p.color }}></i><strong>Role:</strong> {tData(p.role)}</span>
+              <span><i className="far fa-calendar-alt" style={{ marginRight: "4px", color: p.color }}></i>{p.date}</span>
+            </div>
           </div>
         </div>
 
@@ -66,17 +77,24 @@ export default function ProjectModal({ project, onClose }) {
         </div>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "20px" }}>
-          {p.tags.map((t, i) => (
-            <span
-              key={i}
-              style={{
-                fontSize: "11px", padding: "3px 10px", borderRadius: "4px",
-                background: "#eef0ff", color: "#4a4f72", border: "1px solid #dde0ff",
-              }}
-            >
-              {t}
-            </span>
-          ))}
+          {p.tags.map((t, i) => {
+            const iconUrl = TECH_ICONS[t];
+            if (!iconUrl) return null;
+            return (
+              <span
+                key={i}
+                className="tech-tag-icon"
+                title={t}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <img src={iconUrl} alt={t} className="tech-icon-img" />
+              </span>
+            );
+          })}
         </div>
 
         <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>

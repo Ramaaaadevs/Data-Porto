@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PROJECTS, CATEGORIES } from "../data/projects";
+import { PROJECTS, CATEGORIES, TECH_ICONS } from "../data/projects";
 import ProjectModal from "../components/ProjectModal";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -43,11 +43,14 @@ export default function Projects() {
               </div>
               <div className="pch-content">
                 <div className="pch-header">
-                  <div className="pch-icon-title">
+                  <div className="pch-icon-title" style={{ flexWrap: "wrap", rowGap: "4px" }}>
                     <div className="pch-icon" style={{ background: p.colorLight, color: p.color }}>
                       <i className={`fas ${p.icon}`}></i>
                     </div>
                     <h3 className="pch-title">{p.title}</h3>
+                    <span style={{ fontSize: "11.5px", color: "var(--text3)", fontWeight: 500, alignSelf: "center" }}>
+                      • &nbsp; {tData(p.context)} &nbsp; ({p.date})
+                    </span>
                   </div>
                   <span className="pch-badge" style={{ background: p.colorLight, color: p.color }}>
                     {tData(p.categoryLabel)}
@@ -55,9 +58,15 @@ export default function Projects() {
                 </div>
                 <p className="pch-desc">{tData(p.shortDesc)}</p>
                 <div className="pch-tags">
-                  {p.tags.map((t, i) => (
-                    <span key={i} className="pch-tag">{t}</span>
-                  ))}
+                  {p.tags.map((t, i) => {
+                    const iconUrl = TECH_ICONS[t];
+                    if (!iconUrl) return null;
+                    return (
+                      <span key={i} className="pch-tag tech-tag-icon" title={t}>
+                        <img src={iconUrl} alt={t} className="tech-icon-img" />
+                      </span>
+                    );
+                  })}
                 </div>
                 <div className="pch-footer">
                   <div className="pch-metrics">

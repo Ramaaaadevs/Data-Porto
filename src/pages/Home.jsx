@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PROJECTS, CATEGORIES, VIZ_SOURCES } from "../data/projects";
+import { PROJECTS, CATEGORIES, VIZ_SOURCES, TECH_ICONS, CERTS } from "../data/projects";
 import VizCard from "../components/VizCard";
 import ProjectModal from "../components/ProjectModal";
 import CountUp from "../components/CountUp";
@@ -71,18 +71,18 @@ export default function Home() {
               <div className="kpi-label">{t("home_kpi_rows")}</div>
             </div>
             <div className="kpi-card">
-              <div className="kpi-icon"><i className="fas fa-chart-line"></i></div>
+              <div className="kpi-icon"><i className="fas fa-laptop-code"></i></div>
               <div className="kpi-num">
                 <CountUp value={VIZ_SOURCES.length} />
               </div>
               <div className="kpi-label">{t("home_kpi_dashboards")}</div>
             </div>
             <div className="kpi-card">
-              <div className="kpi-icon"><i className="fas fa-brain"></i></div>
+              <div className="kpi-icon"><i className="fas fa-award"></i></div>
               <div className="kpi-num">
-                <CountUp value="5+" />
+                <CountUp value={CERTS.length} />
               </div>
-              <div className="kpi-label">{t("home_kpi_models")}</div>
+              <div className="kpi-label">{t("home_kpi_certs")}</div>
             </div>
             <div className="kpi-card">
               <div className="kpi-icon"><i className="fas fa-folder-open"></i></div>
@@ -124,9 +124,6 @@ export default function Home() {
                   <img src={p.thumbnail} alt={p.title} className="pcn-thumb" />
                 </div>
                 <div className="pcn-header" style={{ background: p.colorLight }}>
-                  <div className="pcn-icon" style={{ color: p.color }}>
-                    <i className={`fas ${p.icon}`}></i>
-                  </div>
                   <span className="pcn-badge" style={{ background: p.colorLight, color: p.color }}>
                     {tData(p.categoryLabel)}
                   </span>
@@ -136,9 +133,15 @@ export default function Home() {
                   <h3 className="pcn-title">{p.title}</h3>
                   <p className="pcn-desc">{tData(p.shortDesc)}</p>
                   <div className="pcn-tags">
-                    {p.tags.map((t, i) => (
-                      <span key={i} className="pcn-tag">{t}</span>
-                    ))}
+                    {p.tags.map((t, i) => {
+                      const iconUrl = TECH_ICONS[t];
+                      if (!iconUrl) return null;
+                      return (
+                        <span key={i} className="pcn-tag tech-tag-icon" title={t}>
+                          <img src={iconUrl} alt={t} className="tech-icon-img" />
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
                 <div className="pcn-metrics">
