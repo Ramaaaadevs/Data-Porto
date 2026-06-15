@@ -41,7 +41,7 @@ export const TRANSLATIONS = {
 
     // About Page
     about_hero_tagline: "Analis Data · Sains Data · Otomasi AI",
-    about_hero_bio: "Mahasiswa Teknik Informatika di Institut Teknologi Sumatera (ITERA), Bandar Lampung. Saya berfokus pada analisis data eksploratif, visualisasi informasi, dan pengembangan model kecerdasan buatan. Saya percaya bahwa data yang mentah dapat diubah menjadi insight bermakna melalui proses analisis yang tepat, storytelling visual, dan otomasi cerdas.",
+    about_hero_bio: "Mahasiswa Teknik Informatika di Institut Teknologi Sumatera , Bandar Lampung. Saya berfokus pada analisis data eksploratif, visualisasi informasi, dan pengembangan model kecerdasan buatan. Saya percaya bahwa data yang mentah dapat diubah menjadi insight bermakna melalui proses analisis yang tepat, storytelling visual, dan otomasi cerdas.",
     about_download_cv: "Unduh CV",
     about_edu_title: "Pendidikan & Pengalaman",
     about_edu_subtitle: "Perjalanan akademik dan profesional yang membentuk keahlian saya di bidang data.",
@@ -110,7 +110,7 @@ export const TRANSLATIONS = {
 
     // About Page
     about_hero_tagline: "Data Analyst · Data Science · AI Automation",
-    about_hero_bio: "Informatics Engineering student at Sumatra Institute of Technology (ITERA), Bandar Lampung. I focus on exploratory data analysis, information visualization, and artificial intelligence model development. I believe that raw data can be turned into meaningful insights through proper analysis, visual storytelling, and intelligent automation.",
+    about_hero_bio: "Informatics Engineering student at Sumatra Institute of Technology , Bandar Lampung. I focus on exploratory data analysis, information visualization, and artificial intelligence model development. I believe that raw data can be turned into meaningful insights through proper analysis, visual storytelling, and intelligent automation.",
     about_download_cv: "Download CV",
     about_edu_title: "Education & Experience",
     about_edu_subtitle: "Academic and professional journey that shapes my data expertise.",

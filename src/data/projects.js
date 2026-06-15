@@ -134,7 +134,7 @@ export const PROJECTS = [
     colorLight: "rgba(245,166,35,0.10)",
     role: { id: "Spesialis Visualisasi Data", en: "Data Visualization Specialist" },
     date: "Mei 2024 - Jun 2024",
-    context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+    context: { id: "Tugas Kuliah ", en: "College Project " },
     featured: true,
   },
   {
@@ -179,7 +179,7 @@ export const PROJECTS = [
     colorLight: "rgba(46,196,182,0.10)",
     role: { id: "Pengembang Web Fullstack", en: "Fullstack Web Developer" },
     date: "Nov 2024 - Des 2024",
-    context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+    context: { id: "Tugas Kuliah ", en: "College Project " },
     featured: true,
   },
   {
@@ -269,7 +269,7 @@ export const PROJECTS = [
     colorLight: "rgba(17,138,178,0.10)",
     role: { id: "Pengembang Frontend", en: "Frontend Developer" },
     date: "Okt 2024 - Nov 2024",
-    context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+    context: { id: "Tugas Kuliah ", en: "College Project " },
     featured: false,
   },
   {
@@ -314,7 +314,7 @@ export const PROJECTS = [
     colorLight: "rgba(239,71,111,0.10)",
     role: { id: "Pengembang Mobile", en: "Mobile Developer" },
     date: "Mar 2025 - Mei 2025",
-    context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+    context: { id: "Tugas Kuliah ", en: "College Project " },
     featured: true,
   },
   {
@@ -359,7 +359,7 @@ export const PROJECTS = [
     colorLight: "rgba(6,214,160,0.10)",
     role: { id: "Pengembang Game & AI", en: "Game & AI Developer" },
     date: "Sep 2024 - Okt 2024",
-    context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+    context: { id: "Tugas Kuliah ", en: "College Project " },
     featured: false,
   },
   {
@@ -816,11 +816,11 @@ export const TECH_ICONS = {
 
 export const EDUCATION = [
   {
-    institution: "Institut Teknologi Sumatera (ITERA)",
+    institution: "Institut Teknologi Sumatera ",
     logo: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Logo_ITERA.png",
     degree: {
       id: "S1 Teknik Informatika",
-      en: "B.S. Informatics Engineering"
+      en: "B.Cs. Informatics Engineering"
     },
     period: "2023 - 2027",
     grade: "Grade: 3.44",
@@ -849,7 +849,7 @@ export const EXPERIENCE = [
   {
     type: "single",
     company: "Coding Camp powered by DBS Foundation",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/DBS_Bank_logo.svg/320px-DBS_Bank_logo.svg.png",
+    logo: "https://framerusercontent.com/images/0gACeXzlMF8hvaAwmBBBg7QunA.png",
     role: {
       id: "Data Scientist Cohort",
       en: "Data Scientist Cohort"
@@ -859,8 +859,8 @@ export const EXPERIENCE = [
       en: "Part-time"
     },
     period: {
-      id: "Feb 2026 - Sekarang · 5 bln",
-      en: "Feb 2026 - Present · 5 mos"
+      id: "Feb 2026 - Sekarang · 5 Bln",
+      en: "Feb 2026 - Present · 5 Months"
     },
     location: {
       id: "Daring",
@@ -896,8 +896,8 @@ export const EXPERIENCE = [
           en: "Basic Digital Technology Practicum Assistant"
         },
         period: {
-          id: "Sep 2025 - Des 2025 · 4 bln",
-          en: "Sep 2025 - Dec 2025 · 4 mos"
+          id: "Sep 2025 - Des 2025 · 4 Bln",
+          en: "Sep 2025 - Dec 2025 · 4 Months"
         },
         bullets: [
           {
@@ -920,8 +920,8 @@ export const EXPERIENCE = [
           en: "Introduction to Computer and Software Lab Assistant II"
         },
         period: {
-          id: "Feb 2025 - Mei 2025 · 4 bln",
-          en: "Feb 2025 - May 2025 · 4 mos"
+          id: "Feb 2025 - Mei 2025 · 4 Bln",
+          en: "Feb 2025 - May 2025 · 4 Months"
         },
         bullets: [
           {
@@ -940,8 +940,8 @@ export const EXPERIENCE = [
           en: "Introduction to Computer and Software Lab Assistant I"
         },
         period: {
-          id: "Sep 2024 - Des 2024 · 4 bln",
-          en: "Sep 2024 - Dec 2024 · 4 mos"
+          id: "Sep 2024 - Des 2024 · 4 Bln",
+          en: "Sep 2024 - Dec 2024 · 4 Months"
         },
         bullets: [
           {
@@ -960,8 +960,8 @@ export const EXPERIENCE = [
           en: "Mathematics Teaching Assistant"
         },
         period: {
-          id: "Sep 2024 - Des 2024 · 4 bln",
-          en: "Sep 2024 - Dec 2024 · 4 mos"
+          id: "Sep 2024 - Des 2024 · 4 Bln",
+          en: "Sep 2024 - Dec 2024 · 4 Months"
         },
         bullets: [
           {
