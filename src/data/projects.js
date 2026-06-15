@@ -45,6 +45,7 @@ export const PROJECTS = [
     role: { id: "Pengembang Machine Learning (Ketua Tim)", en: "Machine Learning Developer (Team Lead)" },
     date: "Feb 2026 - Mar 2026",
     context: { id: "Proyek Bootcamp (Dicoding x DBS)", en: "Bootcamp Project (Dicoding x DBS)" },
+    featured: true,
   },
   {
     id: 2,
@@ -89,6 +90,7 @@ export const PROJECTS = [
     role: { id: "Analis Data", en: "Data Analyst" },
     date: "Okt 2025 - Nov 2025",
     context: { id: "Tugas Bootcamp (Dicoding x DBS)", en: "Bootcamp Assignment (Dicoding x DBS)" },
+    featured: true,
   },
   {
     id: 3,
@@ -133,6 +135,7 @@ export const PROJECTS = [
     role: { id: "Spesialis Visualisasi Data", en: "Data Visualization Specialist" },
     date: "Mei 2024 - Jun 2024",
     context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+    featured: true,
   },
   {
     id: 4,
@@ -177,6 +180,7 @@ export const PROJECTS = [
     role: { id: "Pengembang Web Fullstack", en: "Fullstack Web Developer" },
     date: "Nov 2024 - Des 2024",
     context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+    featured: true,
   },
   {
     id: 5,
@@ -221,6 +225,7 @@ export const PROJECTS = [
     role: { id: "Pengembang Web Fullstack", en: "Fullstack Web Developer" },
     date: "Jan 2025 - Feb 2025",
     context: { id: "Proyek Mandiri", en: "Self Project" },
+    featured: false,
   },
   {
     id: 6,
@@ -265,6 +270,7 @@ export const PROJECTS = [
     role: { id: "Pengembang Frontend", en: "Frontend Developer" },
     date: "Okt 2024 - Nov 2024",
     context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+    featured: false,
   },
   {
     id: 7,
@@ -309,6 +315,7 @@ export const PROJECTS = [
     role: { id: "Pengembang Mobile", en: "Mobile Developer" },
     date: "Mar 2025 - Mei 2025",
     context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+    featured: true,
   },
   {
     id: 8,
@@ -353,6 +360,7 @@ export const PROJECTS = [
     role: { id: "Pengembang Game & AI", en: "Game & AI Developer" },
     date: "Sep 2024 - Okt 2024",
     context: { id: "Tugas Kuliah (ITERA)", en: "College Project (ITERA)" },
+    featured: false,
   },
   {
     id: 9,
@@ -397,6 +405,7 @@ export const PROJECTS = [
     role: { id: "Pengembang Game", en: "Game Developer" },
     date: "Jul 2024 - Agu 2024",
     context: { id: "Proyek Mandiri", en: "Self Project" },
+    featured: false,
   },
 ];
 

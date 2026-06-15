@@ -1,19 +1,16 @@
 import { useState } from "react";
-import { PROJECTS, CATEGORIES, VIZ_SOURCES, TECH_ICONS, CERTS } from "../data/projects";
+import { Link } from "react-router-dom";
+import { PROJECTS, VIZ_SOURCES, TECH_ICONS, CERTS } from "../data/projects";
 import VizCard from "../components/VizCard";
 import ProjectModal from "../components/ProjectModal";
 import CountUp from "../components/CountUp";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Home() {
-  const [activeFilter, setActiveFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState(null);
   const { t, tData, language } = useLanguage();
 
-  const filtered =
-    activeFilter === "all"
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.category === activeFilter);
+  const featuredProjects = PROJECTS.filter((p) => p.featured);
 
   return (
     <>
@@ -100,20 +97,8 @@ export default function Home() {
         <div className="container">
           <h2 className="section-title animate-left">{t("home_projects_title")}</h2>
 
-          <div className="filter-buttons animate-right">
-            {CATEGORIES.map((c) => (
-              <button
-                key={c.value}
-                className={`filter-btn ${activeFilter === c.value ? "active" : ""}`}
-                onClick={() => setActiveFilter(c.value)}
-              >
-                {tData(c.label)}
-              </button>
-            ))}
-          </div>
-
           <div className="projects-grid animate-right">
-            {filtered.map((p, idx) => (
+            {featuredProjects.map((p, idx) => (
               <div
                 key={p.id}
                 className="project-card-new"
@@ -154,6 +139,12 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "40px" }} className="animate-fade">
+            <Link to="/projects" className="cta-button" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+              {t("home_view_all_projects")} <i className="fas fa-arrow-right"></i>
+            </Link>
           </div>
         </div>
       </section>
