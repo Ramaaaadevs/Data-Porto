@@ -172,7 +172,7 @@ export default function Home() {
 
             <div className="about-image animate-right">
               <img
-                src="/Gambar/WhatsApp Image 2024-10-09 at 09.50.18_5da5c080.webp"
+                src="/Gambar/WhatsApp Image 2024-10-09 at 09.50.18_5da5c080.png"
                 alt="Diwan Ramadhani"
                 className="profile-img"
                 onError={(e) => { e.currentTarget.style.display = "none"; }}
