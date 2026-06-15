@@ -748,6 +748,70 @@ export const CERTS = [
       "/Sertifikat/sertifikat_course_905_4116833_150626173229_page-3.png"
     ]
   },
+  {
+    title: {
+      id: "Asisten Tutorial Matematika Dasar I",
+      en: "Mathematics Teaching Assistant for Basic Mathematics I"
+    },
+    issuer: "Institut Teknologi Sumatera",
+    year: "2024",
+    tags: ["Mathematics", "Teaching"],
+    color: "#7f52ff",
+    colorLight: "rgba(127,82,255,0.10)",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Logo_ITERA.png",
+    credentialId: "01astut012",
+    credentialUrl: "https://docs.google.com/spreadsheets/d/1Z9tKEuFrp-AiczzZB5w3MoJzqYVln8m0--wRjw0p5Eg/edit?gid=0#gid=0",
+    validity: {
+      id: "Diterbitkan Des 2024",
+      en: "Issued Dec 2024"
+    },
+    pages: [
+      "/Sertifikat/astutmatdas_page-1.png"
+    ]
+  },
+  {
+    title: {
+      id: "Asisten Praktikum Pengantar Komputer dan Software I",
+      en: "Introduction to Computer and Software Lab Assistant I"
+    },
+    issuer: "Institut Teknologi Sumatera",
+    year: "2025",
+    tags: ["PKS", "IT", "Teaching"],
+    color: "#00758f",
+    colorLight: "rgba(0,117,143,0.10)",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Logo_ITERA.png",
+    credentialId: "6812/IT9.3.4/PK.01.06/2025",
+    credentialUrl: "",
+    validity: {
+      id: "Diterbitkan 06 Jan 2025",
+      en: "Issued 06 Jan 2025"
+    },
+    pages: [
+      "/Sertifikat/pks1_page-1.png"
+    ]
+  },
+  {
+    title: {
+      id: "Asisten Praktikum Pengantar Komputer dan Software II",
+      en: "Introduction to Computer and Software Lab Assistant II"
+    },
+    issuer: "Institut Teknologi Sumatera",
+    year: "2025",
+    tags: ["PKS", "IT", "Teaching"],
+    color: "#2ec4b6",
+    colorLight: "rgba(46,196,182,0.10)",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Logo_ITERA.png",
+    credentialId: "7048/IT9.4.3/PK.01.04/2025",
+    credentialUrl: "https://digisign.itera.ac.id/pengajuan/scan/eyJpdiI6InAxK1YxS2tIelFoNUYzdHR1Q1A3enc9PSIsInZhbHVlIjoiWmUrREVvVGR5NzQwcjR3T3R3VGVWZz09IiwibWFjIjoiYTRjMTk5NDc0N2M4MjQyNjhiZDkzZWQ3NGMyODdmZmJkMGU3NGZkNzRiMDE1MjFmYjk2MTEyNjkxNDY1MmMzMSIsInRhZyI6IiJ9",
+    validity: {
+      id: "Diterbitkan 09 Sep 2025",
+      en: "Issued 09 Sep 2025"
+    },
+    pages: [
+      "/Sertifikat/pks2_page-1.png",
+      "/Sertifikat/pks2_page-2.png"
+    ]
+  },
   // ============================================================
   // TEMPLATE SERTIFIKASI BARU:
   // Untuk menambah sertifikasi baru, hilangkan tanda komen (//) di bawah ini:
