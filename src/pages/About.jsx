@@ -2,6 +2,7 @@ import { useState } from "react";
 import GithubGraph from "../components/GithubGraph";
 import useScrollAnimation from "../hooks/useScrollAnimation";
 import { useLanguage } from "../context/LanguageContext";
+import { EDUCATION, EXPERIENCE } from "../data/projects";
 
 export default function About() {
   useScrollAnimation();
@@ -60,70 +61,81 @@ export default function About() {
             {t("about_edu_subtitle")}
           </p>
 
-          <div className="about-edu-timeline">
-            {/* Education 1 */}
-            <div className="about-edu-item scroll-animate animate-left-dir">
-              <div className="about-edu-icon">
-                <i className="fas fa-graduation-cap"></i>
-              </div>
-              <div className="about-edu-card">
-                <div className="about-edu-header">
-                  <div>
-                    <h3 className="about-edu-title">Institut Teknologi Sumatera (ITERA)</h3>
-                    <p className="about-edu-subtitle">
-                      {language === "id" ? "S1 Teknik Informatika" : "B.S. Informatics Engineering"}
-                    </p>
+          <div className="edu-exp-grid">
+            {/* Left Column: Education */}
+            <div className="edu-column">
+              <h3 className="column-title"><i className="fas fa-graduation-cap"></i> {t("about_edu_title_col")}</h3>
+              {EDUCATION.map((edu, idx) => (
+                <div className="linkedin-card scroll-animate animate-left-dir" key={idx}>
+                  <div className="lic-logo-container">
+                    <img src={edu.logo} alt={edu.institution} className="lic-logo" />
                   </div>
-                  <span className="timeline-date">2023 - {language === "id" ? "Sekarang" : "Present"}</span>
+                  <div className="lic-content">
+                    <h4 className="lic-title">{edu.institution}</h4>
+                    <p className="lic-subtitle">{tData(edu.degree)}</p>
+                    <p className="lic-meta">{edu.period} {edu.grade ? `· ${edu.grade}` : ""}</p>
+                    <p className="lic-desc">{tData(edu.desc)}</p>
+                  </div>
                 </div>
-                <p className="about-edu-desc">
-                  {language === "id" 
-                    ? "Mendalami dasar-dasar ilmu komputer, algoritma, struktur data, dan pemrograman. Aktif mengerjakan proyek-proyek data analytics dan machine learning sebagai bagian dari perkuliahan dan kegiatan mandiri."
-                    : "Studying computer science fundamentals, algorithms, data structures, and programming. Actively working on data analytics and machine learning projects as part of coursework and independent activities."}
-                </p>
-              </div>
+              ))}
             </div>
 
-            {/* Bootcamp */}
-            <div className="about-edu-item scroll-animate animate-right-dir">
-              <div className="about-edu-icon">
-                <i className="fas fa-laptop-code"></i>
-              </div>
-              <div className="about-edu-card">
-                <div className="about-edu-header">
-                  <div>
-                    <h3 className="about-edu-title">DBS Foundation Coding Camp 2026</h3>
-                    <p className="about-edu-subtitle">Data Scientist</p>
-                  </div>
-                  <span className="timeline-date">Feb 2026 - Jun 2026</span>
-                </div>
-                <p className="about-edu-desc">
-                  {language === "id"
-                    ? "Program intensif data science yang disponsori DBS Foundation bekerja sama dengan Dicoding. Mempelajari machine learning, deep learning, dan deployment model AI. Mengerjakan capstone project \"FaceFit Barber\" sebagai Team Lead tim CC26-PSU304."
-                    : "Intensive data science program sponsored by DBS Foundation in partnership with Dicoding. Learned machine learning, deep learning, and AI model deployment. Completed capstone project \"FaceFit Barber\" as Team Lead of team CC26-PSU304."}
-                </p>
-              </div>
-            </div>
-
-            {/* Dicoding */}
-            <div className="about-edu-item scroll-animate animate-left-dir">
-              <div className="about-edu-icon">
-                <i className="fas fa-book-open"></i>
-              </div>
-              <div className="about-edu-card">
-                <div className="about-edu-header">
-                  <div>
-                    <h3 className="about-edu-title">Dicoding Academy</h3>
-                    <p className="about-edu-subtitle">Self-paced Online Learning</p>
-                  </div>
-                  <span className="timeline-date">2025 - 2026</span>
-                </div>
-                <p className="about-edu-desc">
-                  {language === "id"
-                    ? "Menyelesaikan berbagai kelas online di bidang analisis data, machine learning, dan pengembangan aplikasi. Platform pembelajaran utama yang memperkuat fondasi teknis."
-                    : "Completed various online courses in data analysis, machine learning, and application development. The primary learning platform that strengthens technical foundations."}
-                </p>
-              </div>
+            {/* Right Column: Experience */}
+            <div className="exp-column">
+              <h3 className="column-title"><i className="fas fa-briefcase"></i> {t("about_exp_title_col")}</h3>
+              {EXPERIENCE.map((exp, idx) => {
+                if (exp.type === "single") {
+                  return (
+                    <div className="linkedin-card scroll-animate animate-right-dir" key={idx}>
+                      <div className="lic-logo-container">
+                        <img src={exp.logo} alt={exp.company} className="lic-logo" />
+                      </div>
+                      <div className="lic-content">
+                        <h4 className="lic-role">{tData(exp.role)}</h4>
+                        <p className="lic-company">{exp.company} · {tData(exp.employmentType)}</p>
+                        <p className="lic-meta">{tData(exp.period)}</p>
+                        <p className="lic-meta" style={{ marginTop: "2px", color: "var(--text3)" }}>{tData(exp.location)}</p>
+                        <ul className="lic-bullets">
+                          {exp.bullets.map((b, bIdx) => (
+                            <li key={bIdx}>{tData(b)}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div className="linkedin-card grouped scroll-animate animate-right-dir" key={idx}>
+                      <div className="lic-logo-container">
+                        <img src={exp.logo} alt={exp.company} className="lic-logo" />
+                      </div>
+                      <div className="lic-content">
+                        <h4 className="lic-company-grouped">{exp.company}</h4>
+                        <p className="lic-company-meta-grouped">{tData(exp.employmentType)}</p>
+                        <p className="lic-company-meta-grouped" style={{ color: "var(--text3)" }}>{tData(exp.location)}</p>
+                        
+                        <div className="lic-nested-roles-container">
+                          <div className="lic-timeline-line"></div>
+                          {exp.roles.map((r, rIdx) => (
+                            <div key={rIdx} className="lic-nested-role-item">
+                              <div className="lic-timeline-dot"></div>
+                              <div className="lic-nested-role-content">
+                                <h5 className="lic-nested-role-title">{tData(r.role)}</h5>
+                                <p className="lic-nested-role-period">{tData(r.period)}</p>
+                                <ul className="lic-bullets" style={{ marginTop: "8px" }}>
+                                  {r.bullets.map((b, bIdx) => (
+                                    <li key={bIdx}>{tData(b)}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
             </div>
           </div>
         </div>
