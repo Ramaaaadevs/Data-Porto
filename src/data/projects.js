@@ -611,6 +611,143 @@ export const CERTS = [
       "/Sertifikat/sertifikat_course_831_4116833_110626175137_page-2.png"
     ]
   },
+  {
+    title: {
+      id: "Memulai Pemrograman dengan Python",
+      en: "Starting Programming with Python"
+    },
+    issuer: "Dicoding Indonesia",
+    year: "2026",
+    tags: ["Python", "Programming"],
+    color: "#3572A5",
+    colorLight: "rgba(53,114,165,0.10)",
+    image: "/Gambar/dicoding-square.webp",
+    credentialId: "JMZVOW2YQXN9",
+    credentialUrl: "https://www.dicoding.com/certificates/JMZVOW2YQXN9",
+    validity: {
+      id: "Diterbitkan 28 Feb 2026 · Berlaku s.d. 28 Feb 2029",
+      en: "Issued 28 Feb 2026 · Expires 28 Feb 2029"
+    },
+    pages: [
+      "/Sertifikat/sertifikat_course_86_4116833_150626173017_page-1.png",
+      "/Sertifikat/sertifikat_course_86_4116833_150626173017_page-2.png",
+      "/Sertifikat/sertifikat_course_86_4116833_150626173017_page-3.png"
+    ]
+  },
+  {
+    title: {
+      id: "Belajar Dasar Visualisasi Data",
+      en: "Learn Basics Data Visualization"
+    },
+    issuer: "Dicoding Indonesia",
+    year: "2026",
+    tags: ["Data Viz", "Matplotlib"],
+    color: "#f5a623",
+    colorLight: "rgba(245,166,35,0.10)",
+    image: "/Gambar/dicoding-square.webp",
+    credentialId: "L4PQ9K3O4PO1",
+    credentialUrl: "https://www.dicoding.com/certificates/L4PQ9K3O4PO1",
+    validity: {
+      id: "Diterbitkan 20 Feb 2026 · Berlaku s.d. 20 Feb 2029",
+      en: "Issued 20 Feb 2026 · Expires 20 Feb 2029"
+    },
+    pages: [
+      "/Sertifikat/sertifikat_course_177_4116833_150626173109_page-1.png",
+      "/Sertifikat/sertifikat_course_177_4116833_150626173109_page-2.png"
+    ]
+  },
+  {
+    title: {
+      id: "Belajar Dasar Data Science",
+      en: "Learn Basics Data Science"
+    },
+    issuer: "Dicoding Indonesia",
+    year: "2026",
+    tags: ["Data Science", "Python"],
+    color: "#4a7cf7",
+    colorLight: "rgba(74,124,247,0.10)",
+    image: "/Gambar/dicoding-square.webp",
+    credentialId: "KEXLQD35YPG2",
+    credentialUrl: "https://www.dicoding.com/certificates/KEXLQD35YPG2",
+    validity: {
+      id: "Diterbitkan 19 Feb 2026 · Berlaku s.d. 19 Feb 2029",
+      en: "Issued 19 Feb 2026 · Expires 19 Feb 2029"
+    },
+    pages: [
+      "/Sertifikat/sertifikat_course_615_4116833_150626173124_page-1.png",
+      "/Sertifikat/sertifikat_course_615_4116833_150626173124_page-2.png",
+      "/Sertifikat/sertifikat_course_615_4116833_150626173124_page-3.png",
+      "/Sertifikat/sertifikat_course_615_4116833_150626173124_page-4.png"
+    ]
+  },
+  {
+    title: {
+      id: "Pengenalan ke Logika Pemrograman (Programming Logic 101)",
+      en: "Introduction to Programming Logic (Programming Logic 101)"
+    },
+    issuer: "Dicoding Indonesia",
+    year: "2026",
+    tags: ["Programming Logic", "Basic"],
+    color: "#2ec4b6",
+    colorLight: "rgba(46,196,182,0.10)",
+    image: "/Gambar/dicoding-square.webp",
+    credentialId: "72ZDJWE4JZYW",
+    credentialUrl: "https://www.dicoding.com/certificates/72ZDJWE4JZYW",
+    validity: {
+      id: "Diterbitkan 15 Feb 2026 · Berlaku s.d. 15 Feb 2029",
+      en: "Issued 15 Feb 2026 · Expires 15 Feb 2029"
+    },
+    pages: [
+      "/Sertifikat/sertifikat_course_302_4116833_150626173153_page-1.png",
+      "/Sertifikat/sertifikat_course_302_4116833_150626173153_page-2.png"
+    ]
+  },
+  {
+    title: {
+      id: "Memulai Dasar Pemrograman untuk Menjadi Pengembang",
+      en: "Starting Basic Programming to Become a Developer"
+    },
+    issuer: "Dicoding Indonesia",
+    year: "2026",
+    tags: ["Programming Logic", "Basic"],
+    color: "#4a7cf7",
+    colorLight: "rgba(74,124,247,0.10)",
+    image: "/Gambar/dicoding-square.webp",
+    credentialId: "JLX1VQ3NJZ72",
+    credentialUrl: "https://www.dicoding.com/certificates/JLX1VQ3NJZ72",
+    validity: {
+      id: "Diterbitkan 12 Feb 2026 · Berlaku s.d. 12 Feb 2029",
+      en: "Issued 12 Feb 2026 · Expires 12 Feb 2029"
+    },
+    pages: [
+      "/Sertifikat/sertifikat_course_237_4116833_150626173218_page-1.png",
+      "/Sertifikat/sertifikat_course_237_4116833_150626173218_page-2.png",
+      "/Sertifikat/sertifikat_course_237_4116833_150626173218_page-3.png"
+    ]
+  },
+  {
+    title: {
+      id: "Introduction to Financial Literacy",
+      en: "Introduction to Financial Literacy"
+    },
+    issuer: "Dicoding Indonesia",
+    year: "2026",
+    tags: ["Financial Literacy", "Basic"],
+    color: "#00758f",
+    colorLight: "rgba(0,117,143,0.10)",
+    image: "/Gambar/dicoding-square.webp",
+    credentialId: "MRZMW3K23PYQ",
+    credentialUrl: "https://www.dicoding.com/certificates/MRZMW3K23PYQ",
+    validity: {
+      id: "Diterbitkan 12 Jan 2026 · Berlaku s.d. 12 Jan 2029",
+      en: "Issued 12 Jan 2026 · Expires 12 Jan 2029"
+    },
+    pages: [
+      "/Sertifikat/sertifikat_course_905_4116833_150626173229_page-1.png",
+      "/Sertifikat/sertifikat_course_905_4116833_150626173229_page-2.png",
+      "/Sertifikat/sertifikat_course_905_4116833_150626173229_page-3.png"
+    ]
+  },
   // ============================================================
   // TEMPLATE SERTIFIKASI BARU:
   // Untuk menambah sertifikasi baru, hilangkan tanda komen (//) di bawah ini:
