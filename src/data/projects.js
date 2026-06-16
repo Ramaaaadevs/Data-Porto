@@ -38,7 +38,7 @@ export const PROJECTS = [
       { label: { id: "Rasio IR", en: "IR Ratio" }, value: "1.45×" },
     ],
     github: "https://github.com/raphael707/FaceFit-Barber-Data-Science",
-    demo: null,
+    demo: "https://facefitdashboard.streamlit.app/",
     slides: [
       "/Presentations/facefit_slide1.png",
       "/Presentations/facefit_slide2.png",
@@ -436,6 +436,21 @@ export const CATEGORIES = [
 // VIZ SOURCES — dropdown viz card di Hero (Home)
 // ============================================================
 export const VIZ_SOURCES = [
+  {
+    id: "streamlit-facefit",
+    label: "FaceFit Barber — Streamlit",
+    src: "https://facefitdashboard.streamlit.app/?embed=true",
+    link: "https://facefitdashboard.streamlit.app/",
+    fallbackText: {
+      id: "Memuat dashboard Streamlit...",
+      en: "Loading Streamlit dashboard..."
+    },
+    fallbackSub: {
+      id: "Dashboard FaceFit Barber · Deteksi Bentuk Wajah",
+      en: "FaceFit Barber Dashboard · Face Shape Detection"
+    },
+    icon: "fa-id-badge",
+  },
   {
     id: "streamlit-airquality",
     label: "Air Quality Beijing — Streamlit",
