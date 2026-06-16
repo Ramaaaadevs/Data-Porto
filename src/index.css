@@ -1084,7 +1084,7 @@ section { padding: 80px 0; }
 .presentation-container {
     background: #ffffff;
     width: 95vw;
-    max-width: 1000px;
+    max-width: 1240px;
     border-radius: 20px;
     box-shadow: 0 32px 80px rgba(13, 31, 61, 0.25);
     display: flex;
@@ -1142,18 +1142,18 @@ section { padding: 80px 0; }
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 60px;
+    padding: 30px 80px;
     flex: 1;
-    min-height: 250px;
+    min-height: 350px;
 }
 .presentation-slide-wrap {
     width: 100%;
     aspect-ratio: 16 / 9;
-    max-height: 60vh;
-    border-radius: 8px;
+    max-height: 72vh;
+    border-radius: 12px;
     overflow: hidden;
     background: #1e293b;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1173,55 +1173,56 @@ section { padding: 80px 0; }
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 48px;
     color: #ffffff;
     box-sizing: border-box;
 }
 .fallback-inner {
-    max-width: 600px;
+    max-width: 840px;
     text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
     width: 100%;
 }
 .fallback-badge {
     align-self: flex-start;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 99px;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
 }
 .fallback-inner h3 {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 800;
     margin: 0;
     color: #fff;
     line-height: 1.2;
 }
 .fallback-slide-num {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 .fallback-text {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.6;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.65;
     margin: 8px 0;
 }
 .fallback-tip {
-    font-size: 11px;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.45);
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-top: 10px;
+    margin-top: 12px;
     border-top: 1px dashed rgba(255, 255, 255, 0.15);
-    padding-top: 10px;
+    padding-top: 12px;
 }
 
 .presentation-nav-btn {
@@ -1252,10 +1253,10 @@ section { padding: 80px 0; }
     cursor: not-allowed;
 }
 .presentation-nav-btn.prev {
-    left: 10px;
+    left: 15px;
 }
 .presentation-nav-btn.next {
-    right: 10px;
+    right: 15px;
 }
 
 .presentation-footer {
@@ -1292,6 +1293,17 @@ section { padding: 80px 0; }
 }
 
 /* Responsiveness for slides viewport */
+@media (max-width: 900px) {
+    .presentation-viewport {
+        padding: 20px 50px;
+    }
+    .fallback-inner h3 {
+        font-size: 24px;
+    }
+    .fallback-text {
+        font-size: 14px;
+    }
+}
 @media (max-width: 640px) {
     .presentation-viewport {
         padding: 10px 10px;
@@ -1312,6 +1324,13 @@ section { padding: 80px 0; }
     }
     .fallback-text {
         font-size: 11px;
+    }
+    .fallback-badge {
+        font-size: 9px;
+        padding: 2px 6px;
+    }
+    .fallback-slide-num {
+        font-size: 10px;
     }
     .presentation-container {
         border-radius: 12px;
