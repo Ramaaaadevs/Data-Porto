@@ -1080,6 +1080,7 @@ section { padding: 80px 0; }
 .presentation-backdrop.open {
     opacity: 1;
     pointer-events: auto;
+    animation: presentationFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 .presentation-container {
     background: #ffffff;
@@ -1095,7 +1096,8 @@ section { padding: 80px 0; }
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .presentation-backdrop.open .presentation-container {
-    transform: translateY(0) scale(1);
+    transform: translateY(30px) scale(0.96);
+    animation: presentationScaleUp 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .presentation-header {
@@ -1163,6 +1165,7 @@ section { padding: 80px 0; }
     width: 100%;
     height: 100%;
     object-fit: contain;
+    animation: slideChange 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Fallback Card Style if Image Fails to Load */
@@ -1334,6 +1337,32 @@ section { padding: 80px 0; }
     }
     .presentation-container {
         border-radius: 12px;
+    }
+}
+
+/* Slideshow keyframe animations */
+@keyframes presentationFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes presentationScaleUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+@keyframes slideChange {
+    from {
+        opacity: 0.85;
+        transform: scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 

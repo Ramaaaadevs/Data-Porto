@@ -6,11 +6,6 @@ export default function ProjectModal({ project, onClose }) {
   const { t, tData } = useLanguage();
   const [showSlideshow, setShowSlideshow] = useState(false);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  const [imageError, setImageError] = useState(false);
-
-  useEffect(() => {
-    setImageError(false);
-  }, [activeSlideIndex]);
 
   useEffect(() => {
     if (!showSlideshow || !project || !project.slides) return;
@@ -193,53 +188,13 @@ export default function ProjectModal({ project, onClose }) {
               </button>
 
               <div className="presentation-slide-wrap">
-                {!imageError ? (
-                  <img
-                    src={p.slides[activeSlideIndex]}
-                    alt={`Slide ${activeSlideIndex + 1}`}
-                    className="presentation-slide-img"
-                    onError={() => setImageError(true)}
-                  />
-                ) : (
-                  <div className="presentation-slide-fallback">
-                    <div className="fallback-inner" style={{ borderLeft: `6px solid ${p.color}` }}>
-                      <span className="fallback-badge" style={{ background: p.colorLight, color: p.color }}>
-                        {tData(p.categoryLabel)}
-                      </span>
-                      <h3>{p.title}</h3>
-                      <div className="fallback-slide-num">Slide {activeSlideIndex + 1}</div>
-                      <div className="fallback-text">
-                        {activeSlideIndex === 0 && (
-                          <div>
-                            <strong style={{ display: "block", marginBottom: "4px", fontSize: "14px", color: p.color }}>Project Overview</strong>
-                            {tData(p.fullDesc)}
-                          </div>
-                        )}
-                        {activeSlideIndex === 1 && (
-                          <div>
-                            <strong style={{ display: "block", marginBottom: "4px", fontSize: "14px", color: p.color }}>Problem Statement</strong>
-                            {tData(p.problem)}
-                          </div>
-                        )}
-                        {activeSlideIndex === 2 && (
-                          <div>
-                            <strong style={{ display: "block", marginBottom: "4px", fontSize: "14px", color: p.color }}>Methodology & Dataset</strong>
-                            {tData(p.methodology)}
-                          </div>
-                        )}
-                        {activeSlideIndex > 2 && (
-                          <div>
-                            <strong style={{ display: "block", marginBottom: "4px", fontSize: "14px", color: p.color }}>Key Impact & Outcome</strong>
-                            {tData(p.impact)}
-                          </div>
-                        )}
-                      </div>
-                      <div className="fallback-tip">
-                        <i className="fas fa-info-circle"></i> Slide image placeholder. Put your exported PPT slides as PNGs in your repository folder.
-                      </div>
-                    </div>
-                  </div>
-                )}
+                <img
+                  key={activeSlideIndex}
+                  src={p.slides[activeSlideIndex]}
+                  alt={`${p.title} - Slide ${activeSlideIndex + 1}`}
+                  className="presentation-slide-img"
+                  style={{ color: "#fff" }}
+                />
               </div>
 
               <button
