@@ -39,6 +39,11 @@ export const PROJECTS = [
     ],
     github: "https://github.com/raphael707/FaceFit-Barber-Data-Science",
     demo: null,
+    slides: [
+      "/Presentations/facefit_slide1.png",
+      "/Presentations/facefit_slide2.png",
+      "/Presentations/facefit_slide3.png"
+    ],
     icon: "fa-id-badge",
     color: "#6558f5",
     colorLight: "rgba(101,88,245,0.10)",
@@ -84,6 +89,10 @@ export const PROJECTS = [
     ],
     github: "https://github.com/Ramaaaadevs/DBS-Air-Quality-Beijing",
     demo: "https://rama-air-quality-beijing.streamlit.app",
+    slides: [
+      "/Presentations/beijing_slide1.png",
+      "/Presentations/beijing_slide2.png"
+    ],
     icon: "fa-cloud",
     color: "#4a7cf7",
     colorLight: "rgba(74,124,247,0.10)",
@@ -129,6 +138,11 @@ export const PROJECTS = [
     ],
     github: "https://github.com/Ramaaaadevs/Visualisasi-Data-dan-Informasi",
     demo: null,
+    slides: [
+      "/Presentations/uk_accident_slide1.png",
+      "/Presentations/uk_accident_slide2.png",
+      "/Presentations/uk_accident_slide3.png"
+    ],
     icon: "fa-map-marked-alt",
     color: "#f5a623",
     colorLight: "rgba(245,166,35,0.10)",

@@ -32,6 +32,7 @@ export const TRANSLATIONS = {
     proj_modal_impact: "Dampak & Insight",
     proj_modal_view_github: "Lihat di GitHub",
     proj_modal_live_demo: "Demo Interaktif",
+    proj_modal_view_presentation: "Lihat Presentasi",
 
     // Skills Page & Timeline
     skills_title: "Keahlian & Kompetensi",
@@ -101,6 +102,7 @@ export const TRANSLATIONS = {
     proj_modal_impact: "Impact & Insight",
     proj_modal_view_github: "View on GitHub",
     proj_modal_live_demo: "Live Demo",
+    proj_modal_view_presentation: "View Presentation",
 
     // Skills Page & Timeline
     skills_title: "Skills & Expertise",

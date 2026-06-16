@@ -1,8 +1,32 @@
+import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { TECH_ICONS } from "../data/projects";
 
 export default function ProjectModal({ project, onClose }) {
   const { t, tData } = useLanguage();
+  const [showSlideshow, setShowSlideshow] = useState(false);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const [imageError, setImageError] = useState(false);
+
+  useEffect(() => {
+    setImageError(false);
+  }, [activeSlideIndex]);
+
+  useEffect(() => {
+    if (!showSlideshow || !project || !project.slides) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setShowSlideshow(false);
+      } else if (e.key === "ArrowLeft") {
+        setActiveSlideIndex(prev => Math.max(0, prev - 1));
+      } else if (e.key === "ArrowRight") {
+        setActiveSlideIndex(prev => Math.min(project.slides.length - 1, prev + 1));
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [showSlideshow, project]);
+
   if (!project) return null;
   const p = project;
 
@@ -125,8 +149,129 @@ export default function ProjectModal({ project, onClose }) {
               <i className="fas fa-external-link-alt"></i> {t("proj_modal_live_demo")}
             </a>
           )}
+          {p.slides && p.slides.length > 0 && (
+            <button
+              onClick={() => {
+                setActiveSlideIndex(0);
+                setShowSlideshow(true);
+              }}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 18px",
+                borderRadius: "8px", background: "linear-gradient(135deg,#10b981,#059669)",
+                color: "#fff", fontSize: "13px", fontWeight: 600, border: "none", cursor: "pointer",
+                transition: "all 0.2s",
+              }}
+            >
+              <i className="fas fa-desktop"></i> {t("proj_modal_view_presentation")}
+            </button>
+          )}
         </div>
       </div>
+
+      {/* Slideshow Lightbox Overlay */}
+      {showSlideshow && p.slides && p.slides.length > 0 && (
+        <div
+          className="presentation-backdrop open"
+          onClick={(e) => { if (e.target === e.currentTarget) setShowSlideshow(false); }}
+        >
+          <div className="presentation-container">
+            <div className="presentation-header">
+              <div className="presentation-title">
+                <i className="fas fa-desktop" style={{ color: p.color }}></i>
+                <span>{p.title} - {t("proj_modal_view_presentation")}</span>
+              </div>
+              <button className="presentation-close-btn" onClick={() => setShowSlideshow(false)}>&times;</button>
+            </div>
+
+            <div className="presentation-viewport">
+              <button
+                className="presentation-nav-btn prev"
+                onClick={() => setActiveSlideIndex(prev => Math.max(0, prev - 1))}
+                disabled={activeSlideIndex === 0}
+              >
+                <i className="fas fa-chevron-left"></i>
+              </button>
+
+              <div className="presentation-slide-wrap">
+                {!imageError ? (
+                  <img
+                    src={p.slides[activeSlideIndex]}
+                    alt={`Slide ${activeSlideIndex + 1}`}
+                    className="presentation-slide-img"
+                    onError={() => setImageError(true)}
+                  />
+                ) : (
+                  <div className="presentation-slide-fallback">
+                    <div className="fallback-inner" style={{ borderLeft: `6px solid ${p.color}` }}>
+                      <span className="fallback-badge" style={{ background: p.colorLight, color: p.color }}>
+                        {tData(p.categoryLabel)}
+                      </span>
+                      <h3>{p.title}</h3>
+                      <div className="fallback-slide-num">Slide {activeSlideIndex + 1}</div>
+                      <div className="fallback-text">
+                        {activeSlideIndex === 0 && (
+                          <div>
+                            <strong style={{ display: "block", marginBottom: "4px", fontSize: "14px", color: p.color }}>Project Overview</strong>
+                            {tData(p.fullDesc)}
+                          </div>
+                        )}
+                        {activeSlideIndex === 1 && (
+                          <div>
+                            <strong style={{ display: "block", marginBottom: "4px", fontSize: "14px", color: p.color }}>Problem Statement</strong>
+                            {tData(p.problem)}
+                          </div>
+                        )}
+                        {activeSlideIndex === 2 && (
+                          <div>
+                            <strong style={{ display: "block", marginBottom: "4px", fontSize: "14px", color: p.color }}>Methodology & Dataset</strong>
+                            {tData(p.methodology)}
+                          </div>
+                        )}
+                        {activeSlideIndex > 2 && (
+                          <div>
+                            <strong style={{ display: "block", marginBottom: "4px", fontSize: "14px", color: p.color }}>Key Impact & Outcome</strong>
+                            {tData(p.impact)}
+                          </div>
+                        )}
+                      </div>
+                      <div className="fallback-tip">
+                        <i className="fas fa-info-circle"></i> Slide image placeholder. Put your exported PPT slides as PNGs in your repository folder.
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <button
+                className="presentation-nav-btn next"
+                onClick={() => setActiveSlideIndex(prev => Math.min(p.slides.length - 1, prev + 1))}
+                disabled={activeSlideIndex === p.slides.length - 1}
+              >
+                <i className="fas fa-chevron-right"></i>
+              </button>
+            </div>
+
+            <div className="presentation-footer">
+              <div className="presentation-dots">
+                {p.slides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`presentation-dot ${idx === activeSlideIndex ? "active" : ""}`}
+                    onClick={() => setActiveSlideIndex(idx)}
+                    style={{
+                      background: idx === activeSlideIndex ? p.color : "rgba(0,0,0,0.15)"
+                    }}
+                  />
+                ))}
+              </div>
+              <div className="presentation-counter">
+                {activeSlideIndex + 1} / {p.slides.length}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+
