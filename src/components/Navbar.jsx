@@ -41,11 +41,6 @@ export default function Navbar() {
               {t("nav_about")}
             </Link>
           </li>
-          <li>
-            <Link to="/#contact" className="nav-link" onClick={closeMobile}>
-              {t("nav_contact")}
-            </Link>
-          </li>
         </ul>
 
         {/* Language Switcher Pill */}

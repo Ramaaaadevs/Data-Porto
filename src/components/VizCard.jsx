@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { VIZ_SOURCES } from "../data/projects";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -7,6 +7,20 @@ export default function VizCard() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const { tData } = useLanguage();
+
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const active = VIZ_SOURCES.find((v) => v.id === activeId);
 
@@ -25,7 +39,7 @@ export default function VizCard() {
         <div className="dot yellow"></div>
         <div className="dot green"></div>
 
-        <div className="viz-dropdown">
+        <div className="viz-dropdown" ref={dropdownRef}>
           <button
             className="viz-dropdown-btn"
             onClick={() => setDropdownOpen((prev) => !prev)}

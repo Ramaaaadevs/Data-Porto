@@ -35,8 +35,8 @@ export const TRANSLATIONS = {
     proj_modal_view_presentation: "Lihat Presentasi",
 
     // Skills Page & Timeline
-    skills_title: "Keahlian & Kompetensi",
-    skills_subtitle: "Teknologi dan tools yang saya kuasai untuk analisis data eksploratif, pemodelan prediktif, dan visualisasi informasi.",
+    skills_title: "Keahlian",
+    skills_subtitle: "Teknologi dan tools yang saya gunakan untuk analisis data eksploratif, pemodelan prediktif, dan visualisasi informasi.",
     timeline_title: "Riwayat Proyek",
     timeline_subtitle: "Kronologi pengerjaan proyek analisis data, visualisasi interaktif, dan rekayasa model kecerdasan buatan.",
 
@@ -62,7 +62,7 @@ export const TRANSLATIONS = {
     about_mv_verify_btn: "Verifikasi Kredensial",
 
     // Footer
-    footer_title: "Data Enthusiast · ITERA",
+    footer_title: "",
     footer_bio: "Mengubah data mentah menjadi wawasan bermakna melalui analisis, visualisasi, dan penceritaan data.",
     footer_quick_links: "Tautan Cepat",
     footer_get_in_touch: "Hubungi Saya",
@@ -105,8 +105,8 @@ export const TRANSLATIONS = {
     proj_modal_view_presentation: "View Presentation",
 
     // Skills Page & Timeline
-    skills_title: "Skills & Expertise",
-    skills_subtitle: "Technologies and tools I specialize in for exploratory data analysis, predictive modeling, and information visualization.",
+    skills_title: "Skills",
+    skills_subtitle: "Technologies and tools I use for exploratory data analysis, predictive modeling, and information visualization.",
     timeline_title: "Project History",
     timeline_subtitle: "Chronology of data analysis, interactive visualization, and artificial intelligence model engineering projects.",
 
@@ -132,7 +132,7 @@ export const TRANSLATIONS = {
     about_mv_verify_btn: "Verify Credential",
 
     // Footer
-    footer_title: "Data Enthusiast · ITERA",
+    footer_title: "",
     footer_bio: "Transforming raw data into meaningful insights through analysis, visualization, and data storytelling.",
     footer_quick_links: "Quick Links",
     footer_get_in_touch: "Get In Touch",
