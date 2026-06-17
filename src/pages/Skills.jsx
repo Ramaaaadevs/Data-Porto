@@ -4,7 +4,12 @@ import useScrollAnimation from "../hooks/useScrollAnimation";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Skills() {
-  useScrollAnimation();
+  // ============================================================
+  // CONFIGURATION: Ubah angka di bawah untuk mengubah jumlah kolom grid skill di desktop (3 atau 4)
+  // ============================================================
+  const cols = 4;
+
+  useScrollAnimation([]);
   const [activeCertIndex, setActiveCertIndex] = useState(-1);
   const [activePage, setActivePage] = useState(0);
   const [isMediaViewerOpen, setIsMediaViewerOpen] = useState(false);
@@ -46,7 +51,7 @@ export default function Skills() {
             {t("skills_subtitle")}
           </p>
 
-          <div className="skills-grid-detailed">
+          <div className={`skills-grid-detailed cols-${cols}`}>
             {SKILLS_DETAILED.map((s, i) => (
               <div
                 key={s.name}

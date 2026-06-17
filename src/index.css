@@ -439,6 +439,14 @@ section { padding: 80px 0; }
 
 /* Skills detailed page */
 .skills-grid-detailed { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; margin-bottom: 60px; }
+@media (min-width: 901px) {
+    .skills-grid-detailed.cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .skills-grid-detailed.cols-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
 .skill-card-detailed {
     background: var(--white); border-radius: var(--radius); border: 1px solid var(--border);
     padding: 30px 24px; text-align: center; box-shadow: var(--shadow-sm);
@@ -570,7 +578,7 @@ section { padding: 80px 0; }
 /* GitHub graph */
 .about-github-section { padding: 20px 0 80px; background: var(--white); }
 .github-header { text-align: center; margin-bottom: 32px; }
-.github-header-icon { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #6e40c9, #a371f7); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 26px; color: #fff; box-shadow: 0 4px 20px rgba(110,64,201,0.3); }
+.github-header-icon { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #24292e, #0f1419); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 26px; color: #fff; box-shadow: 0 4px 20px rgba(36,41,46,0.35); }
 .github-graph-container { max-width: 900px; margin: 0 auto; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px 24px; box-shadow: var(--shadow-sm); }
 .github-total { font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 16px; }
 .github-graph-scroll { overflow-x: auto; padding-bottom: 8px; }

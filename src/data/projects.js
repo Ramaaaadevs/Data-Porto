@@ -317,7 +317,7 @@ export const PROJECTS = [
       en: "Reduced itinerary planning times from hours to seconds using AI, while providing a reliable offline tracker for travel finance management."
     },
     metrics: [
-      { label: { id: "Platform", en: "Platforms" }, value: "Android/iOS" },
+      { label: { id: "Platform", en: "Platforms" }, value: "Android" },
       { label: { id: "AI Generator", en: "AI Engine" }, value: "Gemini API" },
       { label: { id: "Penyimpanan", en: "Offline Sync" }, value: "SQLDelight" },
     ],
@@ -924,16 +924,6 @@ export const SKILLS_DETAILED = [
     },
   },
   {
-    name: "Git & GitHub",
-    pct: 80,
-    color: "#f05032",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg",
-    desc: {
-      id: "Kontrol Versi, Alur Kerja Kolaboratif, dan Manajemen Repositori",
-      en: "Version Control, Collaborative Workflows, and Repository Management"
-    },
-  },
-  {
     name: "React",
     pct: 80,
     color: "#61dafb",
@@ -973,6 +963,16 @@ export const SKILLS_DETAILED = [
       en: "Modern programming language for cross-platform Android & iOS mobile apps (KMP)"
     },
   },
+  {
+    name: "Git & GitHub",
+    pct: 90,
+    color: "#f05032",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg",
+    desc: {
+      id: "Kontrol Versi, Alur Kerja Kolaboratif, dan Manajemen Repositori",
+      en: "Version Control, Collaborative Workflows, and Repository Management"
+    },
+  },
   // {
   //   name: "Tailwind CSS",
   //   pct: 60,
@@ -984,8 +984,28 @@ export const SKILLS_DETAILED = [
   //   },
   // },
   {
+    name: "Vercel",
+    pct: 70,
+    color: "#000000",
+    icon: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/vercel-icon.svg",
+    desc: {
+      id: "Platform cloud untuk hosting dan deployment aplikasi web frontend secara instan",
+      en: "Cloud platform for hosting and instantly deploying frontend web applications"
+    },
+  },
+  {
+    name: "Streamlit",
+    pct: 70,
+    color: "#ff4b4b",
+    icon: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/streamlit.svg",
+    desc: {
+      id: "Pembuatan aplikasi web interaktif untuk machine learning dan data science dengan cepat",
+      en: "Rapid creation of interactive web applications for machine learning and data science"
+    },
+  },
+  {
     name: "Docker",
-    pct: 80,
+    pct: 70,
     color: "#2496ed",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
     desc: {
@@ -993,26 +1013,6 @@ export const SKILLS_DETAILED = [
       en: "Application containerization for consistent development and deployment environments"
     },
   },
-  // {
-  //   name: "Vercel",
-  //   pct: 60,
-  //   color: "#000000",
-  //   icon: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/vercel-icon.svg",
-  //   desc: {
-  //     id: "Platform cloud untuk hosting dan deployment aplikasi web frontend secara instan",
-  //     en: "Cloud platform for hosting and instantly deploying frontend web applications"
-  //   },
-  // },
-  // {
-  //   name: "Streamlit",
-  //   pct: 70,
-  //   color: "#ff4b4b",
-  //   icon: "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/streamlit.svg",
-  //   desc: {
-  //     id: "Pembuatan aplikasi web interaktif untuk machine learning dan data science dengan cepat",
-  //     en: "Rapid creation of interactive web applications for machine learning and data science"
-  //   },
-  // },
 ];
 
 
