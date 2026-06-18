@@ -67,6 +67,15 @@ export const TRANSLATIONS = {
     footer_quick_links: "Tautan Cepat",
     footer_get_in_touch: "Hubungi Saya",
     footer_back_to_top: "Kembali ke Atas",
+    viz_restore_viewer: "Buka Layar Proyek",
+    telemetry_title: "Terminal Telemetri CLI",
+    telemetry_rows: "Jumlah Baris",
+    telemetry_latency: "Latensi",
+    telemetry_status: "Status",
+    telemetry_accuracy: "Akurasi",
+    telemetry_active: "AKTIF",
+    telemetry_paused: "JEDA",
+    telemetry_clear: "Bersihkan Log",
     footer_all_rights: "Hak cipta dilindungi undang-undang."
   },
   en: {
@@ -137,6 +146,15 @@ export const TRANSLATIONS = {
     footer_quick_links: "Quick Links",
     footer_get_in_touch: "Get In Touch",
     footer_back_to_top: "Back to Top",
+    viz_restore_viewer: "Open Project Viewer",
+    telemetry_title: "CLI Telemetry Terminal",
+    telemetry_rows: "Row Count",
+    telemetry_latency: "Latency",
+    telemetry_status: "Status",
+    telemetry_accuracy: "Accuracy",
+    telemetry_active: "ACTIVE",
+    telemetry_paused: "PAUSED",
+    telemetry_clear: "Clear Logs",
     footer_all_rights: "All rights reserved."
   }
 };
