@@ -65,10 +65,6 @@ export default function Footer() {
                   <i className="fas fa-envelope"></i>
                   <span>diwanrdp6@gmail.com</span>
                 </a>
-                <a href="https://wa.me/6281278437207" target="_blank" rel="noreferrer" className="footer-contact-item">
-                  <i className="fab fa-whatsapp"></i>
-                  <span>WhatsApp</span>
-                </a>
                 <a href="https://www.linkedin.com/in/diwan-ramadhani-dwi-putra/" target="_blank" rel="noreferrer" className="footer-contact-item">
                   <i className="fab fa-linkedin"></i>
                   <span>LinkedIn</span>
