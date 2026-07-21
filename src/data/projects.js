@@ -1165,7 +1165,7 @@ export const EXPERIENCE = [
   {
     type: "single",
     company: "PT Kereta Api Indonesia (Persero)",
-    logo: "https://media.licdn.com/dms/image/v2/C560BAQGH-FqPJ_bPzA/company-logo_100_100/company-logo_100_100/0/1630638262502?e=1785974400&v=beta&t=H_tQ_kiv6DUk5XvEpXhbXBxxhdRkZSZ3G4ZWOzNbp8M",
+    logo: "/Gambar/kai-logo.webp",
     role: {
       id: "Information Technology Intern",
       en: "Information Technology Intern"
