@@ -92,7 +92,7 @@ export default function Home() {
       </section>
 
       {/* ===== PROJECTS ===== */}
-      <section id="projects" className="projects-section">
+      <section id="projects" className="projects-section home-projects">
         <div className="container">
           <h2 className="section-title animate-left">{t("home_projects_title")}</h2>
 
