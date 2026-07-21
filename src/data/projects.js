@@ -613,6 +613,28 @@ export const VIZ_SOURCES = [
 export const CERTS = [
   {
     title: {
+      id: "Coding Camp 2026 — Data Scientist",
+      en: "Coding Camp 2026 — Data Scientist"
+    },
+    issuer: "DBS Foundation x Dicoding",
+    year: "2026",
+    tags: ["Data Science", "Machine Learning", "Python", "Data Analysis"],
+    color: "#d9383a",
+    colorLight: "rgba(217,56,58,0.10)",
+    image: "https://framerusercontent.com/images/0gACeXzlMF8hvaAwmBBBg7QunA.png",
+    credentialId: "CC26/GRAD/XXVI-07/CDCC119D6Y1045",
+    credentialUrl: "https://www.dicoding.com/certificates/CDCC119D6Y1045",
+    validity: {
+      id: "Diterbitkan 21 Jul 2026",
+      en: "Issued 21 Jul 2026"
+    },
+    pages: [
+      "/Sertifikat/coding_camp_2026_page-1.webp",
+      "/Sertifikat/coding_camp_2026_page-2.webp"
+    ]
+  },
+  {
+    title: {
       id: "Belajar Fundamental Analisis Data",
       en: "Learn Fundamentals of Data Analysis"
     },

@@ -144,11 +144,6 @@ export default function Skills() {
                       </div>
                     </div>
 
-                    <div className="pcn-tags" style={{ marginTop: "14px", marginBottom: "16px" }}>
-                      {c.tags.map((tItem, j) => (
-                        <span key={j} className="pcn-tag">{tItem}</span>
-                      ))}
-                    </div>
                   </div>
                   <div style={{ marginTop: "auto", paddingTop: "12px" }}>
                     <button
