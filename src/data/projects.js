@@ -3,6 +3,51 @@
 // ============================================================
 export const PROJECTS = [
   {
+    id: 10,
+    title: "Quorix",
+    category: "web-dev",
+    categoryLabel: {
+      id: "Pengembangan Web",
+      en: "Web Development"
+    },
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Redis", "Docker"],
+    shortDesc: {
+      id: "Platform reseller cloud hosting, VPS, dan domain otomatis dengan sistem billing terintegrasi.",
+      en: "Automated cloud hosting, VPS, and domain reseller platform with an integrated billing system."
+    },
+    fullDesc: {
+      id: "Quorix adalah platform reseller infrastruktur digital (VPS, domain, managed database) yang dirancang untuk developer, startup, dan UMKM. Platform ini mengintegrasikan Next.js di frontend dengan Express API gateway di backend untuk mengotomatisasi siklus pemesanan, pembayaran, hingga penyediaan (provisioning) server. Dilengkapi sistem billing otomatis via payment gateway lokal, monitoring server, serta notifikasi WhatsApp real-time.",
+      en: "Quorix is a reseller platform for digital infrastructure (VPS, domains, managed databases) designed for developers, startups, and MSMEs. The platform integrates a Next.js frontend with an Express API gateway backend to automate the full cycle from order and payment to server provisioning. It features an automated billing system via local payment gateways, server monitoring, and real-time WhatsApp notifications."
+    },
+    thumbnail: "/Gambar/quorix_thumbnail.png",
+    problem: {
+      id: "Proses pemesanan dan penyediaan (provisioning) VPS secara manual sangat tidak efisien bagi admin, sedangkan antarmuka provider VPS besar seringkali terlalu rumit bagi UMKM dan developer pemula di Indonesia.",
+      en: "Manual VPS ordering and provisioning is highly inefficient for administrators, while the interfaces of major VPS providers are often overly complex for MSMEs and beginner developers in Indonesia."
+    },
+    methodology: {
+      id: "Membangun frontend portal publik dan dashboard menggunakan Next.js (App Router) dan Tailwind CSS. Backend Express mengelola API, Prisma ORM untuk database PostgreSQL, dan BullMQ (Redis) untuk antrean otomatisasi. Mengintegrasikan payment gateway lokal (Duitku) untuk otomatisasi pembayaran dan Tencent Cloud API untuk provisioning VPS instan.",
+      en: "Built a public portal frontend and dashboard using Next.js (App Router) and Tailwind CSS. The Express backend handles the API, Prisma ORM for the PostgreSQL database, and BullMQ (Redis) for the automation worker queue. Integrated local payment gateway (Duitku) for automated payments and Tencent Cloud API for instant VPS provisioning."
+    },
+    impact: {
+      id: "Mengotomatisasi seluruh alur kerja dari pemesanan, pembayaran, hingga provisioning VPS dan pendaftaran domain dalam waktu kurang dari 10 menit, meminimalkan intervensi manual sebesar 100%.",
+      en: "Automated the entire workflow from ordering and payment to VPS provisioning and domain registration in under 10 minutes, minimizing manual intervention by 100%."
+    },
+    metrics: [
+      { label: { id: "Teknologi", en: "Technology" }, value: "Next.js" },
+      { label: { id: "Provisioning", en: "Provisioning" }, value: "< 10 min" },
+      { label: { id: "Otomatisasi", en: "Automation" }, value: "100%" },
+    ],
+    github: "https://github.com/Ramaaaadevs/quorix-platform",
+    demo: "https://quorix.web.id/",
+    icon: "fa-server",
+    color: "#2563eb",
+    colorLight: "rgba(37,99,235,0.10)",
+    role: { id: "Pengembang Web Fullstack & DevOps", en: "Fullstack Web & DevOps Developer" },
+    date: "Jun 2026 - Jul 2026",
+    context: { id: "Proyek Mandiri", en: "Self Project" },
+    featured: true,
+  },
+  {
     id: 1,
     title: "FaceFit Barber",
     category: "machine-learning",
@@ -526,6 +571,21 @@ export const VIZ_SOURCES = [
     },
     icon: "fa-book",
   },
+  {
+    id: "quorix-web",
+    label: "Quorix — Cloud Infrastructure",
+    src: "https://quorix.web.id/",
+    link: "https://quorix.web.id/",
+    fallbackText: {
+      id: "Memuat website Quorix...",
+      en: "Loading Quorix website..."
+    },
+    fallbackSub: {
+      id: "Penyedia layanan VPS, domain, dan managed database",
+      en: "VPS, domain, and managed database provider"
+    },
+    icon: "fa-server",
+  },
   // ============================================================
   // TEMPLATE DASHBOARD BARU:
   // Untuk menambah dashboard baru ke dropdown, hilangkan tanda komen (//) di bawah ini:
@@ -1041,7 +1101,11 @@ export const TECH_ICONS = {
   "Streamlit": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/streamlit.svg",
   "Vercel": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/vercel-icon.svg",
   "Matplotlib": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/matplotlib.svg",
-  "Gemini API": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/google-gemini.svg"
+  "Gemini API": "https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/google-gemini.svg",
+  "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  "Express": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  "Redis": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
 };
 
 export const EDUCATION = [
@@ -1053,7 +1117,7 @@ export const EDUCATION = [
       en: "B.Cs. Informatics Engineering"
     },
     period: "2023 - 2027",
-    grade: "Grade: 3.44",
+    grade: "Grade: 3.50",
     desc: {
       id: "Mahasiswa S1 program studi Teknik Informatika.",
       en: "Undergraduate Student in Informatics Engineering."
@@ -1076,6 +1140,37 @@ export const EDUCATION = [
 ];
 
 export const EXPERIENCE = [
+  {
+    type: "single",
+    company: "PT Kereta Api Indonesia (Persero)",
+    logo: "https://media.licdn.com/dms/image/v2/C560BAQGH-FqPJ_bPzA/company-logo_100_100/company-logo_100_100/0/1630638262502?e=1785974400&v=beta&t=H_tQ_kiv6DUk5XvEpXhbXBxxhdRkZSZ3G4ZWOzNbp8M",
+    role: {
+      id: "Information Technology Intern",
+      en: "Information Technology Intern"
+    },
+    employmentType: {
+      id: "Magang",
+      en: "Apprenticeship"
+    },
+    period: {
+      id: "Jul 2026 - Sekarang · 1 Bln",
+      en: "Jul 2026 - Present · 1 Month"
+    },
+    location: {
+      id: "Kota Bandar Lampung, Lampung, Indonesia · Luring",
+      en: "Bandar Lampung City, Lampung, Indonesia · On-site"
+    },
+    bullets: [
+      {
+        id: "Melaksanakan Praktik Kerja Lapangan (PKL) di divisi Teknologi Informasi PT Kereta Api Indonesia (Persero).",
+        en: "Conducting field work internship (PKL) in the Information Technology division of PT Kereta Api Indonesia (Persero)."
+      },
+      {
+        id: "Terlibat dalam pemeliharaan, pengembangan, dan dukungan sistem teknologi informasi operasional perusahaan.",
+        en: "Involved in the maintenance, development, and support of company operational information technology systems."
+      }
+    ]
+  },
   {
     type: "single",
     company: "Coding Camp powered by DBS Foundation",

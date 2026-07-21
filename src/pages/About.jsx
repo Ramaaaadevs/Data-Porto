@@ -56,7 +56,7 @@ export default function About() {
           <h2 className="section-title scroll-animate">{t("about_edu_title")}</h2>
           <p
             className="scroll-animate"
-            style={{ textAlign: "center", maxWidth: "600px", margin: "-20px auto 40px", color: "var(--text2)", fontSize: "14px", lineHeight: 1.6 }}
+            style={{ textAlign: "center", maxWidth: "750px", margin: "-20px auto 40px", color: "var(--text2)", fontSize: "14px", lineHeight: 1.6 }}
           >
             {t("about_edu_subtitle")}
           </p>

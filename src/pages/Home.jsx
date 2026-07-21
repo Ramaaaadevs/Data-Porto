@@ -18,7 +18,6 @@ export default function Home() {
       <section id="home" className="hero-stacked">
         <div className="container">
           <div className="hero-stacked-content animate-fade">
-            <p className="eyebrow-label">{t("home_eyebrow")}</p>
             <h1>
               {language === "id" ? (
                 <>
