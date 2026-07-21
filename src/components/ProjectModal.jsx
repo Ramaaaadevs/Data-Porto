@@ -25,21 +25,58 @@ export default function ProjectModal({ project, onClose }) {
   if (!project) return null;
   const p = project;
 
+  const btnStyle = {
+    display: "inline-flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    gap: "5px",
+    padding: "10px 4px",
+    borderRadius: "8px",
+    fontSize: "10.5px",
+    fontWeight: 600,
+    textDecoration: "none",
+    transition: "all 0.2s",
+    cursor: "pointer",
+    flex: 1,
+    minWidth: 0,
+    whiteSpace: "normal",
+    lineHeight: 1.25
+  };
+
   return (
     <div className="project-modal open" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="modal-content">
         <button className="close-modal" onClick={onClose}>&times;</button>
 
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
-          <div
-            style={{
-              width: "44px", height: "44px", borderRadius: "10px",
-              background: p.colorLight, color: p.color,
-              display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px",
-            }}
-          >
-            <i className={`fas ${p.icon}`}></i>
-          </div>
+          {p.logoIcon ? (
+            <img
+              src={p.logoIcon}
+              alt={`${p.title} logo`}
+              style={{
+                width: "44px",
+                height: "44px",
+                borderRadius: "10px",
+                objectFit: "contain",
+                border: "1.5px solid var(--border)",
+                background: "white",
+                padding: "3px",
+                boxShadow: "var(--shadow-sm)"
+              }}
+            />
+          ) : (
+            <div
+              style={{
+                width: "44px", height: "44px", borderRadius: "10px",
+                background: p.colorLight, color: p.color,
+                display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px",
+              }}
+            >
+              <i className={`fas ${p.icon}`}></i>
+            </div>
+          )}
           <div style={{ flex: 1 }}>
             <h2 style={{ fontSize: "18px", fontWeight: 700, color: "#0d1f3d", marginBottom: "4px" }}>{p.title}</h2>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
@@ -116,32 +153,35 @@ export default function ProjectModal({ project, onClose }) {
           })}
         </div>
 
-        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "8px", flexWrap: "nowrap", width: "100%", marginTop: "10px" }}>
           <a
             href={p.github}
             target="_blank"
             rel="noreferrer"
+            className="modal-cta-btn btn-github"
             style={{
-              display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 18px",
-              borderRadius: "8px", border: "1px solid #ddd", fontSize: "13px", fontWeight: 600,
-              color: "#333", textDecoration: "none", background: "#fff", transition: "all 0.2s",
+              ...btnStyle,
+              border: "1px solid #ddd",
+              color: "#333",
+              background: "#fff"
             }}
           >
-            <i className="fab fa-github"></i> {t("proj_modal_view_github")}
+            <i className="fab fa-github" style={{ fontSize: "16px", marginBottom: "2px" }}></i> {t("proj_modal_view_github")}
           </a>
           {p.demo && (
             <a
               href={p.demo}
               target="_blank"
               rel="noreferrer"
+              className="modal-cta-btn btn-demo"
               style={{
-                display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 18px",
-                borderRadius: "8px", background: "linear-gradient(135deg,#6558f5,#4a7cf7)",
-                color: "#fff", fontSize: "13px", fontWeight: 600, textDecoration: "none",
-                border: "none", transition: "all 0.2s",
+                ...btnStyle,
+                background: "linear-gradient(135deg,#6558f5,#4a7cf7)",
+                color: "#fff",
+                border: "none"
               }}
             >
-              <i className="fas fa-external-link-alt"></i> {t("proj_modal_live_demo")}
+              <i className="fas fa-external-link-alt" style={{ fontSize: "15px", marginBottom: "2px" }}></i> {t("proj_modal_live_demo")}
             </a>
           )}
           {p.slides && p.slides.length > 0 && (
@@ -150,14 +190,15 @@ export default function ProjectModal({ project, onClose }) {
                 setActiveSlideIndex(0);
                 setShowSlideshow(true);
               }}
+              className="modal-cta-btn btn-slides"
               style={{
-                display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 18px",
-                borderRadius: "8px", background: "linear-gradient(135deg,#10b981,#059669)",
-                color: "#fff", fontSize: "13px", fontWeight: 600, border: "none", cursor: "pointer",
-                transition: "all 0.2s",
+                ...btnStyle,
+                background: "linear-gradient(135deg,#10b981,#059669)",
+                color: "#fff",
+                border: "none"
               }}
             >
-              <i className="fas fa-desktop"></i> {t("proj_modal_view_presentation")}
+              <i className="fas fa-desktop" style={{ fontSize: "15px", marginBottom: "2px" }}></i> {t("proj_modal_view_presentation")}
             </button>
           )}
         </div>

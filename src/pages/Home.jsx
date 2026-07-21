@@ -39,12 +39,12 @@ export default function Home() {
               </span>
             </p>
             <div className="hero-ctas">
-              <a href="#projects" className="cta-button">{t("home_explore_my_work")}</a>
               <a href="https://github.com/Ramaaaadevs" target="_blank" rel="noreferrer" className="btn-outline">
-                <i className="fab fa-github"></i> GitHub
+                <i className="fab fa-github"></i> <span>GitHub</span>
               </a>
+              <a href="#projects" className="cta-button">{t("home_explore_my_work")}</a>
               <a href="https://www.linkedin.com/in/diwan-ramadhani-dwi-putra/" target="_blank" rel="noreferrer" className="btn-outline">
-                <i className="fab fa-linkedin"></i> LinkedIn
+                <i className="fab fa-linkedin"></i> <span>LinkedIn</span>
               </a>
             </div>
           </div>
@@ -158,13 +158,13 @@ export default function Home() {
 
               <div className="about-hero-links">
                 <a href="https://github.com/Ramaaaadevs" target="_blank" rel="noreferrer" className="contact-chip">
-                  <i className="fab fa-github"></i> Ramaaaadevs
+                  <i className="fab fa-github"></i> <span>Ramaaaadevs</span>
                 </a>
                 <a href="https://www.linkedin.com/in/diwan-ramadhani-dwi-putra/" target="_blank" rel="noreferrer" className="contact-chip">
-                  <i className="fab fa-linkedin"></i> LinkedIn
+                  <i className="fab fa-linkedin"></i> <span>LinkedIn</span>
                 </a>
                 <a href="mailto:diwanrdp6@gmail.com" className="contact-chip">
-                  <i className="fas fa-envelope"></i> diwanrdp6@gmail.com
+                  <i className="fas fa-envelope"></i> <span>diwanrdp6@gmail.com</span>
                 </a>
               </div>
             </div>

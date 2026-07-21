@@ -42,32 +42,48 @@ export default function Projects() {
                 <img src={p.thumbnail} alt={p.title} className="pch-thumb" />
               </div>
               <div className="pch-content">
-                <div className="pch-header">
-                  <div className="pch-icon-title" style={{ flexWrap: "wrap", rowGap: "4px" }}>
-                    <div className="pch-icon" style={{ background: p.colorLight, color: p.color }}>
-                      <i className={`fas ${p.icon}`}></i>
-                    </div>
-                    <h3 className="pch-title">{p.title}</h3>
-                    <span style={{ fontSize: "11.5px", color: "var(--text3)", fontWeight: 500, alignSelf: "center" }}>
-                      • &nbsp; {tData(p.context)} &nbsp; ({p.date})
-                    </span>
+                {/* Top Section: Logo + Info */}
+                <div className="pch-top-section">
+                  {/* Left side: Logo */}
+                  <div className="pch-logo-col">
+                    {p.logoIcon ? (
+                      <img src={p.logoIcon} alt={`${p.title} logo`} className="pch-logo-img" />
+                    ) : (
+                      <div className="pch-icon-large" style={{ background: p.colorLight, color: p.color }}>
+                        <i className={`fas ${p.icon}`}></i>
+                      </div>
+                    )}
                   </div>
-                  <span className="pch-badge" style={{ background: p.colorLight, color: p.color }}>
-                    {tData(p.categoryLabel)}
-                  </span>
-                </div>
-                <p className="pch-desc">{tData(p.shortDesc)}</p>
-                <div className="pch-tags">
-                  {p.tags.map((t, i) => {
-                    const iconUrl = TECH_ICONS[t];
-                    if (!iconUrl) return null;
-                    return (
-                      <span key={i} className="pch-tag tech-tag-icon" title={t}>
-                        <img src={iconUrl} alt={t} className="tech-icon-img" />
+
+                  {/* Right side: Info */}
+                  <div className="pch-info-col">
+                    <div className="pch-header">
+                      <div className="pch-icon-title" style={{ flexWrap: "wrap", rowGap: "4px" }}>
+                        <h3 className="pch-title">{p.title}</h3>
+                        <span style={{ fontSize: "11.5px", color: "var(--text3)", fontWeight: 500, alignSelf: "center" }}>
+                          • &nbsp; {tData(p.context)} &nbsp; ({p.date})
+                        </span>
+                      </div>
+                      <span className="pch-badge" style={{ background: p.colorLight, color: p.color }}>
+                        {tData(p.categoryLabel)}
                       </span>
-                    );
-                  })}
+                    </div>
+                    <p className="pch-desc">{tData(p.shortDesc)}</p>
+                    <div className="pch-tags">
+                      {p.tags.map((t, i) => {
+                        const iconUrl = TECH_ICONS[t];
+                        if (!iconUrl) return null;
+                        return (
+                          <span key={i} className="pch-tag tech-tag-icon" title={t}>
+                            <img src={iconUrl} alt={t} className="tech-icon-img" />
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
+
+                {/* Bottom Section: Footer (Metrics & Arrow) full width */}
                 <div className="pch-footer">
                   <div className="pch-metrics">
                     {p.metrics.map((m, i) => (

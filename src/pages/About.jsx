@@ -28,7 +28,7 @@ export default function About() {
               <p className="about-hero-bio" dangerouslySetInnerHTML={{ __html: t("about_hero_bio") }}></p>
               
               {/* CV & Portfolio Download Action Buttons */}
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "24px" }}>
+              <div className="about-hero-actions">
                 <a href="/CV_Diwan Ramadhani.pdf" download className="cta-button" style={{ padding: "10px 20px", fontSize: "13px" }}>
                   <i className="fas fa-file-download"></i> {t("about_download_cv")}
                 </a>
@@ -36,13 +36,13 @@ export default function About() {
 
               <div className="about-hero-links">
                 <a href="https://github.com/Ramaaaadevs" target="_blank" rel="noreferrer" className="contact-chip">
-                  <i className="fab fa-github"></i> Ramaaaadevs
+                  <i className="fab fa-github"></i> <span>Ramaaaadevs</span>
                 </a>
                 <a href="https://www.linkedin.com/in/diwan-ramadhani-dwi-putra/" target="_blank" rel="noreferrer" className="contact-chip">
-                  <i className="fab fa-linkedin"></i> LinkedIn
+                  <i className="fab fa-linkedin"></i> <span>LinkedIn</span>
                 </a>
                 <a href="mailto:diwanrdp6@gmail.com" className="contact-chip">
-                  <i className="fas fa-envelope"></i> diwanrdp6@gmail.com
+                  <i className="fas fa-envelope"></i> <span>diwanrdp6@gmail.com</span>
                 </a>
               </div>
             </div>
