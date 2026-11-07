@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const LEVEL_COLORS = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"];
+const LEVEL_COLORS = ["var(--gh-cell-0)", "#0e4429", "#006d32", "#26a641", "#39d353"];
 const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 /**
@@ -12,6 +12,9 @@ export default function useGithubContributions(username) {
     loading: true,
     error: null,
     total: 0,
+    bestDay: 0,
+    avgDay: "0",
+    activeDays: 0,
     weeks: [],
     monthLabels: [],
   });
@@ -25,7 +28,16 @@ export default function useGithubContributions(username) {
         const data = await res.json();
         if (cancelled) return;
 
-        const contributions = data.contributions;
+        const contributions = data.contributions || [];
+
+        let bestDay = 0;
+        let activeDays = 0;
+        contributions.forEach((day) => {
+          if (day.count > bestDay) bestDay = day.count;
+          if (day.count > 0) activeDays += 1;
+        });
+        const total = data.total?.lastYear || 0;
+        const avgDay = contributions.length > 0 ? (total / contributions.length).toFixed(1) : "0";
 
         // Build weeks (columns of 7 days)
         const weeks = [];
@@ -65,7 +77,10 @@ export default function useGithubContributions(username) {
         setState({
           loading: false,
           error: null,
-          total: data.total.lastYear,
+          total,
+          bestDay,
+          avgDay,
+          activeDays,
           weeks,
           monthLabels,
         });

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { TECH_ICONS } from "../data/projects";
 
@@ -8,19 +9,31 @@ export default function ProjectModal({ project, onClose }) {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
   useEffect(() => {
-    if (!showSlideshow || !project || !project.slides) return;
+    if (!project) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
-        setShowSlideshow(false);
-      } else if (e.key === "ArrowLeft") {
-        setActiveSlideIndex(prev => Math.max(0, prev - 1));
-      } else if (e.key === "ArrowRight") {
-        setActiveSlideIndex(prev => Math.min(project.slides.length - 1, prev + 1));
+        if (showSlideshow) {
+          setShowSlideshow(false);
+        } else {
+          onClose();
+        }
+      } else if (showSlideshow && project.slides) {
+        if (e.key === "ArrowLeft") {
+          setActiveSlideIndex((prev) => Math.max(0, prev - 1));
+        } else if (e.key === "ArrowRight") {
+          setActiveSlideIndex((prev) => Math.min(project.slides.length - 1, prev + 1));
+        }
       }
     };
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [showSlideshow, project]);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [showSlideshow, project, onClose]);
 
   if (!project) return null;
   const p = project;
@@ -45,7 +58,7 @@ export default function ProjectModal({ project, onClose }) {
     lineHeight: 1.25
   };
 
-  return (
+  return createPortal(
     <div className="project-modal open" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="modal-content">
         <button className="close-modal" onClick={onClose}>&times;</button>
@@ -267,7 +280,8 @@ export default function ProjectModal({ project, onClose }) {
           </div>
         </div>
       )}
-    </div>
+    </div>,
+    document.body
   );
 }
 

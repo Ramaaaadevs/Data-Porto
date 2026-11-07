@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import About from "./pages/About";
+import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
-import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function ScrollToHashOrTop() {
   const location = useLocation();
 
   useEffect(() => {
     if (location.hash) {
-      // Tunggu render selesai dulu sebelum scroll ke elemen target
       const id = location.hash.replace("#", "");
       const el = document.getElementById(id);
       if (el) {
@@ -29,17 +29,25 @@ function ScrollToHashOrTop() {
 }
 
 export default function App() {
+  const location = useLocation();
+
   return (
-    <>
+    <div className="db-layout">
       <ScrollToHashOrTop />
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      <Footer />
-    </>
+      <main className="db-main">
+        <div key={location.pathname} className="db-route-stage">
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/achievements" element={<Skills />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+      </main>
+    </div>
   );
 }

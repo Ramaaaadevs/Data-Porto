@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { TRANSLATIONS } from "../data/translations";
 
 const LanguageContext = createContext();
@@ -9,8 +9,19 @@ export const LanguageProvider = ({ children }) => {
   const [language, setLanguageState] = useState(() => {
     const saved = localStorage.getItem("portfolio_lang");
     if (saved) return saved;
-    return "en"; // Default ke Bahasa Inggris untuk pengunjung baru
+    return "en";
   });
+
+  const [theme, setThemeState] = useState(() => {
+    const saved = localStorage.getItem("portfolio_theme");
+    if (saved === "light" || saved === "dark") return saved;
+    return "dark"; // Default ke Dark Mode sesuai referensi
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("portfolio_theme", theme);
+  }, [theme]);
 
   const setLanguage = (lang) => {
     if (lang === "id" || lang === "en") {
@@ -25,22 +36,34 @@ export const LanguageProvider = ({ children }) => {
     localStorage.setItem("portfolio_lang", nextLang);
   };
 
-  // Helper to translate static keys
+  const toggleTheme = () => {
+    setThemeState((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
   const t = (key) => {
     const translations = TRANSLATIONS[language] || TRANSLATIONS["id"];
     return translations[key] !== undefined ? translations[key] : key;
   };
 
-  // Helper to dynamically pick localized fields from data objects
   const tData = (field) => {
     if (field && typeof field === "object") {
-      return field[language] !== undefined ? field[language] : (field["id"] || "");
+      return field[language] !== undefined ? field[language] : field["id"] || "";
     }
     return field || "";
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, t, tData }}>
+    <LanguageContext.Provider
+      value={{
+        language,
+        setLanguage,
+        toggleLanguage,
+        theme,
+        toggleTheme,
+        t,
+        tData,
+      }}
+    >
       {children}
     </LanguageContext.Provider>
   );

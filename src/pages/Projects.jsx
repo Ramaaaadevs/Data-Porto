@@ -6,102 +6,105 @@ import { useLanguage } from "../context/LanguageContext";
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState(null);
-  const { t, tData } = useLanguage();
+  const { tData, language } = useLanguage();
 
   const filtered =
     activeFilter === "all"
       ? PROJECTS
       : PROJECTS.filter((p) => p.category === activeFilter);
 
-  return (
-    <section id="projects" className="projects-section" style={{ paddingTop: "120px" }}>
-      <div className="container">
-        <h2 className="section-title animate-left">{t("proj_title")}</h2>
+  const getCategoryCount = (val) => {
+    if (val === "all") return PROJECTS.length;
+    return PROJECTS.filter((p) => p.category === val).length;
+  };
 
-        <div className="filter-buttons animate-right">
+  return (
+    <div className="db-page animate-fade">
+      <section className="db-section">
+        <h1 className="db-page-heading">
+          {language === "id" ? "Proyek" : "Projects"}
+        </h1>
+        <p className="db-page-sub">
+          {language === "id"
+            ? "Kumpulan proyek sains data, visualisasi analitik, aplikasi web, dan mobile yang telah saya bangun."
+            : "A showcase of data science pipelines, analytics dashboards, and fullstack applications I've built."}
+        </p>
+
+        <div className="db-sec-divider"></div>
+
+        {/* Filter Pills with Counts */}
+        <div className="db-filter-pills" style={{ marginBottom: "24px" }}>
           {CATEGORIES.map((c) => (
             <button
               key={c.value}
-              className={`filter-btn ${activeFilter === c.value ? "active" : ""}`}
+              type="button"
+              className={`db-filter-pill ${activeFilter === c.value ? "active" : ""}`}
               onClick={() => setActiveFilter(c.value)}
             >
-              {tData(c.label)}
+              <span>{tData(c.label)}</span>
+              <span className="db-pill-count">{getCategoryCount(c.value)}</span>
             </button>
           ))}
         </div>
 
-        <div className="projects-list-vertical animate-right">
-          {filtered.map((p, idx) => (
+        {/* 2-Column Project Cards Grid */}
+        <div className="db-projects-grid">
+          {filtered.map((p) => (
             <div
               key={p.id}
-              className="project-card-horizontal"
-              style={{ "--card-color": p.color, animationDelay: `${idx * 0.05}s` }}
+              className="db-proj-card"
               onClick={() => setSelectedProject(p)}
             >
-              <div className="pch-thumb-wrap">
-                <img src={p.thumbnail} alt={p.title} className="pch-thumb" />
+              <div className="db-proj-thumb-wrap">
+                <img src={p.thumbnail} alt={p.title} className="db-proj-thumb" loading="lazy" />
+                {p.featured && (
+                  <span className="db-featured-ribbon">
+                    <i className="fas fa-thumbtack"></i> Featured
+                  </span>
+                )}
               </div>
-              <div className="pch-content">
-                {/* Top Section: Logo + Info */}
-                <div className="pch-top-section">
-                  {/* Left side: Logo */}
-                  <div className="pch-logo-col">
-                    {p.logoIcon ? (
-                      <img src={p.logoIcon} alt={`${p.title} logo`} className="pch-logo-img" />
-                    ) : (
-                      <div className="pch-icon-large" style={{ background: p.colorLight, color: p.color }}>
-                        <i className={`fas ${p.icon}`}></i>
-                      </div>
-                    )}
-                  </div>
 
-                  {/* Right side: Info */}
-                  <div className="pch-info-col">
-                    <div className="pch-header">
-                      <div className="pch-icon-title" style={{ flexWrap: "wrap", rowGap: "4px" }}>
-                        <h3 className="pch-title">{p.title}</h3>
-                        <span style={{ fontSize: "11.5px", color: "var(--text3)", fontWeight: 500, alignSelf: "center" }}>
-                          • &nbsp; {tData(p.context)} &nbsp; ({p.date})
-                        </span>
-                      </div>
-                      <span className="pch-badge" style={{ background: p.colorLight, color: p.color }}>
-                        {tData(p.categoryLabel)}
-                      </span>
-                    </div>
-                    <p className="pch-desc">{tData(p.shortDesc)}</p>
-                    <div className="pch-tags">
-                      {p.tags.map((t, i) => {
-                        const iconUrl = TECH_ICONS[t];
-                        if (!iconUrl) return null;
-                        return (
-                          <span key={i} className="pch-tag tech-tag-icon" title={t}>
-                            <img src={iconUrl} alt={t} className="tech-icon-img" />
-                          </span>
-                        );
-                      })}
-                    </div>
-                  </div>
+              <div className="db-proj-body">
+                {/* Category & Context Chips */}
+                <div className="db-proj-meta-tags">
+                  <span className="db-proj-meta-chip">{tData(p.categoryLabel)}</span>
+                  <span className="db-proj-meta-chip">{tData(p.context)}</span>
                 </div>
 
-                {/* Bottom Section: Footer (Metrics & Arrow) full width */}
-                <div className="pch-footer">
-                  <div className="pch-metrics">
-                    {p.metrics.map((m, i) => (
-                      <div key={i} className="pch-metric">
-                        <span className="pch-mval">{m.value}</span>
-                        <span className="pch-mlabel">{tData(m.label)}</span>
+                <h3 className="db-proj-title">{p.title}</h3>
+                <p className="db-proj-desc">{tData(p.shortDesc)}</p>
+
+                {/* Key Metrics Strip inside Card (Differentiator!) */}
+                {p.metrics && p.metrics.length > 0 && (
+                  <div className="db-proj-metrics">
+                    {p.metrics.map((m, idx) => (
+                      <div key={idx} className="db-proj-metric-cell">
+                        <span className="db-proj-mval">{m.value}</span>
+                        <span className="db-proj-mlabel">{tData(m.label)}</span>
                       </div>
                     ))}
                   </div>
-                  <i className="fas fa-arrow-right pch-arrow"></i>
+                )}
+
+                {/* Tech Stack Pill Badges */}
+                <div className="db-proj-tech-row">
+                  {p.tags.map((tag, i) => {
+                    const iconUrl = TECH_ICONS[tag];
+                    return (
+                      <span key={i} className="db-proj-tech-pill">
+                        {iconUrl && <img src={iconUrl} alt={tag} />}
+                        <span>{tag}</span>
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </div>
           ))}
         </div>
+      </section>
 
-        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-      </div>
-    </section>
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+    </div>
   );
 }

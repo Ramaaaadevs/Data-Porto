@@ -1,164 +1,83 @@
-import { useState } from "react";
-import GithubGraph from "../components/GithubGraph";
-import useScrollAnimation from "../hooks/useScrollAnimation";
 import { useLanguage } from "../context/LanguageContext";
-import { EDUCATION, EXPERIENCE } from "../data/projects";
+import { EDUCATION } from "../data/projects";
 
 export default function About() {
-  useScrollAnimation();
   const { t, tData, language } = useLanguage();
 
   return (
-    <>
-      {/* ===== ABOUT HERO ===== */}
-      <section className="about-hero-section" style={{ paddingTop: "120px", paddingBottom: "60px" }}>
-        <div className="container">
-          <div className="about-hero-grid scroll-animate">
-            <div className="about-hero-photo">
+    <div className="db-page animate-fade">
+      {/* ===== 1. ABOUT INTRO ===== */}
+      <section className="db-section">
+        <h1 className="db-page-heading">{t("nav_about")}</h1>
+        <p className="db-page-sub">
+          {language === "id"
+            ? "Perkenalan singkat mengenai latar belakang dan fokus keahlian saya."
+            : "A brief introduction to who I am and what I build."}
+        </p>
+
+        <div className="db-sec-divider"></div>
+
+        <div className="db-prose">
+          <p dangerouslySetInnerHTML={{ __html: t("about_hero_bio") }}></p>
+          {language === "id" ? (
+            <>
+              <p>
+                Dalam ranah <strong>Sains Data & Analitik</strong>, saya terbiasa menangani siklus pengolahan data secara menyeluruh—mulai dari <em>data wrangling</em>, analisis data eksploratif (EDA), penyeimbangan dataset, hingga merancang model <em>computer vision</em> maupun dashboard interaktif menggunakan Python, Tableau, Power BI, dan Streamlit.
+              </p>
+              <p>
+                Di sisi <strong>Rekayasa Perangkat Lunak</strong>, saya mengembangkan platform web dan aplikasi mobile lintas platform menggunakan ekosistem modern seperti Next.js, React, TypeScript, Laravel, dan Kotlin Multiplatform. Saya senang menggabungkan kemampuan teknis dengan komunikasi kolaboratif serta pengalaman mengajar sebagai asisten praktikum di kampus.
+              </p>
+            </>
+          ) : (
+            <>
+              <p>
+                In <strong>Data Science & Analytics</strong>, I handle the end-to-end data lifecycle—from data cleaning, exploratory data analysis (EDA), and dataset balancing to building computer vision pipelines and interactive BI dashboards using Python, Tableau, Power BI, and Streamlit.
+              </p>
+              <p>
+                On the <strong>Software Engineering</strong> side, I build fullstack web platforms and cross-platform mobile apps with Next.js, React, TypeScript, Laravel, and Kotlin Multiplatform. I blend technical adaptability with strong communication honed through mentoring hundreds of students as a university lab assistant.
+              </p>
+            </>
+          )}
+        </div>
+      </section>
+
+      <div className="db-sec-divider"></div>
+
+      {/* ===== 2. EDUCATION CARDS ===== */}
+      <section className="db-section">
+        <h2 className="db-sec-title">
+          <i className="fas fa-graduation-cap"></i>{" "}
+          <span>{t("about_edu_title_col")}</span>
+        </h2>
+        <p className="db-sec-sub">
+          {language === "id"
+            ? "Perjalanan pendidikan akademik saya."
+            : "My academic educational journey."}
+        </p>
+
+        <div className="db-stack-list" style={{ marginTop: "20px" }}>
+          {EDUCATION.map((edu, idx) => (
+            <div className="db-item-card" key={idx}>
               <img
-                src="/Gambar/formal_baru.png"
-                alt="Diwan Ramadhani"
-                className="about-hero-img"
-                onError={(e) => { e.currentTarget.style.display = "none"; }}
+                src={edu.logo}
+                alt={edu.institution}
+                className={`db-item-logo ${edu.logo.includes("ITERA") ? "itera-logo-pad" : ""}`}
               />
-            </div>
-            <div className="about-hero-info">
-              <h1 className="about-hero-name">Diwan Ramadhani Dwi Putra</h1>
-              <p className="about-hero-tagline">{t("about_hero_tagline")}</p>
-              <p className="about-hero-bio" dangerouslySetInnerHTML={{ __html: t("about_hero_bio") }}></p>
-              
-              {/* CV & Portfolio Download Action Buttons */}
-              <div className="about-hero-actions">
-                <a href="/CV_Diwan Ramadhani.pdf" download className="cta-button" style={{ padding: "10px 20px", fontSize: "13px" }}>
-                  <i className="fas fa-file-download"></i> {t("about_download_cv")}
-                </a>
-              </div>
-
-              <div className="about-hero-links">
-                <a href="https://github.com/Ramaaaadevs" target="_blank" rel="noreferrer" className="contact-chip">
-                  <i className="fab fa-github"></i> <span>Ramaaaadevs</span>
-                </a>
-                <a href="https://www.linkedin.com/in/diwan-ramadhani-dwi-putra/" target="_blank" rel="noreferrer" className="contact-chip">
-                  <i className="fab fa-linkedin"></i> <span>LinkedIn</span>
-                </a>
-                <a href="mailto:diwanrdp6@gmail.com" className="contact-chip">
-                  <i className="fas fa-envelope"></i> <span>diwanrdp6@gmail.com</span>
-                </a>
+              <div className="db-item-body">
+                <h3 className="db-item-title">{edu.institution}</h3>
+                <p className="db-item-sub">
+                  {tData(edu.degree)}
+                  {edu.grade ? ` • ${edu.grade}` : ""}
+                </p>
+                <p className="db-item-meta">
+                  {edu.period} • Lampung, Indonesia
+                </p>
+                {edu.desc && <p className="db-item-desc">{tData(edu.desc)}</p>}
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
-
-      {/* ===== EDUCATION & EXPERIENCE ===== */}
-      <section className="about-edu-section">
-        <div className="container">
-          <h2 className="section-title scroll-animate">{t("about_edu_title")}</h2>
-          <p
-            className="scroll-animate"
-            style={{ textAlign: "center", maxWidth: "750px", margin: "-20px auto 40px", color: "var(--text2)", fontSize: "14px", lineHeight: 1.6 }}
-          >
-            {t("about_edu_subtitle")}
-          </p>
-
-          <div className="edu-exp-grid">
-            {/* Left Column: Education */}
-            <div className="edu-column">
-              <h3 className="column-title"><i className="fas fa-graduation-cap"></i> {t("about_edu_title_col")}</h3>
-              {EDUCATION.map((edu, idx) => (
-                <div className="linkedin-card scroll-animate animate-left-dir" key={idx}>
-                  <div className="lic-logo-container">
-                    <img src={edu.logo} alt={edu.institution} className="lic-logo" />
-                  </div>
-                  <div className="lic-content">
-                    <h4 className="lic-title">{edu.institution}</h4>
-                    <p className="lic-subtitle">{tData(edu.degree)}</p>
-                    <p className="lic-meta">{edu.period} {edu.grade ? `· ${edu.grade}` : ""}</p>
-                    <p className="lic-desc">{tData(edu.desc)}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Right Column: Experience */}
-            <div className="exp-column">
-              <h3 className="column-title"><i className="fas fa-briefcase"></i> {t("about_exp_title_col")}</h3>
-              {EXPERIENCE.map((exp, idx) => {
-                if (exp.type === "single") {
-                  return (
-                    <div className="linkedin-card scroll-animate animate-right-dir" key={idx}>
-                      <div className="lic-logo-container">
-                        <img src={exp.logo} alt={exp.company} className="lic-logo" />
-                      </div>
-                      <div className="lic-content">
-                        <h4 className="lic-role">{tData(exp.role)}</h4>
-                        <p className="lic-company">{exp.company} · {tData(exp.employmentType)}</p>
-                        <p className="lic-meta">{tData(exp.period)}</p>
-                        <p className="lic-meta" style={{ marginTop: "2px", color: "var(--text3)" }}>{tData(exp.location)}</p>
-                        <ul className="lic-bullets">
-                          {exp.bullets.map((b, bIdx) => (
-                            <li key={bIdx}>{tData(b)}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  );
-                } else {
-                  return (
-                    <div className="linkedin-card grouped scroll-animate animate-right-dir" key={idx}>
-                      <div className="lic-logo-container">
-                        <img src={exp.logo} alt={exp.company} className="lic-logo" />
-                      </div>
-                      <div className="lic-content">
-                        <h4 className="lic-company-grouped">{exp.company}</h4>
-                        <p className="lic-company-meta-grouped">{tData(exp.employmentType)}</p>
-                        <p className="lic-company-meta-grouped" style={{ color: "var(--text3)" }}>{tData(exp.location)}</p>
-                        
-                        <div className="lic-nested-roles-container">
-                          <div className="lic-timeline-line"></div>
-                          {exp.roles.map((r, rIdx) => (
-                            <div key={rIdx} className="lic-nested-role-item">
-                              <div className="lic-timeline-dot"></div>
-                              <div className="lic-nested-role-content">
-                                <h5 className="lic-nested-role-title">{tData(r.role)}</h5>
-                                <p className="lic-nested-role-period">{tData(r.period)}</p>
-                                <ul className="lic-bullets" style={{ marginTop: "8px" }}>
-                                  {r.bullets.map((b, bIdx) => (
-                                    <li key={bIdx}>{tData(b)}</li>
-                                  ))}
-                                </ul>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* ===== GITHUB CONTRIBUTION GRAPH ===== */}
-      <section className="about-github-section">
-        <div className="container">
-          <div className="github-header scroll-animate">
-            <div className="github-header-icon">
-              <i className="fab fa-github"></i>
-            </div>
-            <h2 className="section-title">{t("about_github_title")}</h2>
-            <p style={{ textAlign: "center", color: "var(--text2)", fontSize: "14px", margin: "-20px auto 40px" }}>{t("about_github_subtitle")}</p>
-          </div>
-
-          <GithubGraph username="Ramaaaadevs" />
-        </div>
-      </section>
-
-
-    </>
+    </div>
   );
 }

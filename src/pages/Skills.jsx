@@ -1,19 +1,40 @@
-import { useState } from "react";
-import { SKILLS_DETAILED, CERTS } from "../data/projects";
-import useScrollAnimation from "../hooks/useScrollAnimation";
+import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
+import { CERTS, SKILLS_DETAILED } from "../data/projects";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Skills() {
-  // ============================================================
-  // CONFIGURATION: Ubah angka di bawah untuk mengubah jumlah kolom grid skill di desktop (3 atau 4)
-  // ============================================================
-  const cols = 4;
-
-  useScrollAnimation([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [issuerFilter, setIssuerFilter] = useState("all");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activeCertIndex, setActiveCertIndex] = useState(-1);
   const [activePage, setActivePage] = useState(0);
   const [isMediaViewerOpen, setIsMediaViewerOpen] = useState(false);
-  const { t, tData } = useLanguage();
+  const { t, tData, language } = useLanguage();
+  const dropdownRef = useRef(null);
+
+  const issuers = ["all", ...Array.from(new Set(CERTS.map((c) => c.issuer)))];
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const filteredCerts = CERTS.map((c, originalIndex) => ({ ...c, originalIndex })).filter((c) => {
+    const titleStr = tData(c.title).toLowerCase();
+    const issuerStr = c.issuer.toLowerCase();
+    const idStr = (c.credentialId || "").toLowerCase();
+    const q = searchQuery.toLowerCase();
+    const matchesSearch =
+      !q || titleStr.includes(q) || issuerStr.includes(q) || idStr.includes(q);
+    const matchesIssuer = issuerFilter === "all" || c.issuer === issuerFilter;
+    return matchesSearch && matchesIssuer;
+  });
 
   const openMediaViewer = (index) => {
     setActiveCertIndex(index);
@@ -38,226 +59,317 @@ export default function Skills() {
     }
   };
 
+  useEffect(() => {
+    if (!isMediaViewerOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsMediaViewerOpen(false);
+      } else if (e.key === "ArrowRight") {
+        const cert = CERTS[activeCertIndex];
+        if (cert && cert.pages) {
+          setActivePage((prev) => Math.min(cert.pages.length - 1, prev + 1));
+        }
+      } else if (e.key === "ArrowLeft") {
+        setActivePage((prev) => Math.max(0, prev - 1));
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMediaViewerOpen, activeCertIndex]);
+
   return (
-    <>
-      {/* ===== SKILLS GRID ===== */}
-      <section className="skills-page-section" style={{ paddingTop: "120px", paddingBottom: "40px" }}>
-        <div className="container">
-          <h2 className="section-title scroll-animate">{t("skills_title")}</h2>
-          <p
-            className="scroll-animate"
-            style={{ textAlign: "center", maxWidth: "600px", margin: "-20px auto 40px", color: "var(--text2)", fontSize: "14px", lineHeight: 1.6 }}
-          >
-            {t("skills_subtitle")}
-          </p>
+    <div className="db-page animate-fade">
+      {/* ===== 1. ACHIEVEMENTS & CERTIFICATES ===== */}
+      <section className="db-section">
+        <h1 className="db-page-heading">
+          {language === "id" ? "Pencapaian & Sertifikasi" : "Achievements"}
+        </h1>
+        <p className="db-page-sub">{t("about_cert_subtitle")}</p>
 
-          <div className={`skills-grid-detailed cols-${cols}`}>
-            {SKILLS_DETAILED.map((s, i) => (
-              <div
-                key={s.name}
-                className="skill-card-detailed scroll-animate"
-                style={{ transitionDelay: `${i * 0.05}s` }}
+        <div className="db-sec-divider"></div>
+
+        {/* Search & Custom Filter Controls Bar */}
+        <div className="db-ach-controls">
+          <div className="db-search-box">
+            <i className="fas fa-search"></i>
+            <input
+              type="text"
+              placeholder={
+                language === "id"
+                  ? "Cari sertifikat, penerbit, atau ID..."
+                  : "Search certificate, issuer, or ID..."
+              }
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                className="db-search-clear"
+                onClick={() => setSearchQuery("")}
+                aria-label="Clear search"
               >
-                <div className="skill-ring-wrap" style={{ "--skill-color": s.color, "--percentage": s.pct }}>
-                  <div className="skill-ring-inner">
-                    <img src={s.icon} alt={s.name} />
-                  </div>
-                </div>
-                <h3 className="skill-title-detailed">{s.name}</h3>
-                <span className="skill-pct-detailed">{s.pct}%</span>
-                <p className="skill-label-detailed">{tData(s.desc)}</p>
-              </div>
-            ))}
+                <i className="fas fa-times"></i>
+              </button>
+            )}
           </div>
-        </div>
-      </section>
 
-      {/* ===== CERTIFICATIONS ===== */}
-      <section className="about-cert-section" style={{ paddingBottom: "80px" }}>
-        <div className="container">
-          <h2 className="section-title scroll-animate">{t("about_cert_title")}</h2>
-          <p
-            className="scroll-animate"
-            style={{ textAlign: "center", maxWidth: "600px", margin: "-20px auto 40px", color: "var(--text2)", fontSize: "14px", lineHeight: 1.6 }}
-          >
-            {t("about_cert_subtitle")}
-          </p>
-
-          <div className="projects-grid animate-right">
-            {CERTS.map((c, i) => (
-              <div className="project-card-new" key={i} style={{ animationDelay: `${i * 0.08}s` }}>
-                <div 
-                  className="pcn-thumb-wrap" 
-                  onClick={() => openMediaViewer(i)}
-                  style={{ 
-                    display: "flex", 
-                    alignItems: "center", 
-                    justifyContent: "center", 
-                    background: c.colorLight, 
-                    padding: "12px", 
-                    boxSizing: "border-box",
-                    cursor: "pointer"
-                  }}
-                >
-                  <img
-                    src={c.pages && c.pages[0] ? c.pages[0] : c.image}
-                    alt={tData(c.title)}
-                    className="pcn-thumb"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                      borderRadius: "6px",
-                      boxShadow: "0 4px 16px rgba(0,0,0,0.12)",
-                      background: "#fff"
-                    }}
-                  />
-                </div>
-                <div className="pcn-body" style={{ display: "flex", flexDirection: "column", height: "100%", justifyContent: "space-between" }}>
-                  <div>
-                    <div style={{ display: "flex", gap: "12px", alignItems: "flex-start", marginTop: "14px" }}>
-                      {/* Issuer Logo Container */}
-                      <div style={{ 
-                        flexShrink: 0, 
-                        width: "42px", 
-                        height: "42px", 
-                        borderRadius: "8px", 
-                        border: "1px solid var(--border)", 
-                        background: "#ffffff", 
-                        padding: "6px", 
-                        display: "flex", 
-                        alignItems: "center", 
-                        justifyContent: "center",
-                        boxShadow: "0 2px 8px rgba(0,0,0,0.04)"
-                      }}>
-                        <img 
-                          src={c.image} 
-                          alt={c.issuer} 
-                          style={{ width: "100%", height: "100%", objectFit: "contain" }} 
-                        />
-                      </div>
-                      
-                      {/* Title & Metadata */}
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <h3 className="pcn-title" style={{ margin: 0, fontSize: "14.5px", lineHeight: "1.3", wordBreak: "break-word" }}>{tData(c.title)}</h3>
-                        <p className="pcn-desc" style={{ margin: "4px 0 0 0", fontSize: "12px", color: "var(--text2)" }}>{c.issuer} · {c.year}</p>
-                      </div>
-                    </div>
-
-                  </div>
-                  <div style={{ marginTop: "auto", paddingTop: "12px" }}>
-                    <button
-                      onClick={() => openMediaViewer(i)}
-                      className="btn-outline-linkedin"
-                      type="button"
-                    >
-                      {t("about_cert_show_credential")} <i className="fas fa-external-link-alt"></i>
-                    </button>
-                  </div>
-                </div>
+          <div className="db-custom-select" ref={dropdownRef}>
+            <button
+              type="button"
+              className={`db-select-trigger ${dropdownOpen ? "open" : ""}`}
+              onClick={() => setDropdownOpen((prev) => !prev)}
+              aria-expanded={dropdownOpen}
+            >
+              <div className="db-select-trigger-left">
+                <i className="fas fa-sliders db-select-icon"></i>
+                <span className="db-select-label">
+                  {issuerFilter === "all"
+                    ? language === "id"
+                      ? "Semua Penerbit"
+                      : "Filter by Issuer (All)"
+                    : issuerFilter}
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== LINKEDIN-STYLE MEDIA VIEWER MODAL ===== */}
-      <div className={`media-viewer-backdrop ${isMediaViewerOpen ? "open" : ""}`} onClick={closeMediaViewer}>
-        {isMediaViewerOpen && activeCertIndex >= 0 && activeCertIndex < CERTS.length && (
-          <div className="media-viewer-container" onClick={(e) => e.stopPropagation()}>
-            
-            {/* Close Button */}
-            <button className="mv-close-btn" onClick={closeMediaViewer} type="button" aria-label="Close">
-              <i className="fas fa-times"></i>
+              <i
+                className={`fas fa-chevron-down db-select-chevron ${
+                  dropdownOpen ? "rotate" : ""
+                }`}
+              ></i>
             </button>
 
-            {/* Left Media Viewport Panel */}
-            <div className="mv-left-panel">
-              {/* Certificate Image Viewport */}
-              <div className="mv-cert-img-container">
-                <img
-                  src={CERTS[activeCertIndex].pages && CERTS[activeCertIndex].pages[activePage] ? CERTS[activeCertIndex].pages[activePage] : CERTS[activeCertIndex].image}
-                  alt={`${tData(CERTS[activeCertIndex].title)} - Page ${activePage + 1}`}
-                  className="mv-cert-img"
-                />
-              </div>
-
-              {/* Navigation Arrows & Page Indicator (only if document has multiple pages) */}
-              {CERTS[activeCertIndex].pages && CERTS[activeCertIndex].pages.length > 1 && (
-                <>
-                  {activePage > 0 && (
-                    <button
-                      className="mv-arrow-btn left"
-                      onClick={prevPage}
-                      type="button"
-                      aria-label="Previous Page"
-                    >
-                      <i className="fas fa-chevron-left"></i>
-                    </button>
-                  )}
-                  {activePage < CERTS[activeCertIndex].pages.length - 1 && (
-                    <button
-                      className="mv-arrow-btn right"
-                      onClick={nextPage}
-                      type="button"
-                      aria-label="Next Page"
-                    >
-                      <i className="fas fa-chevron-right"></i>
-                    </button>
-                  )}
-                  <div className="mv-page-indicator">
-                    {activePage + 1} / {CERTS[activeCertIndex].pages.length}
-                  </div>
-                </>
-              )}
-            </div>
-
-            {/* Right Details Sidebar Panel */}
-            <div className="mv-right-panel" style={{ justifyContent: "flex-start" }}>
-              <div className="mv-sidebar-content" style={{ height: "100%", justifyContent: "space-between" }}>
-                <div>
-                  <div>
-                    <h3 className="mv-sidebar-title">{t("about_mv_title")}</h3>
-                    <p style={{ fontSize: "12px", color: "var(--text3)", margin: 0 }}>{t("about_mv_subtitle")}</p>
-                  </div>
-                  
-                  <div className="mv-cert-meta">
-                    <div className="mv-meta-row">
-                      <span className="mv-meta-label">{t("about_mv_label_name")}</span>
-                      <span className="mv-meta-value">{tData(CERTS[activeCertIndex].title)}</span>
-                    </div>
-                    <div className="mv-meta-row">
-                      <span className="mv-meta-label">{t("about_mv_label_issuer")}</span>
-                      <span className="mv-meta-value">{CERTS[activeCertIndex].issuer}</span>
-                    </div>
-                    <div className="mv-meta-row">
-                      <span className="mv-meta-label">{t("about_mv_label_validity")}</span>
-                      <span className="mv-meta-value">{tData(CERTS[activeCertIndex].validity)}</span>
-                    </div>
-                    <div className="mv-meta-row">
-                      <span className="mv-meta-label">{t("about_mv_label_id")}</span>
-                      <span className="mv-meta-value" style={{ fontFamily: "monospace" }}>{CERTS[activeCertIndex].credentialId}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div style={{ marginTop: "24px" }}>
-                  <a 
-                    href={CERTS[activeCertIndex].credentialUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-outline-linkedin"
-                    style={{ textAlign: "center" }}
+            <div className={`db-select-menu ${dropdownOpen ? "open" : ""}`}>
+              {issuers.map((iss) => {
+                const isSelected = issuerFilter === iss;
+                const label =
+                  iss === "all"
+                    ? language === "id"
+                      ? "Semua Penerbit"
+                      : "Filter by Issuer (All)"
+                    : iss;
+                return (
+                  <button
+                    key={iss}
+                    type="button"
+                    className={`db-select-option ${isSelected ? "selected" : ""}`}
+                    onClick={() => {
+                      setIssuerFilter(iss);
+                      setDropdownOpen(false);
+                    }}
                   >
-                    {t("about_mv_verify_btn")} <i className="fas fa-external-link-alt"></i>
-                  </a>
+                    <span className="db-select-opt-text">{label}</span>
+                    {isSelected && <i className="fas fa-check db-select-check"></i>}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <p className="db-ach-total">
+          Total: <strong>{filteredCerts.length}</strong>
+        </p>
+
+        {/* 3-Column Certificate Grid */}
+        <div className="db-ach-grid">
+          {filteredCerts.map((c) => (
+            <div
+              key={c.originalIndex}
+              className="db-ach-card"
+              onClick={() => openMediaViewer(c.originalIndex)}
+            >
+              <div className="db-ach-thumb-wrap">
+                <img
+                  src={c.pages && c.pages[0] ? c.pages[0] : c.image}
+                  alt={tData(c.title)}
+                  className="db-ach-thumb"
+                  loading="lazy"
+                />
+                <div className="db-ach-overlay">
+                  <span>
+                    <i className="fas fa-expand"></i>{" "}
+                    {t("about_cert_show_credential")}
+                  </span>
+                </div>
+              </div>
+
+              <div className="db-ach-body">
+                <span className="db-ach-id">{c.credentialId}</span>
+                <h3 className="db-ach-title">{tData(c.title)}</h3>
+                <p className="db-ach-issuer">{c.issuer}</p>
+
+                {c.tags && c.tags.length > 0 && (
+                  <div className="db-ach-tags">
+                    {c.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className="db-ach-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <p className="db-ach-date">{tData(c.validity).toUpperCase()}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="db-sec-divider"></div>
+
+      {/* ===== 2. TECHNICAL PROFICIENCY BREAKDOWN ===== */}
+      <section className="db-section">
+        <h2 className="db-sec-title">
+          <i className="fas fa-layer-group"></i>{" "}
+          <span>
+            {language === "id" ? "Detail Kompetensi Teknis" : "Technical Proficiency Breakdown"}
+          </span>
+        </h2>
+        <p className="db-sec-sub">{t("skills_subtitle")}</p>
+
+        <div className="db-prof-grid" style={{ marginTop: "18px" }}>
+          {SKILLS_DETAILED.map((s) => (
+            <div key={s.name} className="db-prof-card">
+              <div className="db-prof-head">
+                <div className="db-prof-icon">
+                  <img src={s.icon} alt={s.name} />
+                </div>
+                <div className="db-prof-info">
+                  <h4>{s.name}</h4>
+                  <span>{s.pct}%</span>
+                </div>
+              </div>
+              <p className="db-prof-desc">{tData(s.desc)}</p>
+              <div className="db-prof-bar">
+                <div
+                  className="db-prof-fill"
+                  style={{ width: `${s.pct}%`, background: s.color }}
+                ></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== LINKEDIN-STYLE MEDIA VIEWER MODAL (PORTALED TO BODY) ===== */}
+      {isMediaViewerOpen &&
+        activeCertIndex >= 0 &&
+        activeCertIndex < CERTS.length &&
+        createPortal(
+          <div className="media-viewer-backdrop open" onClick={closeMediaViewer}>
+            <div className="media-viewer-container" onClick={(e) => e.stopPropagation()}>
+              <button
+                className="mv-close-btn"
+                onClick={closeMediaViewer}
+                type="button"
+                aria-label="Close"
+              >
+                <i className="fas fa-times"></i>
+              </button>
+
+              <div className="mv-left-panel">
+                <div className="mv-cert-img-container">
+                  <img
+                    src={
+                      CERTS[activeCertIndex].pages && CERTS[activeCertIndex].pages[activePage]
+                        ? CERTS[activeCertIndex].pages[activePage]
+                        : CERTS[activeCertIndex].image
+                    }
+                    alt={`${tData(CERTS[activeCertIndex].title)} - Page ${activePage + 1}`}
+                    className="mv-cert-img"
+                  />
+                </div>
+
+                {CERTS[activeCertIndex].pages && CERTS[activeCertIndex].pages.length > 1 && (
+                  <>
+                    {activePage > 0 && (
+                      <button
+                        className="mv-arrow-btn left"
+                        onClick={prevPage}
+                        type="button"
+                        aria-label="Previous Page"
+                      >
+                        <i className="fas fa-chevron-left"></i>
+                      </button>
+                    )}
+                    {activePage < CERTS[activeCertIndex].pages.length - 1 && (
+                      <button
+                        className="mv-arrow-btn right"
+                        onClick={nextPage}
+                        type="button"
+                        aria-label="Next Page"
+                      >
+                        <i className="fas fa-chevron-right"></i>
+                      </button>
+                    )}
+                    <div className="mv-page-indicator">
+                      {activePage + 1} / {CERTS[activeCertIndex].pages.length}
+                    </div>
+                  </>
+                )}
+              </div>
+
+              <div className="mv-right-panel" style={{ justifyContent: "flex-start" }}>
+                <div
+                  className="mv-sidebar-content"
+                  style={{ height: "100%", justifyContent: "space-between" }}
+                >
+                  <div>
+                    <div>
+                      <h3 className="mv-sidebar-title">{t("about_mv_title")}</h3>
+                      <p style={{ fontSize: "12px", color: "var(--text-muted)", margin: 0 }}>
+                        {t("about_mv_subtitle")}
+                      </p>
+                    </div>
+
+                    <div className="mv-cert-meta">
+                      <div className="mv-meta-row">
+                        <span className="mv-meta-label">{t("about_mv_label_name")}</span>
+                        <span className="mv-meta-value">{tData(CERTS[activeCertIndex].title)}</span>
+                      </div>
+                      <div className="mv-meta-row">
+                        <span className="mv-meta-label">{t("about_mv_label_issuer")}</span>
+                        <span className="mv-meta-value">{CERTS[activeCertIndex].issuer}</span>
+                      </div>
+                      <div className="mv-meta-row">
+                        <span className="mv-meta-label">{t("about_mv_label_validity")}</span>
+                        <span className="mv-meta-value">{tData(CERTS[activeCertIndex].validity)}</span>
+                      </div>
+                      <div className="mv-meta-row">
+                        <span className="mv-meta-label">{t("about_mv_label_id")}</span>
+                        <span className="mv-meta-value" style={{ fontFamily: "monospace" }}>
+                          {CERTS[activeCertIndex].credentialId}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {CERTS[activeCertIndex].credentialUrl && (
+                    <div style={{ marginTop: "24px" }}>
+                      <a
+                        href={CERTS[activeCertIndex].credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-outline-linkedin"
+                        style={{ textAlign: "center" }}
+                      >
+                        {t("about_mv_verify_btn")} <i className="fas fa-external-link-alt"></i>
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-
-          </div>
+          </div>,
+          document.body
         )}
-      </div>
-    </>
+    </div>
   );
 }
