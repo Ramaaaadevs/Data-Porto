@@ -16,10 +16,10 @@ export default function Navbar() {
 
   const navItems = [
     { path: "/", icon: "fa-house", label: t("nav_home") },
-    { path: "/about", icon: "fa-user", label: t("nav_about") },
     { path: "/experience", icon: "fa-briefcase", label: language === "id" ? "Pengalaman" : "Experience" },
     { path: "/projects", icon: "fa-folder-open", label: t("nav_projects") },
     { path: "/achievements", icon: "fa-award", label: language === "id" ? "Pencapaian" : "Achievements" },
+    { path: "/about", icon: "fa-user", label: t("nav_about") },
     { path: "/contact", icon: "fa-paper-plane", label: t("nav_contact") },
   ];
 
